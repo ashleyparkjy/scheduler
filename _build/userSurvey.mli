@@ -4,6 +4,8 @@ type class_id
 
 val init_state : t
 
-val class_take : t -> class_id -> t
+val get_class : t -> string list
 
-val class_prompt : t -> unit
+val take_class : t -> string list -> t
+
+val prompt_class : t -> unit

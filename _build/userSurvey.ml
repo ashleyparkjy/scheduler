@@ -1,3 +1,5 @@
+open Command
+
 type class_id = string
 
 type t = {
@@ -9,22 +11,30 @@ let init_state =
     classes = []
   }
 
-(* check valid input -  *)
-let class_valid (st:t) = 
+(* check valid input - 4 or 5 digit *)
+let is_valid_class (tl:string list) = 
   failwith("Unimplemented")
 
 
+(* Get Class*)
+let get_class st = st.classes
+(* match st with 
+   { classes= classes } -> classes *)
 
-(* Take *)
-let class_take (st:t) (crs:class_id) = 
+(* Take class *)
+let take_class (st:t) (tl:string list) = 
   {
-    classes = (crs :: st.classes)
+    classes = ((String.concat "" tl) :: st.classes)
   }
+
+(* Delete class *)
+let delete_class (st:t) (tl:string list) = 
+  failwith("Unimplemented")
 
 (* Drop *)
 
 (* class list print *)
-let class_print = function
+let print_class = function
     {classes = classes} -> 
     if classes =[] then print_endline "Currently Entered Class IDs: None"
     else classes 
@@ -36,13 +46,21 @@ let rec question2_prompt st =
   failwith("unimplemented")
 
 (* class input *)
-let rec class_prompt st = 
-  class_print st;
+let rec prompt_class st = 
+  print_class st;
   print_endline "Please enter a course id that you would like to enroll in.\n";
   print_string  "> ";
-  match Command.parse(read_line ()) with
-  | "end" -> question2_prompt st
-  | s -> class_take st s  |> class_prompt 
+  match parse(read_line ()) with
+  | Quit -> Stdlib.exit 0
+  | End -> question2_prompt st
+  | Delete tl -> if is_valid_class tl then tl |> delete_class st |> prompt_class 
+    else print_endline "Please enter a valid class number."; prompt_class st
+  | Take tl -> if is_valid_class tl then tl |> take_class st |> prompt_class 
+    else print_endline "Please enter a valid class number."; prompt_class st
+  | exception Malformed -> 
+    print_endline "Please enter a valid command line."; prompt_class st
+  | exception Empty ->
+    print_endline "Please enter a command."; prompt_class st
 
 
 

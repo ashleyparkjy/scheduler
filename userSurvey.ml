@@ -16,6 +16,8 @@ let is_valid_class (tl:string list) =
   failwith("Unimplemented")
 
 
+(* Get Class*)
+let get_class st = st.classes
 
 (* Take class *)
 let take_class (st:t) (tl:string list) = 
@@ -50,9 +52,13 @@ let rec prompt_class st =
   | Quit -> Stdlib.exit 0
   | End -> question2_prompt st
   | Delete tl -> if is_valid_class tl then tl |> delete_class st |> prompt_class 
-    else print_endline "Please enter a valid class number."
+    else print_endline "Please enter a valid class number."; prompt_class st
   | Take tl -> if is_valid_class tl then tl |> take_class st |> prompt_class 
-    else print_endline "Please enter a valid class number."
+    else print_endline "Please enter a valid class number."; prompt_class st
+  | exception Malformed -> 
+    print_endline "Please enter a valid command line."; prompt_class st
+  | exception Empty ->
+    print_endline "Please enter a command."; prompt_class st
 
 
 
