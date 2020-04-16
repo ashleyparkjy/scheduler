@@ -18,8 +18,6 @@ let is_valid_class (tl:string list) =
 
 (* Get Class*)
 let get_class st = st.classes
-(* match st with 
-   { classes= classes } -> classes *)
 
 (* Take class *)
 let take_class (st:t) (tl:string list) = 
