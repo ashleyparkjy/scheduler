@@ -1,0 +1,91 @@
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Runner: processes
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Chooser: simple
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration suite_name = "test suite for Cornell Scheduler"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration cache_filename = "/home/jk2333/cs3110-project/scheduler/_build/oUnit-$(suite_name).cache"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration run_gc_full_major = "true"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration display = "true"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration results_style_1_X = "false"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration testdata_dir = "none"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration health_check_interval = "1."
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration verbose = "false"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration chooser = "simple"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration output_html_dir = "none"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration processes_kill_period = "5."
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration runner = "processes"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration shards = "4"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration processes_grace_period = "5."
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration log_encoding = "utf-8"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration output_junit_file = "none"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration ci = "false"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Configuration output_file = "/home/jk2333/cs3110-project/scheduler/_build/oUnit-$(suite_name)-$(shard_id).log"
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Using 4 workers maximum.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Starting worker number DESKTOP-5AGE9G9#01.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Worker DESKTOP-5AGE9G9#01 started.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Starting worker number DESKTOP-5AGE9G9#02.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Worker DESKTOP-5AGE9G9#02 started.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Starting worker number DESKTOP-5AGE9G9#03.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Worker DESKTOP-5AGE9G9#03 started.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Starting worker number DESKTOP-5AGE9G9#04.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Worker DESKTOP-5AGE9G9#04 started.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Still 4 tests running : test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json, test suite for Cornell Scheduler:1:make_url empty, test suite for Cornell Scheduler:0:make_url.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: 4 tests running: test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json, test suite for Cornell Scheduler:1:make_url empty, test suite for Cornell Scheduler:0:make_url.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#01 I: Start test test suite for Cornell Scheduler:0:make_url.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#02 I: Start test test suite for Cornell Scheduler:1:make_url empty.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:2:get_json.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Still 4 tests running : test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json, test suite for Cornell Scheduler:1:make_url empty, test suite for Cornell Scheduler:0:make_url.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: 4 tests running: test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json, test suite for Cornell Scheduler:1:make_url empty, test suite for Cornell Scheduler:0:make_url.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#01 I: Test test suite for Cornell Scheduler:0:make_url is successful.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#02 I: Test test suite for Cornell Scheduler:1:make_url empty is successful.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Still 4 tests running : test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json, test suite for Cornell Scheduler:1:make_url empty, test suite for Cornell Scheduler:0:make_url.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: 4 tests running: test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json, test suite for Cornell Scheduler:1:make_url empty, test suite for Cornell Scheduler:0:make_url.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#01 I: End test test suite for Cornell Scheduler:0:make_url.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#02 I: End test test suite for Cornell Scheduler:1:make_url empty.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#04 I: Start test test suite for Cornell Scheduler:3:runner produces exn if query is bad.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Still 4 tests running : test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json, test suite for Cornell Scheduler:1:make_url empty, test suite for Cornell Scheduler:0:make_url.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: 4 tests running: test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json, test suite for Cornell Scheduler:1:make_url empty, test suite for Cornell Scheduler:0:make_url.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Still 2 tests running : test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: 2 tests running: test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Still 2 tests running : test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: 2 tests running: test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:2:get_json is successful.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Still 2 tests running : test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: 2 tests running: test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:2:get_json.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Still 2 tests running : test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: 2 tests running: test suite for Cornell Scheduler:3:runner produces exn if query is bad, test suite for Cornell Scheduler:2:get_json.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: Still 1 tests running : test suite for Cornell Scheduler:3:runner produces exn if query is bad.
+2020-04-17T21:26:49+00:00 DESKTOP-5AGE9G9#00 I: 1 tests running: test suite for Cornell Scheduler:3:runner produces exn if query is bad.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#04 I: Test test suite for Cornell Scheduler:3:runner produces exn if query is bad is successful.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Still 1 tests running : test suite for Cornell Scheduler:3:runner produces exn if query is bad.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: 1 tests running: test suite for Cornell Scheduler:3:runner produces exn if query is bad.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#04 I: End test test suite for Cornell Scheduler:3:runner produces exn if query is bad.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Still 1 tests running : test suite for Cornell Scheduler:3:runner produces exn if query is bad.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: 1 tests running: test suite for Cornell Scheduler:3:runner produces exn if query is bad.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: 0 tests running: .
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Worker DESKTOP-5AGE9G9#01 has ended.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Worker DESKTOP-5AGE9G9#02 has ended.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Worker DESKTOP-5AGE9G9#03 has ended.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Worker DESKTOP-5AGE9G9#04 has ended.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Used 4 worker during test execution.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Run 1 tests with shard DESKTOP-5AGE9G9#04.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Run 1 tests with shard DESKTOP-5AGE9G9#02.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Run 1 tests with shard DESKTOP-5AGE9G9#03.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Run 1 tests with shard DESKTOP-5AGE9G9#01.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Check health of shard DESKTOP-5AGE9G9#04, 1 times.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Check health of shard DESKTOP-5AGE9G9#02, 8 times.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Check health of shard DESKTOP-5AGE9G9#03, 4 times.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Check health of shard DESKTOP-5AGE9G9#01, 8 times.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: ==============
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Summary:
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Test test suite for Cornell Scheduler:3:runner produces exn if query is bad is successful.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Test test suite for Cornell Scheduler:2:get_json is successful.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Test test suite for Cornell Scheduler:1:make_url empty is successful.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Test test suite for Cornell Scheduler:0:make_url is successful.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Ran: 4 tests in: 0.33 seconds.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Cases: 4.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Tried: 4.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Errors: 0.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Failures: 0.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Skip: 0.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Todo: 0.
+2020-04-17T21:26:50+00:00 DESKTOP-5AGE9G9#00 I: Timeout: 0.

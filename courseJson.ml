@@ -2,21 +2,23 @@ open Lwt
 open Cohttp
 open Cohttp_lwt_unix
 
-let body subject =
-  let my_url =  "https://classes.cornell.edu/api/2.0/search/classes.json?roster=SP20&subject=" ^ subject ^ "&acadCareer[]=UG&classLevels[]=1000" in
-  Client.get (Uri.of_string my_url) >>= fun (resp, body) ->
-  let code = resp |> Response.status |> Code.code_of_status in
-  if code =200 then
-    begin
-      Printf.printf "Response code: %d\n" code;
-      ()
-    end
-  else raise (Failure ("Bad GET with " ^ (string_of_int code)));
-  Printf.printf "Headers: %s\n" (resp |> Response.headers |> Header.to_string);
-  body |> Cohttp_lwt.Body.to_string >|= fun body ->
-  Printf.printf "Body of length: %d\n" (String.length body);
-  body
+exception BadUrl of int
 
-let runner subject =
-  let body = Lwt_main.run (body subject) in
-  print_endline ("Received body\n" ^ body)
+let make_url semester subject class_num = 
+  "https://classes.cornell.edu/api/2.0/search/classes.json?roster=" ^ semester ^ "&subject=" ^ subject ^ "&q=" ^ class_num
+
+let get_json url =
+  Client.get (Uri.of_string url) >>= fun (resp, body) ->
+  let code = resp |> Response.status |> Code.code_of_status in
+  if code = 200 then
+    Cohttp_lwt.Body.to_string body
+  else raise(BadUrl code)
+
+let runner semester subject class_num =
+  let my_file = semester ^ "_" ^ subject ^ "_" ^ class_num ^ ".json" in
+  let url = make_url semester subject class_num in
+  let body = url |> get_json |> Lwt_main.run in
+  let oc = open_out my_file in
+  Printf.fprintf oc "%s\n" body;
+  close_out oc;
+  ()
