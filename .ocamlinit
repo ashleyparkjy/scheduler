@@ -1,6 +1,9 @@
 #require "oUnit";;
 #require "yojson";;
 #require "ANSITerminal";;
+#require "lwt";;
+#require "cohttp";;
+#require "cohttp-lwt-unix";;
 #directory "_build";;
 #load "courseJson.cmo";;
 #load "userSurvey.cmo";;

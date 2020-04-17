@@ -1,24 +1,36 @@
 ### Starting build.
-# Target: test.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), debug, extension:ml, file:test.ml, ocaml, ocamldep, quiet, traverse }
-ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules test.ml > test.ml.depends
-# Target: command.mli.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), debug, extension:mli, file:command.mli, ocaml, ocamldep, quiet, traverse }
-ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules command.mli > command.mli.depends # cached
-# Target: userSurvey.mli.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), debug, extension:mli, file:userSurvey.mli, ocaml, ocamldep, quiet, traverse }
-ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules userSurvey.mli > userSurvey.mli.depends # cached
-# Target: command.cmi, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, debug, extension:mli, file:command.mli, interf, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -g -package oUnit -package yojson -package ANSITerminal -o command.cmi command.mli
-# Target: userSurvey.cmi, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, debug, extension:mli, file:userSurvey.mli, interf, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -g -package oUnit -package yojson -package ANSITerminal -o userSurvey.cmi userSurvey.mli
-# Target: test.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, debug, extension:cmo, extension:ml, file:test.cmo, file:test.ml, implem, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -g -package oUnit -package yojson -package ANSITerminal -o test.cmo test.ml
-# Target: command.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), debug, extension:ml, file:command.ml, ocaml, ocamldep, quiet, traverse }
-ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules command.ml > command.ml.depends
-# Target: userSurvey.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), debug, extension:ml, file:userSurvey.ml, ocaml, ocamldep, quiet, traverse }
-ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules userSurvey.ml > userSurvey.ml.depends # cached
-# Target: command.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, debug, extension:cmo, extension:ml, file:command.cmo, file:command.ml, implem, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -g -package oUnit -package yojson -package ANSITerminal -o command.cmo command.ml
-# Target: userSurvey.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, debug, extension:cmo, extension:ml, file:userSurvey.cmo, file:userSurvey.ml, implem, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -g -package oUnit -package yojson -package ANSITerminal -o userSurvey.cmo userSurvey.ml
-# Target: test.byte, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, debug, dont_link_with, extension:byte, file:test.byte, link, ocaml, program, quiet, traverse }
-ocamlfind ocamlc -linkpkg -g -package oUnit -package yojson -package ANSITerminal command.cmo userSurvey.cmo test.cmo -o test.byte
+# Target: authors.mli.depends, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), extension:mli, file:authors.mli, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -modules authors.mli > authors.mli.depends # cached
+# Target: authors.cmi, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), byte, compile, extension:mli, file:authors.mli, interf, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -o authors.cmi authors.mli # cached
+# Target: authors.ml.depends, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), extension:ml, file:authors.ml, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -modules authors.ml > authors.ml.depends # cached
+# Target: authors.cmo, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:authors.cmo, file:authors.ml, implem, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -o authors.cmo authors.ml # cached
+# Target: main.mli.depends, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), extension:mli, file:main.mli, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -modules main.mli > main.mli.depends # cached
+# Target: main.cmi, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), byte, compile, extension:mli, file:main.mli, interf, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -o main.cmi main.mli # cached
+# Target: main.ml.depends, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), extension:ml, file:main.ml, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -modules main.ml > main.ml.depends # cached
+# Target: userSurvey.mli.depends, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), extension:mli, file:userSurvey.mli, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -modules userSurvey.mli > userSurvey.mli.depends # cached
+# Target: userSurvey.cmi, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), byte, compile, extension:mli, file:userSurvey.mli, interf, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -o userSurvey.cmi userSurvey.mli # cached
+# Target: main.cmo, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:main.cmo, file:main.ml, implem, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -o main.cmo main.ml # cached
+# Target: userSurvey.ml.depends, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), extension:ml, file:userSurvey.ml, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -modules userSurvey.ml > userSurvey.ml.depends # cached
+# Target: userSurvey.cmo, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:userSurvey.cmo, file:userSurvey.ml, implem, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -o userSurvey.cmo userSurvey.ml # cached
+# Target: courseJson.mli.depends, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), extension:mli, file:courseJson.mli, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -modules courseJson.mli > courseJson.mli.depends # cached
+# Target: courseJson.cmi, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), byte, compile, extension:mli, file:courseJson.mli, interf, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -o courseJson.cmi courseJson.mli # cached
+# Target: courseJson.ml.depends, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), extension:ml, file:courseJson.ml, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -modules courseJson.ml > courseJson.ml.depends
+# Target: courseJson.cmo, tags: { package(ANSITerminal), package(cohttp), package(cohttp-lwt-unix), package(lwt), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:courseJson.cmo, file:courseJson.ml, implem, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -o courseJson.cmo courseJson.ml
++ ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -package lwt -package cohttp -package cohttp-lwt-unix -o courseJson.cmo courseJson.ml
+ocamlfind: [WARNING] Package `threads': Linking problems may arise because of the missing -thread or -vmthread switch
 # Compilation successful.
