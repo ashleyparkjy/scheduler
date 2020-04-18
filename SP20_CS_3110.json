@@ -1,0 +1,704 @@
+{
+  "status": "success",
+  "data": {
+    "classes": [
+      {
+        "strm": 2755,
+        "crseId": 358556,
+        "crseOfferNbr": 1,
+        "subject": "CS",
+        "catalogNbr": "3110",
+        "titleShort": "Data Struct & Functional Progr",
+        "titleLong": "Data Structures and Functional Programming",
+        "enrollGroups": [
+          {
+            "classSections": [
+              {
+                "ssrComponent": "LEC",
+                "ssrComponentLong": "Lecture",
+                "section": "001",
+                "classNbr": 10601,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "10:10AM",
+                    "timeEnd": "11:00AM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 7,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "TR",
+                    "facilityDescr": "Kennedy Hall 116-Call Aud",
+                    "bldgDescr": "Kennedy Hall",
+                    "facilityDescrshort": "KND116",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": true,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "201",
+                "classNbr": 10602,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "10:10AM",
+                    "timeEnd": "11:00AM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "MW",
+                    "facilityDescr": "Hollister Hall 320",
+                    "bldgDescr": "Hollister Hall",
+                    "facilityDescrshort": "HLS320",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "202",
+                "classNbr": 10603,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "02:30PM",
+                    "timeEnd": "03:20PM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "MW",
+                    "facilityDescr": "Hollister Hall 372",
+                    "bldgDescr": "Hollister Hall",
+                    "facilityDescrshort": "HLS372",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "203",
+                "classNbr": 10604,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "02:30PM",
+                    "timeEnd": "03:20PM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "MW",
+                    "facilityDescr": "Hollister Hall 320",
+                    "bldgDescr": "Hollister Hall",
+                    "facilityDescrshort": "HLS320",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "204",
+                "classNbr": 11338,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "03:35PM",
+                    "timeEnd": "04:25PM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "TR",
+                    "facilityDescr": "Hollister Hall 320",
+                    "bldgDescr": "Hollister Hall",
+                    "facilityDescrshort": "HLS320",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "205",
+                "classNbr": 11549,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "03:35PM",
+                    "timeEnd": "04:25PM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "MW",
+                    "facilityDescr": "Hollister Hall 320",
+                    "bldgDescr": "Hollister Hall",
+                    "facilityDescrshort": "HLS320",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "207",
+                "classNbr": 11551,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "01:25PM",
+                    "timeEnd": "02:15PM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "TR",
+                    "facilityDescr": "Phillips Hall 403",
+                    "bldgDescr": "Phillips Hall",
+                    "facilityDescrshort": "PHL403",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "208",
+                "classNbr": 11552,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "03:35PM",
+                    "timeEnd": "04:25PM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "TR",
+                    "facilityDescr": "Hollister Hall 306",
+                    "bldgDescr": "Hollister Hall",
+                    "facilityDescrshort": "HLS306",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "209",
+                "classNbr": 12387,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "07:30PM",
+                    "timeEnd": "08:20PM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "MW",
+                    "facilityDescr": "Hollister Hall 206",
+                    "bldgDescr": "Hollister Hall",
+                    "facilityDescrshort": "HLS206",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "210",
+                "classNbr": 12388,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "12:20PM",
+                    "timeEnd": "01:10PM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "MW",
+                    "facilityDescr": "Hollister Hall 320",
+                    "bldgDescr": "Hollister Hall",
+                    "facilityDescrshort": "HLS320",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "211",
+                "classNbr": 12389,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "02:30PM",
+                    "timeEnd": "03:20PM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "TR",
+                    "facilityDescr": "Hollister Hall 320",
+                    "bldgDescr": "Hollister Hall",
+                    "facilityDescrshort": "HLS320",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "212",
+                "classNbr": 12401,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "12:20PM",
+                    "timeEnd": "01:10PM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "TR",
+                    "facilityDescr": "Hollister Hall 306",
+                    "bldgDescr": "Hollister Hall",
+                    "facilityDescrshort": "HLS306",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "213",
+                "classNbr": 12703,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "10:10AM",
+                    "timeEnd": "11:00AM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "MW",
+                    "facilityDescr": "Hollister Hall 372",
+                    "bldgDescr": "Hollister Hall",
+                    "facilityDescrshort": "HLS372",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "214",
+                "classNbr": 19117,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "10:10AM",
+                    "timeEnd": "11:00AM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "MW",
+                    "facilityDescr": "Phillips Hall 403",
+                    "bldgDescr": "Phillips Hall",
+                    "facilityDescrshort": "PHL403",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              },
+              {
+                "ssrComponent": "DIS",
+                "ssrComponentLong": "Discussion",
+                "section": "215",
+                "classNbr": 19118,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "12:20PM",
+                    "timeEnd": "01:10PM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "jnf27",
+                        "firstName": "Nate",
+                        "middleName": "",
+                        "lastName": "Foster"
+                      }
+                    ],
+                    "pattern": "MW",
+                    "facilityDescr": "Phillips Hall 403",
+                    "bldgDescr": "Phillips Hall",
+                    "facilityDescrshort": "PHL403",
+                    "meetingTopicDescription": ""
+                  }
+                ],
+                "notes": [],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": false,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": ""
+              }
+            ],
+            "unitsMinimum": 4,
+            "unitsMaximum": 4,
+            "componentsOptional": [],
+            "componentsRequired": [
+              "LEC",
+              "DIS"
+            ],
+            "gradingBasis": "OPI",
+            "gradingBasisShort": "Opt NoAud",
+            "gradingBasisLong": "Letter or S\/U grades (no audit)",
+            "simpleCombinations": [],
+            "sessionCode": "1",
+            "sessionBeginDt": "01\/21\/2020",
+            "sessionEndDt": "05\/12\/2020",
+            "sessionLong": "Regular Academic Session"
+          }
+        ],
+        "description": "Advanced programming course that emphasizes functional programming techniques and data structures. Programming topics include recursive and higher-order procedures, models of programming language evaluation and compilation, type systems, and polymorphism. Data structures and algorithms covered include graph algorithms, balanced trees, memory heaps, and garbage collection. Also covers techniques for analyzing program performance and correctness.",
+        "catalogBreadth": "",
+        "catalogDistr": "(MQR-AS)",
+        "catalogLang": "",
+        "catalogForbiddenOverlaps": "",
+        "catalogAttribute": "",
+        "catalogWhenOffered": "Fall, Spring.",
+        "catalogComments": "",
+        "catalogPrereqCoreq": "Prerequisite: CS 2110\u00a0or equivalent programming experience. Prerequisite or corequisite: CS 2800. Should not be taken concurrently with CS 3410\u00a0or CS 3420.",
+        "catalogFee": "",
+        "catalogSatisfiesReq": "",
+        "catalogPermission": "",
+        "catalogCourseSubfield": "",
+        "catalogOutcomes": null,
+        "acadCareer": "UG",
+        "acadGroup": "EN"
+      }
+    ]
+  },
+  "message": null,
+  "meta": {
+    "copyright": "Cornell University, Office of the University Registrar",
+    "rosterDttm": "2020-04-17T19:14:22-0400",
+    "catalogDttm": "2020-04-17T19:15:19-0400"
+  }
+}
