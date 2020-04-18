@@ -13,3 +13,4 @@
 #load "threads.cma";;
 #load "courseJson.cmo";;
 #load "userSurvey.cmo";;
+#load "classes.cmo";;

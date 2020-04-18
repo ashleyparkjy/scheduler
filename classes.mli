@@ -9,7 +9,7 @@
 type t
 
 (** The type of course identifier. *)
-type course_id = string
+type course_id = int
 
 (** The type of section identifier. *)
 type section_id = int
@@ -18,13 +18,30 @@ type section_id = int
 type meeting_id = int
 
 (** The type of time. *)
-type time = int
+type time = {
+  min: int;
+  hr: int;
+}
 
 (** The type of day. *)
-type day = string
+type day =
+  | Monday
+  | Tuesday
+  | Wednesday
+  | Thursday
+  | Friday
 
 (** Raised when an inconsistent amount of units is encountered for a course. *)
 exception BadUnits of course_id
+
+(** Raised when the class is not found. *)
+exception ClassNotFound
+
+(** Raised when date is of bad type. *)
+exception BadDate of string
+
+(** Raised when time is of bad type. *)
+exception BadTime of string
 
 (** [from_json t j] is the class compilation data type containing [t] and the
     additional class that [j] represents.
