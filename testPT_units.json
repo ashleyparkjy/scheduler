@@ -1,0 +1,106 @@
+{
+  "status": "success",
+  "data": {
+    "classes": [
+      {
+        "strm": 2755,
+        "crseId": 358236,
+        "crseOfferNbr": 1,
+        "subject": "SYSEN",
+        "catalogNbr": "5700",
+        "titleShort": "Special Topics in Systems Engr",
+        "titleLong": "Special Topics in Systems Engineering",
+        "enrollGroups": [
+          {
+            "classSections": [
+              {
+                "ssrComponent": "IND",
+                "ssrComponentLong": "Independent Study",
+                "section": "603",
+                "classNbr": 12104,
+                "meetings": [
+                  {
+                    "classMtgNbr": 1,
+                    "timeStart": "12:00PM",
+                    "timeEnd": "12:00PM",
+                    "startDt": "01\/21\/2020",
+                    "endDt": "05\/05\/2020",
+                    "instructors": [
+                      {
+                        "instrAssignSeq": 1,
+                        "netid": "ss2583",
+                        "firstName": "Sirietta",
+                        "middleName": "",
+                        "lastName": "Simoncini"
+                      }
+                    ],
+                    "pattern": "",
+                    "facilityDescr": null,
+                    "bldgDescr": null,
+                    "facilityDescrshort": null,
+                    "meetingTopicDescription": null
+                  }
+                ],
+                "notes": [
+                  {
+                    "classNotesSeq": 1,
+                    "descrlong": "Enrollment limited to: Non Engineering Senior and Up Students"
+                  }
+                ],
+                "campus": "MAIN",
+                "campusDescr": "Ithaca",
+                "location": "ITH",
+                "locationDescr": "Ithaca, NY (Main Campus)",
+                "startDt": "01\/21\/2020",
+                "endDt": "05\/05\/2020",
+                "addConsent": "N",
+                "addConsentDescr": "No Special Consent Required",
+                "isComponentGraded": true,
+                "instructionMode": "HY",
+                "instrModeDescrshort": "HY-OLIP",
+                "instrModeDescr": "Hybrid - Online & In Person",
+                "topicDescription": "CUSD- Susb. Education"
+              }
+            ],
+            "unitsMinimum": 1,
+            "unitsMaximum": 12,
+            "componentsOptional": [],
+            "componentsRequired": [
+              "IND"
+            ],
+            "gradingBasis": "OPT",
+            "gradingBasisShort": "Stdnt Opt",
+            "gradingBasisLong": "Letter or S\/U grades",
+            "simpleCombinations": [],
+            "sessionCode": "PR1",
+            "sessionBeginDt": "01\/21\/2020",
+            "sessionEndDt": "05\/12\/2020",
+            "sessionLong": "Project Session Full"
+          }
+        ],
+        "description": "Supervised study by individuals or small groups of one or more specialized topics not covered in regular courses.",
+        "catalogBreadth": "",
+        "catalogDistr": "",
+        "catalogLang": "",
+        "catalogForbiddenOverlaps": "",
+        "catalogAttribute": "",
+        "catalogWhenOffered": "Fall, Spring.",
+        "catalogComments": "",
+        "catalogPrereqCoreq": "",
+        "catalogFee": "",
+        "catalogSatisfiesReq": "",
+        "catalogPermission": "",
+        "catalogCourseSubfield": "",
+        "catalogOutcomes": null,
+        "acadCareer": "GR",
+        "acadGroup": "EN"
+      }
+    ]
+  },
+  "message": null,
+  "meta": {
+    "copyright": "Cornell University, Office of the University Registrar",
+    "rosterDttm": "2020-04-18T19:14:03-0400",
+    "catalogDttm": "2020-04-18T19:14:57-0400"
+  }
+}
