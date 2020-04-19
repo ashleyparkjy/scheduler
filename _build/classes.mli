@@ -55,6 +55,9 @@ val empty: t
 (** [is_empty j] is [true] if [j] represents no classes. Else, [false]. *)
 val is_empty: t -> bool
 
+(** [size t] is the size of the class list denoted by [t]. *)
+val size: t -> int
+
 (** [course_ids c] is a list of all course id's in [c]. *)
 val course_ids: t -> course_id list
 

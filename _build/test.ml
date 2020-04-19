@@ -30,12 +30,23 @@ let courseJson_tests = [
         (fun()-> (
              CourseJson.runner "SP20" "CS" "31jj10"
            )));
-
 ]
+
+let classes_tests = 
+  let j = Yojson.Basic.from_file "testCS.json" in [
+    "check empty" >:: (fun _ -> 
+        assert_equal
+          (empty |> is_empty) true);
+
+    "add class to roster" >:: (fun _ -> 
+        assert_equal
+          (j |> from_json empty |> is_empty) false);
+  ]
 
 let suite =
   "test suite for Cornell Scheduler"  >::: List.flatten [
     courseJson_tests;
+    classes_tests;
   ]
 
 let _ = run_test_tt_main suite

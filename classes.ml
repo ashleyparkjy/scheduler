@@ -19,12 +19,20 @@ exception ClassNotFound
 exception BadDate of string
 exception BadTime of string
 
+(** The type of professor. *)
+type professors = {
+  first_name: string;
+  middle_name: string;
+  last_name: string;
+  net_id: string;
+}
+
 (** The type of meeting. *)
-type meetings ={
+type meetings = {
   class_mtg_number: meeting_id;
   time_start: time;
   time_end: time;
-  instructors: string list;
+  instructors: professors list;
   pattern: day list;
   facility_descr: string;
   bldg_descr: string;
@@ -42,7 +50,7 @@ type sections = {
 (** The type of class. *)
 type classes = {
   crse_id: course_id;
-  subject: string;
+  subject: string; 
   catalog_nbr: int;
   title_short: string;
   title_long: string;
@@ -89,13 +97,22 @@ let rec to_day my_list d =
     | 'F' -> to_day (Friday::my_list) s
     | _ -> raise (BadDate d)
 
+(** [professor_of_json j] is a record of type for professorswith contents of j
+    parsed into that type. *)
+let professor_of_json j = {
+  first_name = j |> member "firstName" |> to_string;
+  middle_name = j |> member "middleName" |> to_string;
+  last_name = j |> member "lastName" |> to_string;
+  net_id = j |> member "netid" |> to_string;
+}
+
 (** [meeting_of_json j] is a record of type meetings with the contents of j
     parsed into that type. *)
 let meeting_of_json j = {
   class_mtg_number = j |> member "classMtgNbr" |> to_int;
   time_start = j |> member "timeStart" |> to_string |> to_time;
   time_end = j |> member "timeEnd" |> to_string |> to_time;
-  instructors = j |> member "instructors" |> to_list |> List.map to_string;
+  instructors = j |> member "instructors" |> to_list |> List.map professor_of_json;
   pattern = j |> member "pattern" |> to_string |> to_day [];
   facility_descr = j |> member "facilityDescr" |> to_string;
   bldg_descr = j |> member "bldgDescr" |> to_string;
@@ -117,28 +134,35 @@ let class_of_json j =
   let x = match  j |> member "data" |> member "classes" |> to_list with
     | [] -> raise ClassNotFound
     | h::t -> h
+  in
+  let y = x |> member "enrollGroups" |> to_list |> List.hd
   in {
-    crse_id = x |> member "crseID" |> to_int;
+    crse_id = x |> member "crseId" |> to_int;
     subject = x |> member "subject" |> to_string;
-    catalog_nbr = x |> member "catalogNbr" |> to_int;
+    catalog_nbr = x |> member "catalogNbr" |> to_string |> int_of_string;
     title_short = x |> member "titleShort" |> to_string;
     title_long = x |> member "titleLong" |> to_string;
-    class_sections = x |> member "enrollGroups" |> to_list |> List.hd |> member "classSections" |> to_list |> List.map section_of_json;
+    class_sections = y |> member "classSections" |> to_list |> List.map section_of_json;
     units =
       begin
-        let m = x |> member "unitsMinimum" |> to_int in
-        if m = (x |> member "unitsMaximum" |> to_int) then m else raise (BadUnits (x |> member "crseID" |> to_int))
+        let m = y |> member "unitsMinimum" |> to_int in
+        if m = (y |> member "unitsMaximum" |> to_int) then m else raise (BadUnits (x |> member "crseId" |> to_int))
       end;
-    components_required = x |> member "componentsRequired" |> to_list |> List.map to_string;
+    components_required = y |> member "componentsRequired" |> to_list |> List.map to_string;
   }
 
 let from_json ros json =
   (class_of_json json)::ros
 
 let empty =
-  failwith "Unimplemented"
+  []
 
 let is_empty ros =
+  match ros with
+  | [] -> true
+  | _ -> false
+
+let size ros = 
   failwith "Unimplemented"
 
 let course_ids ros =
