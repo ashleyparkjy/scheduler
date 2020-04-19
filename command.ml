@@ -25,6 +25,6 @@ let parse str =
   | [] -> raise Empty
   | h :: t when h = "quit" -> if List.length t = 0 then Quit else raise Malformed
   | h :: t when h = "end" -> if List.length t = 0 then End else raise Malformed 
-  | h :: t when h = "delete" -> if List.length t = 1 then Delete t else raise Malformed
-  | h :: t when h = "take" -> if List.length t = 1 then Take t else raise Malformed
+  | h :: t when h = "delete" -> if List.length t = 2 then Delete t else raise Malformed
+  | h :: t when h = "take" -> if List.length t = 2 then Take t else raise Malformed
   | _ -> raise Malformed
