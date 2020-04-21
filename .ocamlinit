@@ -1,6 +1,16 @@
+#directory "+threads";;
 #require "oUnit";;
 #require "yojson";;
 #require "ANSITerminal";;
+#require "lwt";;
+#require "cohttp";;
+#require "cohttp-lwt-unix";;
+#require "threads";;
+#require "ssl";;
+#require "lwt_ssl";;
 #directory "_build";;
+#load "unix.cma";;
+#load "threads.cma";;
 #load "courseJson.cmo";;
 #load "userSurvey.cmo";;
+#load "classes.cmo";;

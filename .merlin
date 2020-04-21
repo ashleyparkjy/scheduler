@@ -2,4 +2,7 @@ B _build
 PKG oUnit
 PKG yojson
 PKG ocamlbuild
+PKG lwt
+PKG cohttp
+PKG cohttp-lwt-unix
 PKG ANSITerminal

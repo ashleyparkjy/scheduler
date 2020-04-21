@@ -1,9 +1,13 @@
-MODULES = authors main userSurvey courseJson
+MODULES = authors main userSurvey courseJson classes
 OBJECTS=$(MODULES:=.cmo)
 TEST=test.byte
 MAIN=main.byte
+JSON=.json
 OCAMLBUILD=ocamlbuild -use-ocamlfind
 
+default: build
+	utop
+	
 build:
 	$(OCAMLBUILD) $(OBJECTS)
 
@@ -12,6 +16,7 @@ test:
 
 clean:
 	ocamlbuild -clean
+	rm -f *$(JSON)
 
 launch:
 	$(OCAMLBUILD) $(MAIN) && ./$(MAIN)
