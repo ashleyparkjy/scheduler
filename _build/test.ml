@@ -2,6 +2,7 @@ open OUnit2
 open UserSurvey
 open Command
 
+<<<<<<< HEAD
 let state_class1 = take_class init_state ["CS";"3110"]
 let state_class2 = take_class state_class1 ["MATH";"2930"] 
 let state_class3 = delete_class state_class2 ["CS";"3110"]
@@ -53,6 +54,8 @@ let userSurveytests =
 
 
   ]
+=======
+>>>>>>> master
 
 let suite =
   "test suite for Cornell Scheduler"  >::: List.flatten [

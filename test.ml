@@ -39,7 +39,7 @@ let userSurveytests =
 
 let suite =
   "test suite for Cornell Scheduler"  >::: List.flatten [
-    userSurveytests;
+
   ]
 
 let _ = run_test_tt_main suite

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 open Command
 
 
@@ -205,3 +206,5 @@ let rec prompt_semester st =
   | exception Malformed -> ANSITerminal.(print_string [red] ("Please use a valid command statement.\n")); prompt_semester st
   | exception Empty -> ANSITerminal.(print_string [red] ("Your input was empty.\n")); prompt_semester st
 
+=======
+>>>>>>> master
