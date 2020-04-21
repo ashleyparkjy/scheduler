@@ -20,7 +20,7 @@ type meeting_id = int
 (** The type of instructor identifier. *)
 type instructor_id = string
 
-(** The type of time. *)
+(** The type of time in 24-hour format. *)
 type time = {
   min: int;
   hr: int;
