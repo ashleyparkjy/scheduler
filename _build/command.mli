@@ -3,11 +3,13 @@ type object_phrase = string list
 type command = 
   | Take of object_phrase
   | Delete of object_phrase
-  | End
+  | Next
   | Quit
 
 exception Malformed
 
 exception Empty
 
-val parse : string -> command
+val parse_class : string -> command
+
+val parse_semester : string -> command

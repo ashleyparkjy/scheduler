@@ -3,7 +3,7 @@ type object_phrase = string list
 type command = 
   | Take of object_phrase
   | Delete of object_phrase
-  | End
+  | Next
   | Quit
 
 exception Malformed
@@ -23,17 +23,17 @@ let str_list string =
 let parse_class str =
   str |> str_list |> function
   | [] -> raise Empty
-  | h :: t when h = "quit" -> if List.length t = 0 then Quit else raise Malformed
-  | h :: t when h = "end" -> if List.length t = 0 then End else raise Malformed 
-  | h :: t when h = "delete" -> if List.length t = 2 then Delete t else raise Malformed
-  | h :: t when h = "take" -> if List.length t = 2 then Take t else raise Malformed
+  | h :: t when h = "QUIT" -> if List.length t = 0 then Quit else raise Malformed
+  | h :: t when h = "NEXT" -> if List.length t = 0 then Next else raise Malformed 
+  | h :: t when h = "DELETE" -> if List.length t = 2 then Delete t else raise Malformed
+  | h :: t when h = "TAKE" -> if List.length t = 2 then Take t else raise Malformed
   | _ -> raise Malformed
 
 let parse_semester str = 
   str |> str_list |> function
   | [] -> raise Empty
-  | h :: t when h = "quit" -> if List.length t = 0 then Quit else raise Malformed
-  | h :: t when h = "end" -> if List.length t = 0 then End else raise Malformed 
-  | h :: t when h = "delete" -> if List.length t = 1 then Delete t else raise Malformed
-  | h :: t when h = "take" -> if List.length t = 1 then Take t else raise Malformed
+  | h :: t when h = "QUIT" -> if List.length t = 0 then Quit else raise Malformed
+  | h :: t when h = "NEXT" -> if List.length t = 0 then Next else raise Malformed 
+  | h :: t when h = "DELETE" -> if List.length t = 1 then Delete t else raise Malformed
+  | h :: t when h = "TAKE" -> if List.length t = 1 then Take t else raise Malformed
   | _ -> raise Malformed
