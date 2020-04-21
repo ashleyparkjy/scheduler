@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 open Command
-
 
 (** The type of class_id. (ex) ["CS";"3110"]) *)
 type class_id = string list
@@ -149,14 +147,6 @@ let print_class = function
          |> String.concat ", " 
          |> (^) "Currently Entered Class IDs: " 
 
-
-
-
-(* workstyle, sleeping schedule, eating habits 
-   - workstyle: cram all classes w/o break or have lots of break in between classes?
-   - sleeping schedule: do you prefer morning classes or do you prefer night classes?
-   - eating habits: on a scale from 1 to 10 how much is lunch time important to you? *)
-
 (** [prompt_routine st] prompts user to answer routine question and updates 
     corresponding information to [st]. It also handles any commands that are written. *)
 let rec prompt_routine st = 
@@ -176,8 +166,9 @@ let rec prompt_class st =
   | Quit -> Stdlib.exit 0
   | Next -> if is_valid_class_st st then prompt_routine st 
     else ANSITerminal.(print_string [red] ("You have too little(less than 3) or too much(more than 9) classes to proceed.\n")); prompt_class st
-  | Delete tl -> if is_valid_class tl && ((tl |> delete_class st) <> st) then tl |> delete_class st |> prompt_class 
-    else ANSITerminal.(print_string [red] ("Please enter in a class in the valid format or one of the selected class.\n")); prompt_class st
+  | Delete tl when is_valid_class tl -> if ((tl |> delete_class st) <> st) then tl |> delete_class st |> prompt_class 
+    else ANSITerminal.(print_string [red] ("You can only delete one of the selected classes.\n")); prompt_class st
+  | Delete tl -> ANSITerminal.(print_string [red] ("Please enter a class in the valid format.\n")); prompt_class st
   | Take tl -> if is_valid_class tl then tl |> take_class st |> prompt_class 
     else ANSITerminal.(print_string [red] ("Please enter in a valid format.\n")); prompt_class st
   | exception Malformed -> ANSITerminal.(print_string [red] ("Please use a valid command statement.\n")); prompt_class st
@@ -200,11 +191,9 @@ let rec prompt_semester st =
   | Delete tl when is_valid_sem tl -> if ((tl |> delete_sem st) <> st) then tl |> delete_sem st |> prompt_semester
     else ANSITerminal.(print_string [red] ("You can only delete the selected semester.\n")); prompt_semester st
   | Delete tl -> ANSITerminal.(print_string [red] ("Please enter the semester in a valid format.\n")); prompt_semester st
-  | Take tl when is_valid_sem tl -> if ((tl |> take_sem st) <> st) then  tl |> take_sem st |> prompt_semester
-    else ANSITerminal.(print_string [red] ("You have already selected this semester.\n")); prompt_semester st
+  | Take tl when is_valid_sem tl -> if ((tl |> take_sem st) <> st) then tl |> take_sem st |> prompt_semester
+    else ANSITerminal.(print_string [red] ("You have already selected a semester.\n")); prompt_semester st
   | Take tl -> ANSITerminal.(print_string [red] ("Please enter the semester in a valid format.\n")); prompt_semester st
   | exception Malformed -> ANSITerminal.(print_string [red] ("Please use a valid command statement.\n")); prompt_semester st
   | exception Empty -> ANSITerminal.(print_string [red] ("Your input was empty.\n")); prompt_semester st
 
-=======
->>>>>>> master

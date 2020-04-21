@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 (** 
    Answer collection for user survey questions.
 *)
@@ -60,5 +59,3 @@ val prompt_class : t -> unit
     corresponding information to [st]. It also handles any commands that are written. *)
 val prompt_semester : t -> unit
 
-=======
->>>>>>> master
