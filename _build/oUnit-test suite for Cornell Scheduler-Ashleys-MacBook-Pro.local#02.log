@@ -1,3 +1,30 @@
-2020-04-20T11:38:48+00:00 Ashleys-MacBook-Pro.local#02 I: Start test test suite for Cornell Scheduler:1:get_semester test 2.
-2020-04-20T11:38:48+00:00 Ashleys-MacBook-Pro.local#02 I: Test test suite for Cornell Scheduler:1:get_semester test 2 is successful.
-2020-04-20T11:38:48+00:00 Ashleys-MacBook-Pro.local#02 I: End test test suite for Cornell Scheduler:1:get_semester test 2.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Start test test suite for Cornell Scheduler:1:init_state test 2.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Test test suite for Cornell Scheduler:1:init_state test 2 is successful.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: End test test suite for Cornell Scheduler:1:init_state test 2.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Start test test suite for Cornell Scheduler:3:get_semester & take_sem test 2.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Test test suite for Cornell Scheduler:3:get_semester & take_sem test 2 is successful.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: End test test suite for Cornell Scheduler:3:get_semester & take_sem test 2.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Start test test suite for Cornell Scheduler:5:get_classes & take_class test 1.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Test test suite for Cornell Scheduler:5:get_classes & take_class test 1 is successful.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: End test test suite for Cornell Scheduler:5:get_classes & take_class test 1.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Start test test suite for Cornell Scheduler:7:get_classes & delete_class test 3.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Test test suite for Cornell Scheduler:7:get_classes & delete_class test 3 is successful.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: End test test suite for Cornell Scheduler:7:get_classes & delete_class test 3.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Start test test suite for Cornell Scheduler:9:is_valid_sem test 1: wrong number 2.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Test test suite for Cornell Scheduler:9:is_valid_sem test 1: wrong number 2 is successful.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: End test test suite for Cornell Scheduler:9:is_valid_sem test 1: wrong number 2.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Start test test suite for Cornell Scheduler:11:is_valid_sem test 2: wrong front letters 2.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Test test suite for Cornell Scheduler:11:is_valid_sem test 2: wrong front letters 2 is successful.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: End test test suite for Cornell Scheduler:11:is_valid_sem test 2: wrong front letters 2.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Start test test suite for Cornell Scheduler:13:is_valid_sem test 4: correct front letters & number 1.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Test test suite for Cornell Scheduler:13:is_valid_sem test 4: correct front letters & number 1 is successful.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: End test test suite for Cornell Scheduler:13:is_valid_sem test 4: correct front letters & number 1.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Start test test suite for Cornell Scheduler:15:is_valid_class test 1: wrong number 1.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Test test suite for Cornell Scheduler:15:is_valid_class test 1: wrong number 1 is successful.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: End test test suite for Cornell Scheduler:15:is_valid_class test 1: wrong number 1.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Start test test suite for Cornell Scheduler:17:is_valid_class test 4: wrong number 3.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Test test suite for Cornell Scheduler:17:is_valid_class test 4: wrong number 3 is successful.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: End test test suite for Cornell Scheduler:17:is_valid_class test 4: wrong number 3.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Start test test suite for Cornell Scheduler:19:is_valid_class test 4: wrong name 2.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: Test test suite for Cornell Scheduler:19:is_valid_class test 4: wrong name 2 is successful.
+2020-04-21T12:36:35+00:00 Ashleys-MacBook-Pro.local#02 I: End test test suite for Cornell Scheduler:19:is_valid_class test 4: wrong name 2.
