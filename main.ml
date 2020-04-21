@@ -23,7 +23,7 @@ let rec get_class s c roster =
 let main () = 
   ANSITerminal.(print_string [blue]
                   "\n\nWelcome to Cornell Scheduler.\n");
-  UserSurvey.init_state |> UserSurvey.prompt_semester;
+  (*UserSurvey.init_state |> UserSurvey.prompt_semester;*)
 
   let s = survey_semester and
     c = survey_classes in

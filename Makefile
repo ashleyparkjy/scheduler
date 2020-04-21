@@ -16,7 +16,6 @@ test:
 
 clean:
 	ocamlbuild -clean
-	rm -f *$(JSON)
 
 launch:
 	$(OCAMLBUILD) $(MAIN) && ./$(MAIN)
