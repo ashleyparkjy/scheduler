@@ -34,7 +34,8 @@ let pp_list pp_elt lst =
 
 
 let schedule_tests = [
-
+  "empty true" >:: (fun _ -> 
+      assert_equal (empty |> is_empty) true);
 ]
 
 let suite =
