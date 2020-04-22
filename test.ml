@@ -3,7 +3,6 @@ open UserSurvey
 open Command
 open CourseJson
 open Classes
-open Schedule
 
 (** [cmp_set_like_lists lst1 lst2] compares two lists to see whether
     they are equivalent set-like lists.  That means checking two things.
@@ -279,16 +278,11 @@ let classes_tests =
       );
   ]
 
-let schedule_tests = [
-
-]
-
 let suite =
   "test suite for Cornell Scheduler"  >::: List.flatten [
     userSurvey_tests;
     courseJson_tests;
     classes_tests;
-    schedule_tests;
   ]
 
 let _ = run_test_tt_main suite
