@@ -33,10 +33,26 @@ let pp_list pp_elt lst =
 
 
 
-let schedule_tests = [
-  "empty true" >:: (fun _ -> 
-      assert_equal (empty |> is_empty) true);
-]
+let schedule_tests = 
+  let j = Yojson.Basic.from_file "testCS.json" and
+  k = Yojson.Basic.from_file "testMATH.json" in
+  let x = Classes.empty |> Classes.from_json j |> Classes.from_json k in
+  [
+    "empty true" >:: (fun _ -> 
+        assert_equal (empty |> is_empty) true);
+    "empty size 0" >:: (fun _ -> 
+        assert_equal (empty |> size) 0);
+    "1 element non-empty" >:: (fun _ -> 
+        assert_equal (empty |> add_section 10601 358556 x |> is_empty) false);
+    "1 element size" >:: (fun _ -> 
+        assert_equal (empty |> add_section 10601 358556 x |> size) 1);
+    "1 element name" >:: (fun _ -> 
+        assert_equal ~printer:(pp_string)
+          (empty |> add_section 10601 358556 x |> peak).course_name "Data Structures and Functional Programming");
+    "1 element instructors" >:: (fun _ -> 
+        assert_equal ~printer:(pp_list pp_string)
+          (empty |> add_section 10601 358556 x |> peak).instructors ["Nate Foster"]);
+  ]
 
 let suite =
   "test suite for Cornell Scheduler (schedule module)"  >::: List.flatten [

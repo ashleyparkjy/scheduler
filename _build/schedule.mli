@@ -42,6 +42,9 @@ val is_empty : t -> bool
 (** [size t] is the number of sections in schedule [t]. *)
 val size: t -> int
 
+(** [peak t] gives an element of [t]. *)
+val peak: t-> event
+
 (** [get_events t] is the list of events that represents all events in
     schedule [t]. *)
 val get_events: t -> event list

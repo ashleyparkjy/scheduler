@@ -1,1 +1,1 @@
-schedule_test.ml: List OUnit2 Schedule
+schedule_test.ml: Classes List OUnit2 Schedule Yojson

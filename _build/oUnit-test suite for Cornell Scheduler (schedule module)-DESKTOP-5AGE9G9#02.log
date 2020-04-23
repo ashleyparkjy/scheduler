@@ -1,7 +1,6 @@
-2020-04-22T20:23:57+00:00 DESKTOP-5AGE9G9#02 I: Start test test suite for Cornell Scheduler (schedule module):1:empty false.
-2020-04-22T20:23:57+00:00 DESKTOP-5AGE9G9#02 E: Test test suite for Cornell Scheduler (schedule module):1:empty false has failed.
-2020-04-22T20:23:57+00:00 DESKTOP-5AGE9G9#02 E: not equal in test test suite for Cornell Scheduler (schedule module):1:empty false.
-2020-04-22T20:23:57+00:00 DESKTOP-5AGE9G9#02 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
-2020-04-22T20:23:57+00:00 DESKTOP-5AGE9G9#02 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-22T20:23:57+00:00 DESKTOP-5AGE9G9#02 E: 
-2020-04-22T20:23:57+00:00 DESKTOP-5AGE9G9#02 I: End test test suite for Cornell Scheduler (schedule module):1:empty false.
+2020-04-23T02:39:28+00:00 DESKTOP-5AGE9G9#02 I: Start test test suite for Cornell Scheduler (schedule module):1:empty size 0.
+2020-04-23T02:39:28+00:00 DESKTOP-5AGE9G9#02 I: Test test suite for Cornell Scheduler (schedule module):1:empty size 0 is successful.
+2020-04-23T02:39:28+00:00 DESKTOP-5AGE9G9#02 I: End test test suite for Cornell Scheduler (schedule module):1:empty size 0.
+2020-04-23T02:39:28+00:00 DESKTOP-5AGE9G9#02 I: Start test test suite for Cornell Scheduler (schedule module):5:1 element instructors.
+2020-04-23T02:39:28+00:00 DESKTOP-5AGE9G9#02 I: Test test suite for Cornell Scheduler (schedule module):5:1 element instructors is successful.
+2020-04-23T02:39:28+00:00 DESKTOP-5AGE9G9#02 I: End test test suite for Cornell Scheduler (schedule module):5:1 element instructors.
