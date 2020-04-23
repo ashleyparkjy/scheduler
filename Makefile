@@ -1,4 +1,4 @@
-MODULES = authors main userSurvey courseJson classes
+MODULES = authors main userSurvey command courseJson classes schedule
 OBJECTS=$(MODULES:=.cmo)
 TEST=test.byte
 SCHEDULETEST=schedule_test.byte

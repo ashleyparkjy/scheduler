@@ -69,3 +69,7 @@ val get_thursday: t -> event list
 (** [get_events t] is the list of events that represents all events in
     schedule [t] on Friday. *)
 val get_friday: t -> event list
+
+(** [schedule_maker r] is a list of schedules of type [t], that represents
+    all possible schedules as a result of permutations of classes in [c]. *)
+val schedule_maker : Classes.t -> t list
