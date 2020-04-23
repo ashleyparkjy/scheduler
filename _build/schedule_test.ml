@@ -83,6 +83,39 @@ let schedule_tests =
     "1 element section building" >:: (fun _ -> 
         assert_equal ~printer:(pp_string)
           (empty |> add_section 10601 358556 x |> peak).building "Kennedy Hall");
+
+    "2 element get events" >:: (fun _ -> 
+        assert_equal
+          (empty |> add_section 10601 358556 x |> add_section 10602 358556 x |> get_events |> List.length) 2);
+
+    "4 elements" >:: (fun _ -> 
+        assert_equal
+          (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> size) 4);
+    "4 elements monday" >:: (fun _ -> 
+        assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
+          (List.map (fun z-> z.section_number)
+             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_monday))
+          ["002"]);
+    "4 elements tuesday" >:: (fun _ -> 
+        assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
+          (List.map (fun z-> z.section_number)
+             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_tuesday))
+          ["001";"212"]);
+    "4 elements wednesday" >:: (fun _ -> 
+        assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
+          (List.map (fun z-> z.section_number)
+             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_wednesday))
+          ["002"]);
+    "4 elements thursday" >:: (fun _ -> 
+        assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
+          (List.map (fun z-> z.section_number)
+             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_thursday))
+          ["001";"212"]);
+    "4 elements friday" >:: (fun _ -> 
+        assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
+          (List.map (fun z-> z.section_number)
+             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_friday))
+          ["002";"217"]);
   ]
 
 let suite =

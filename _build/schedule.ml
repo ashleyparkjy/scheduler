@@ -14,6 +14,7 @@ type event = {
   instructors: string list;
   facility: string;
   building: string;
+  days: Classes.day list;
 }
 
 type t = event list
@@ -37,6 +38,7 @@ let make_event m s c r =
     instructors = List.map (fun x-> Classes.instructor_name x m s c r) (Classes.instructors m s c r);
     facility = Classes.facility_description m s c r;
     building = Classes.building_description m s c r;
+    days = Classes.pattern m s c r;
   }
 
 let add_section s c r t =
@@ -57,19 +59,30 @@ let peak t =
   List.hd t
 
 let get_events t =
-  failwith "Unimplemented"
+  t
+
+(** [get_day d a c] is a list of events from [c] that occurs on day [d],
+    appended to [a]. *)
+let rec get_day day acc_list c =
+  match c with
+  | [] -> acc_list
+  | h::t ->
+    begin
+      if (List.mem day h.days) then get_day day (h::acc_list) t
+      else get_day day acc_list t
+    end
 
 let get_monday t =
-  failwith "Unimplemented"
+  get_day Classes.Monday [] t
 
 let get_tuesday t =
-  failwith "Unimplemented"
+  get_day Classes.Tuesday [] t
 
 let get_wednesday t =
-  failwith "Unimplemented"
+  get_day Classes.Wednesday [] t
 
 let get_thursday t =
-  failwith "Unimplemented"
+  get_day Classes.Thursday [] t
 
 let get_friday t =
-  failwith "Unimplemented"
+  get_day Classes.Friday [] t

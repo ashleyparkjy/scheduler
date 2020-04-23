@@ -25,6 +25,7 @@ type event = {
   instructors: string list;
   facility: string;
   building: string;
+  days: Classes.day list;
 }
 
 (** [add_section s c r t] is the schedule [t] with the addition of section [s]
