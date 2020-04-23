@@ -46,12 +46,43 @@ let schedule_tests =
         assert_equal (empty |> add_section 10601 358556 x |> is_empty) false);
     "1 element size" >:: (fun _ -> 
         assert_equal (empty |> add_section 10601 358556 x |> size) 1);
+
     "1 element name" >:: (fun _ -> 
         assert_equal ~printer:(pp_string)
           (empty |> add_section 10601 358556 x |> peak).course_name "Data Structures and Functional Programming");
     "1 element instructors" >:: (fun _ -> 
         assert_equal ~printer:(pp_list pp_string)
           (empty |> add_section 10601 358556 x |> peak).instructors ["Nate Foster"]);
+    "1 element desc" >:: (fun _ -> 
+        assert_equal ~printer:(pp_string)
+          (empty |> add_section 10601 358556 x |> peak).description "Advanced programming course that emphasizes functional programming techniques and data structures. Programming topics include recursive and higher-order procedures, models of programming language evaluation and compilation, type systems, and polymorphism. Data structures and algorithms covered include graph algorithms, balanced trees, memory heaps, and garbage collection. Also covers techniques for analyzing program performance and correctness.");
+    "1 element units" >:: (fun _ -> 
+        assert_equal
+          (empty |> add_section 10601 358556 x |> peak).credits 4);
+    "1 element subject" >:: (fun _ -> 
+        assert_equal ~printer:(pp_string)
+          (empty |> add_section 10601 358556 x |> peak).subject "CS");
+    "1 element units" >:: (fun _ -> 
+        assert_equal
+          (empty |> add_section 10601 358556 x |> peak).catalog_number 3110);
+    "1 element event type" >:: (fun _ -> 
+        assert_equal
+          (empty |> add_section 10601 358556 x |> peak).event_type "LEC");
+    "1 element section no" >:: (fun _ -> 
+        assert_equal ~printer:(pp_string)
+          (empty |> add_section 10601 358556 x |> peak).section_number "001");
+    "1 element start time" >:: (fun _ -> 
+        assert_equal
+          (empty |> add_section 10601 358556 x |> peak).start_time {min=10;hr=10});
+    "1 element end time" >:: (fun _ -> 
+        assert_equal
+          (empty |> add_section 10601 358556 x |> peak).end_time {min=0;hr=11});
+    "1 element section facility" >:: (fun _ -> 
+        assert_equal ~printer:(pp_string)
+          (empty |> add_section 10601 358556 x |> peak).facility "Kennedy Hall 116-Call Aud");
+    "1 element section building" >:: (fun _ -> 
+        assert_equal ~printer:(pp_string)
+          (empty |> add_section 10601 358556 x |> peak).building "Kennedy Hall");
   ]
 
 let suite =
