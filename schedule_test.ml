@@ -116,6 +116,10 @@ let schedule_tests =
           (List.map (fun z-> z.section_number)
              (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_friday))
           ["002";"217"]);
+
+    "make schedule" >:: (fun _ -> 
+        assert_equal
+          (x |> schedule_maker |> List.length) 476);
   ]
 
 let suite =

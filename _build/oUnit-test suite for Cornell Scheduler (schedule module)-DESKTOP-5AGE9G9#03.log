@@ -1,21 +1,18 @@
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):2:1 element non-empty.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):2:1 element non-empty is successful.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):2:1 element non-empty.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):4:1 element name.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):4:1 element name is successful.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):4:1 element name.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):7:1 element units.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):7:1 element units is successful.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):7:1 element units.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):10:1 element event type.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):10:1 element event type is successful.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):10:1 element event type.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):14:1 element section facility.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):14:1 element section facility is successful.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):14:1 element section facility.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):18:4 elements monday.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):18:4 elements monday is successful.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):18:4 elements monday.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):22:4 elements friday.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):22:4 elements friday is successful.
-2020-04-23T23:49:01+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):22:4 elements friday.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):2:1 element non-empty.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):2:1 element non-empty is successful.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):2:1 element non-empty.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):6:1 element desc.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):6:1 element desc is successful.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):6:1 element desc.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):9:1 element units.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):9:1 element units is successful.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):9:1 element units.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):12:1 element start time.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):12:1 element start time is successful.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):12:1 element start time.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):16:2 element get events.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):16:2 element get events is successful.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):16:2 element get events.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler (schedule module):20:4 elements wednesday.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler (schedule module):20:4 elements wednesday is successful.
+2020-04-24T00:58:54+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler (schedule module):20:4 elements wednesday.

@@ -92,11 +92,14 @@ let get_thursday t =
 let get_friday t =
   get_day Classes.Friday [] t
 
-(** [perm_to_sched] is a list of schedules of type [t] that satisfy containing
-    all permutations of all classes, as denoted in list of class
-    permutations [p]. *)
-let perm_to_sched p =
-  failwith "Unimplemented"
+(** [perm_to_sched l p] is a list of schedule configurations where each config
+    is a list of sections for each class, section permutations in a tuple of
+    course id and type [permutation] from [p]. Appended to [l].
+    Example: [[(593554,[10601;19118]);(593554,[10601;19118])];[(593554,[10601;19118]);(593554,[10601;19118])]] *)
+let rec perm_to_sched acc_list p =
+  match p with
+  | [] -> [acc_list]
+  | h::t -> List.fold_left (fun init x-> init@(perm_to_sched ((h.course_id,x)::acc_list) t)) [] h.permutations
 
 (** [parse_sections l req s c r] is the list of section id's from [s] from
     course [c] in roster [r] that satisfy being of section type [req].
@@ -119,17 +122,14 @@ let rec list_of_list acc_list comp_req s_list course ros =
   | [] -> acc_list
   | h::t -> list_of_list ((parse_sections [] h s_list course ros)::acc_list) t s_list course ros
 
-(** [generate_perms p] is a list of list of section id's, representing all
+(** [generate_perms a p] is a list of list of section id's, representing all
     possible permuations of sections from list of list of section id's, where
     each list within a list is all the section id's for one required
-    component. *)
+    component. Appended to [a]. *)
 let rec generate_perms acc_list p_list =
   match p_list with
   | [] -> [acc_list] 
-  | h::t ->
-    begin
-      List.fold_left (fun init x-> init@(generate_perms (x::acc_list) t)) [] h
-    end
+  | h::t -> List.fold_left (fun init x-> init@(generate_perms (x::acc_list) t)) [] h
 
 (** [class_permutations c r] is a record of type [permutation] containing all
     section permutations of class [c] in roster [r]. *)
@@ -149,4 +149,14 @@ let rec list_of_perm p_list ros clses =
   | h::t -> list_of_perm ((class_permutations h ros)::p_list) ros t
 
 let schedule_maker ros =
-  ros |> Classes.course_ids |> list_of_perm [] ros |> perm_to_sched
+  let triple_list = ros |> Classes.course_ids |> list_of_perm [] ros |> perm_to_sched [] in
+  List.map (fun x->
+      begin
+        List.fold_left (fun init y->
+            begin
+              match y with | (a,b) ->
+                List.fold_left (fun init2 z-> add_section z a ros init2) init b
+            end
+          ) empty x
+      end
+    ) triple_list
