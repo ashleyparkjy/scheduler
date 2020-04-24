@@ -8,9 +8,12 @@
 #require "threads";;
 #require "ssl";;
 #require "lwt_ssl";;
+#require "str";;
 #directory "_build";;
 #load "unix.cma";;
 #load "threads.cma";;
 #load "courseJson.cmo";;
+#load "command.cmo";;
 #load "userSurvey.cmo";;
 #load "classes.cmo";;
+#load "schedule.cmo";;
