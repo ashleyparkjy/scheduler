@@ -28,7 +28,7 @@ let main () =
   let s = survey_semester and
     c = survey_classes in
   let r = get_class s c Classes.empty in
-  List.map (fun x-> print_endline (string_of_int x)) (Classes.course_ids r) |> ignore;
-  ()
+  let combo_len = r |> Schedule.schedule_maker |> List.length in
+  print_endline ("Number of schedule combinations: " ^ (string_of_int combo_len))
 
 let () = main ()

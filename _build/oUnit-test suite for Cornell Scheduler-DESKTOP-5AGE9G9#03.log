@@ -1,24 +1,21 @@
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:2:get_semester & take_sem test 1.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:2:get_semester & take_sem test 1 is successful.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:2:get_semester & take_sem test 1.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:6:get_classes & take_class test 2.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:6:get_classes & take_class test 2 is successful.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:6:get_classes & take_class test 2.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:9:is_valid_sem test 1: wrong number 2.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:9:is_valid_sem test 1: wrong number 2 is successful.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:9:is_valid_sem test 1: wrong number 2.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:12:is_valid_sem test 3: wrong front letters & wrong number.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:12:is_valid_sem test 3: wrong front letters & wrong number is successful.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:12:is_valid_sem test 3: wrong front letters & wrong number.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:15:is_valid_class test 1: wrong number 1.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:15:is_valid_class test 1: wrong number 1 is successful.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:15:is_valid_class test 1: wrong number 1.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:19:is_valid_class test 4: wrong name 2.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:19:is_valid_class test 4: wrong name 2 is successful.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:19:is_valid_class test 4: wrong name 2.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:23:runner produces exn if query is bad.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:23:runner produces exn if query is bad is successful.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:23:runner produces exn if query is bad.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:68:cs components.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:68:cs components is successful.
-2020-04-24T00:58:53+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:68:cs components.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:2:get_semester & take_sem test 1.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:2:get_semester & take_sem test 1 is successful.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:2:get_semester & take_sem test 1.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:4:get_semester & delete_sem test 3.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:4:get_semester & delete_sem test 3 is successful.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:4:get_semester & delete_sem test 3.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:7:get_classes & delete_class test 3.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:7:get_classes & delete_class test 3 is successful.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:7:get_classes & delete_class test 3.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:10:is_valid_sem test 2: wrong front letters 1.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:10:is_valid_sem test 2: wrong front letters 1 is successful.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:10:is_valid_sem test 2: wrong front letters 1.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:15:is_valid_class test 1: wrong number 1.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:15:is_valid_class test 1: wrong number 1 is successful.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:15:is_valid_class test 1: wrong number 1.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:16:is_valid_class test 2: wrong number 2.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:16:is_valid_class test 2: wrong number 2 is successful.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:16:is_valid_class test 2: wrong number 2.
+2020-04-24T01:12:57+00:00 DESKTOP-5AGE9G9#03 I: Start test test suite for Cornell Scheduler:23:runner produces exn if query is bad.
+2020-04-24T01:13:00+00:00 DESKTOP-5AGE9G9#03 I: Test test suite for Cornell Scheduler:23:runner produces exn if query is bad is successful.
+2020-04-24T01:13:00+00:00 DESKTOP-5AGE9G9#03 I: End test test suite for Cornell Scheduler:23:runner produces exn if query is bad.
