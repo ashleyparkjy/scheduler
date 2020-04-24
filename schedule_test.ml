@@ -49,13 +49,16 @@ let schedule_tests =
 
     "1 element name" >:: (fun _ -> 
         assert_equal ~printer:(pp_string)
-          (empty |> add_section 10601 358556 x |> peak).course_name "Data Structures and Functional Programming");
+          (empty |> add_section 10601 358556 x |> peak).course_name
+          "Data Structures and Functional Programming");
     "1 element instructors" >:: (fun _ -> 
         assert_equal ~printer:(pp_list pp_string)
-          (empty |> add_section 10601 358556 x |> peak).instructors ["Nate Foster"]);
+          (empty |> add_section 10601 358556 x |> peak).instructors
+          ["Nate Foster"]);
     "1 element desc" >:: (fun _ -> 
         assert_equal ~printer:(pp_string)
-          (empty |> add_section 10601 358556 x |> peak).description "Advanced programming course that emphasizes functional programming techniques and data structures. Programming topics include recursive and higher-order procedures, models of programming language evaluation and compilation, type systems, and polymorphism. Data structures and algorithms covered include graph algorithms, balanced trees, memory heaps, and garbage collection. Also covers techniques for analyzing program performance and correctness.");
+          (empty |> add_section 10601 358556 x |> peak).description
+          "Advanced programming course that emphasizes functional programming techniques and data structures. Programming topics include recursive and higher-order procedures, models of programming language evaluation and compilation, type systems, and polymorphism. Data structures and algorithms covered include graph algorithms, balanced trees, memory heaps, and garbage collection. Also covers techniques for analyzing program performance and correctness.");
     "1 element units" >:: (fun _ -> 
         assert_equal
           (empty |> add_section 10601 358556 x |> peak).credits 4);
@@ -73,48 +76,59 @@ let schedule_tests =
           (empty |> add_section 10601 358556 x |> peak).section_number "001");
     "1 element start time" >:: (fun _ -> 
         assert_equal
-          (empty |> add_section 10601 358556 x |> peak).start_time {min=10;hr=10});
+          (empty |> add_section 10601 358556 x |> peak).start_time
+          {min=10;hr=10});
     "1 element end time" >:: (fun _ -> 
         assert_equal
-          (empty |> add_section 10601 358556 x |> peak).end_time {min=0;hr=11});
+          (empty |> add_section 10601 358556 x |> peak).end_time
+          {min=0;hr=11});
     "1 element section facility" >:: (fun _ -> 
         assert_equal ~printer:(pp_string)
-          (empty |> add_section 10601 358556 x |> peak).facility "Kennedy Hall 116-Call Aud");
+          (empty |> add_section 10601 358556 x |> peak).facility
+          "Kennedy Hall 116-Call Aud");
     "1 element section building" >:: (fun _ -> 
         assert_equal ~printer:(pp_string)
-          (empty |> add_section 10601 358556 x |> peak).building "Kennedy Hall");
+          (empty |> add_section 10601 358556 x |> peak).building
+          "Kennedy Hall");
 
     "2 element get events" >:: (fun _ -> 
         assert_equal
-          (empty |> add_section 10601 358556 x |> add_section 10602 358556 x |> get_events |> List.length) 2);
+          (empty |> add_section 10601 358556 x |> add_section 10602 358556 x
+           |> get_events |> List.length) 2);
 
     "4 elements" >:: (fun _ -> 
         assert_equal
-          (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> size) 4);
+          (empty |> add_section 10601 358556 x |> add_section 12401 358556 x
+           |> add_section 5326 352295 x |> add_section 8057 352295 x |> size) 4);
     "4 elements monday" >:: (fun _ -> 
         assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
           (List.map (fun z-> z.section_number)
-             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_monday))
+             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x
+              |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_monday))
           ["002"]);
     "4 elements tuesday" >:: (fun _ -> 
         assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
           (List.map (fun z-> z.section_number)
-             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_tuesday))
+             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x
+              |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_tuesday))
           ["001";"212"]);
     "4 elements wednesday" >:: (fun _ -> 
         assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
           (List.map (fun z-> z.section_number)
-             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_wednesday))
+             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x
+              |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_wednesday))
           ["002"]);
     "4 elements thursday" >:: (fun _ -> 
         assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
           (List.map (fun z-> z.section_number)
-             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_thursday))
+             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x
+              |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_thursday))
           ["001";"212"]);
     "4 elements friday" >:: (fun _ -> 
         assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
           (List.map (fun z-> z.section_number)
-             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_friday))
+             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x
+              |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_friday))
           ["002";"217"]);
 
     "make schedule" >:: (fun _ -> 
