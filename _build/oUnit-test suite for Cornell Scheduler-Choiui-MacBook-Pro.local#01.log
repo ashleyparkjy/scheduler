@@ -1,36 +1,18 @@
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:0:init_state test 1.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:0:init_state test 1 is successful.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:0:init_state test 1.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:3:get_semester & take_sem test 2.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:3:get_semester & take_sem test 2 is successful.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:3:get_semester & take_sem test 2.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:4:get_semester & delete_sem test 3.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:4:get_semester & delete_sem test 3 is successful.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:4:get_semester & delete_sem test 3.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:6:get_classes & take_class test 2.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:6:get_classes & take_class test 2 is successful.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:6:get_classes & take_class test 2.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:8:is_valid_sem test 1: wrong number 1.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:8:is_valid_sem test 1: wrong number 1 is successful.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:8:is_valid_sem test 1: wrong number 1.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:10:is_valid_sem test 2: wrong front letters 1.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:10:is_valid_sem test 2: wrong front letters 1 is successful.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:10:is_valid_sem test 2: wrong front letters 1.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:13:is_valid_sem test 4: correct front letters & number 1.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:13:is_valid_sem test 4: correct front letters & number 1 is successful.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:13:is_valid_sem test 4: correct front letters & number 1.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:14:is_valid_sem test 5: correct front letters & number 2.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:14:is_valid_sem test 5: correct front letters & number 2 is successful.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:14:is_valid_sem test 5: correct front letters & number 2.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:17:is_valid_class test 4: wrong number 3.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:17:is_valid_class test 4: wrong number 3 is successful.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:17:is_valid_class test 4: wrong number 3.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:19:is_valid_class test 4: wrong name 2.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:19:is_valid_class test 4: wrong name 2 is successful.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:19:is_valid_class test 4: wrong name 2.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:21:make_url.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:21:make_url is successful.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:21:make_url.
-2020-04-24T12:06:49+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:23:runner produces exn if query is bad.
-2020-04-24T12:06:50+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:23:runner produces exn if query is bad is successful.
-2020-04-24T12:06:50+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:23:runner produces exn if query is bad.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:0:time_to_min test 1.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:0:time_to_min test 1 is successful.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:0:time_to_min test 1.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:2:cmp list & sort test 1 (will output as reverse due to helper).
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:2:cmp list & sort test 1 (will output as reverse due to helper) is successful.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:2:cmp list & sort test 1 (will output as reverse due to helper).
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:4:is_dup test 1.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:4:is_dup test 1 is successful.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:4:is_dup test 1.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:6:end_time_compare test 1.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:6:end_time_compare test 1 is successful.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:6:end_time_compare test 1.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:8:check_day_schedule test 1.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:8:check_day_schedule test 1 is successful.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:8:check_day_schedule test 1.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: Start test test suite for Cornell Scheduler:9:check_day_schedule test 2.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: Test test suite for Cornell Scheduler:9:check_day_schedule test 2 is successful.
+2020-04-25T13:35:23+00:00 Choiui-MacBook-Pro.local#01 I: End test test suite for Cornell Scheduler:9:check_day_schedule test 2.
