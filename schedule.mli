@@ -50,23 +50,23 @@ val peak: t-> event
     schedule [t]. *)
 val get_events: t -> event list
 
-(** [get_events t] is the list of events that represents all events in
+(** [get_monday t] is the list of events that represents all events in
     schedule [t] on Monday. *)
 val get_monday: t -> event list
 
-(** [get_events t] is the list of events that represents all events in
+(** [get_tuesday t] is the list of events that represents all events in
     schedule [t] on Tuesday. *)
 val get_tuesday: t -> event list
 
-(** [get_events t] is the list of events that represents all events in
+(** [get_wednesday t] is the list of events that represents all events in
     schedule [t] on Wednesday. *)
 val get_wednesday: t -> event list
 
-(** [get_events t] is the list of events that represents all events in
+(** [get_thursday t] is the list of events that represents all events in
     schedule [t] on Thursday. *)
 val get_thursday: t -> event list
 
-(** [get_events t] is the list of events that represents all events in
+(** [get_friday t] is the list of events that represents all events in
     schedule [t] on Friday. *)
 val get_friday: t -> event list
 

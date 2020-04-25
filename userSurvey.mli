@@ -8,11 +8,18 @@ type t
 (** The abstract type of class id.*)
 type class_id
 
+(** The output type of UserSurvey. *)
+type t_output
+
 (** [get_semester st] is a string of semester for current state [st]. *)
 val get_semester : t -> string
 
 (** [get_classes st] is an association list of classes for current state [st]. *)
 val get_classes : t -> (string * string) list 
+
+(** [final_output st] is a record with semester of tuple list of classes 
+    inputted in final state [st]*)
+val final_output : t -> t_output
 
 (** [init_state] is the initial state of survey response where the answers to 
     all of the questions are set as empty *)
@@ -50,6 +57,10 @@ val take_class : t -> string list -> t
     answer to the survey question. The classes_input of [st] is a new string 
     list list that has all the elements except [tl]. *)
 val delete_class : t -> string list -> t
+
+(** [prompt_routine st] prompts user to answer routine question and updates 
+    corresponding information to [st]. It also handles any commands that are written. *)
+val prompt_routine : t -> unit
 
 (** [prompt_class st] prompts user to answer class question and updates 
     corresponding information to [st]. It also handles any commands that are written. *)
