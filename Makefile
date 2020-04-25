@@ -24,3 +24,6 @@ clean:
 launch:
 	$(OCAMLBUILD) $(MAIN) && ./$(MAIN)
 
+zip:
+  ocamlbuild -clean
+	zip scheduler.zip *

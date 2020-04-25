@@ -62,7 +62,7 @@ let is_valid_class (tl:string list) =
     and less than 9 classes, which generally satisfies the minimum and maximum
     credits required or available. *)
 let is_valid_class_st st = 
-  (List.length st.classes_input < 9) && (List.length st.classes_input > 3)
+  (List.length st.classes_input < 9) && (List.length st.classes_input > 1)
 
 (** [check_sem sem] is true if the inputted string [sem] is either "SP" or "FA".
     Otherwise, it is false. *)
@@ -150,7 +150,7 @@ let rec prompt_class st =
   match parse_class(read_line () |> String.uppercase_ascii) with
   | Quit -> st
   | Next -> if is_valid_class_st st then st
-    else (ANSITerminal.(print_string [red] ("You have too little(less than 3) or too much(more than 9) classes to proceed.\n")); prompt_class st)
+    else (ANSITerminal.(print_string [red] ("You have too little(less than 2) or too much(more than 9) classes to proceed.\n")); prompt_class st)
   | Delete tl when is_valid_class tl -> if ((tl |> delete_class st) <> st) then tl |> delete_class st |> prompt_class 
     else (ANSITerminal.(print_string [red] ("You can only delete one of the selected classes.\n")); prompt_class st)
   | Delete tl -> ANSITerminal.(print_string [red] ("Please enter a class in the valid format.\n")); prompt_class st

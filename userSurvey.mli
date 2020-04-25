@@ -9,7 +9,10 @@ type t
 type class_id
 
 (** The output type of UserSurvey. *)
-type t_output
+type t_output = {
+  final_semester: string;
+  final_classes: (string * string) list
+}
 
 (** [get_semester st] is a string of semester for current state [st]. *)
 val get_semester : t -> string

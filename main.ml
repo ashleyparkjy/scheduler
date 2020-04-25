@@ -1,13 +1,3 @@
-
-(** [survey_semester] is a string that represents the semester of the
-    classes. *)
-let survey_semester =
-  "SP20"
-
-(** [survey_classes] is a tuple of surveyed classes. *)
-let survey_classes =
-  ["CS","3110";"MATH","2930";"CS","2800";]
-
 (** Returns a roster of type [Classes] containing data from [roster] and new
     data from the class [c] in semester [s]. *)
 let rec get_class s c roster =
@@ -23,12 +13,14 @@ let rec get_class s c roster =
 let main () = 
   ANSITerminal.(print_string [blue]
                   "\n\nWelcome to Cornell Scheduler.\n");
-  (*UserSurvey.init_state |> UserSurvey.prompt_semester;*)
 
-  let s = survey_semester and
-    c = survey_classes in
+  let st = UserSurvey.init_state |> UserSurvey.prompt_semester |> UserSurvey.final_output in
+  let s = st.final_semester and
+    c = st.final_classes in
   let r = get_class s c Classes.empty in
-  let combo_len = r |> Schedule.schedule_maker |> List.length in
-  print_endline ("Number of schedule combinations: " ^ (string_of_int combo_len))
+  let raw_schedule = r |> Schedule.schedule_maker in
+  print_endline ("Number of schedule combinations: " ^ (raw_schedule |> List.length |> string_of_int));
+  let refined_schedule = raw_schedule |> Algorithm.filter_valid_schedule [] in
+  print_endline ("Number of non-conflicting schedule combinations: " ^ (refined_schedule |> List.length |> string_of_int))
 
 let () = main ()
