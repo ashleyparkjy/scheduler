@@ -64,9 +64,9 @@ val prompt_routine : t -> unit
 
 (** [prompt_class st] prompts user to answer class question and updates 
     corresponding information to [st]. It also handles any commands that are written. *)
-val prompt_class : t -> unit
+val prompt_class : t -> t
 
 (** [prompt_semester st] prompts user to answer semester question and updates 
     corresponding information to [st]. It also handles any commands that are written. *)
-val prompt_semester : t -> unit
+val prompt_semester : t -> t
 
