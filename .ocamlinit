@@ -17,3 +17,4 @@
 #load "userSurvey.cmo";;
 #load "classes.cmo";;
 #load "schedule.cmo";;
+#load "algorithm.cmo";;
