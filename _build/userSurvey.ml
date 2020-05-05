@@ -214,7 +214,7 @@ let print_class = function
 (** TODO - printing class_time  *)
 let print_class_time = function
     { classtime_input = classtime } -> if classtime = ("","") then "You have not yet selected the start time of your first and last class"
-    else "Start time of your first class: " ^ (fst classtime) ^ "\nStart time of your last class: " ^ (snd classtime)
+    else "Start time of your first class: " ^ (fst classtime) ^ "\n Start time of your last class: " ^ (snd classtime)
 
 let rec prompt_class_time st = 
   ANSITerminal.(print_string [green] ((print_class_time st)^"\n"));
