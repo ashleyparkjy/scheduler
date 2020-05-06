@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Classes.html">
+<link rel="next" href="Algorithm.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Authors" rel="Chapter" href="Authors.html">
+<link title="Main" rel="Chapter" href="Main.html">
+<link title="UserSurvey" rel="Chapter" href="UserSurvey.html">
+<link title="Command" rel="Chapter" href="Command.html">
+<link title="CourseJson" rel="Chapter" href="CourseJson.html">
+<link title="Classes" rel="Chapter" href="Classes.html">
+<link title="Schedule" rel="Chapter" href="Schedule.html">
+<link title="Algorithm" rel="Chapter" href="Algorithm.html"><title>Schedule</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Classes.html" title="Classes">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Algorithm.html" title="Algorithm">Next</a>
+</div>
+<h1>Module <a href="type_Schedule.html">Schedule</a></h1>
+
+<pre><span id="MODULESchedule"><span class="keyword">module</span> Schedule</span>: <code class="code">sig</code> <a href="Schedule.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Representation of a schedule.</p>
+
+<p>This module represents the configuration of classes stored in a schedule.</p>
+</div>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>The abstract type of values representing a schedule.</p>
+</div>
+</div>
+
+
+<pre><code><span id="TYPEevent"><span class="keyword">type</span> <code class="type"></code>event</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.course_name">course_name</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.description">description</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.course_id">course_id</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEcourse_id">Classes.course_id</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.credits">credits</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.subject">subject</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.catalog_number">catalog_number</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.event_type">event_type</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.section_id">section_id</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEsection_id">Classes.section_id</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.section_number">section_number</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.meeting_id">meeting_id</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEmeeting_id">Classes.meeting_id</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.start_time">start_time</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEtime">Classes.time</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.end_time">end_time</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEtime">Classes.time</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.instructors">instructors</span>&nbsp;: <code class="type">string list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.facility">facility</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.building">building</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.days">days</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEday">Classes.day</a> list</code>;</code></td>
+
+</tr></table>
+}
+
+<div class="info ">
+<div class="info-desc">
+<p>The type of event, representing one obligation with a set start and end
+    time.</p>
+</div>
+</div>
+
+
+<pre><span id="VALadd_section"><span class="keyword">val</span> add_section</span> : <code class="type"><a href="Classes.html#TYPEsection_id">Classes.section_id</a> -><br>       <a href="Classes.html#TYPEcourse_id">Classes.course_id</a> -> <a href="Classes.html#TYPEt">Classes.t</a> -> <a href="Schedule.html#TYPEt">t</a> -> <a href="Schedule.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">add_section s c r t</code> is the schedule <code class="code">t</code> with the addition of section <code class="code">s</code>
+    of class <code class="code">c</code> in roster <code class="code">r</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound s</code> if <code class="code">s</code> is not a valid course id.</p>
+</div>
+</div>
+
+<pre><span id="VALempty"><span class="keyword">val</span> empty</span> : <code class="type"><a href="Schedule.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">empty</code> is the representation of the empty schedule.</p>
+</div>
+</div>
+
+<pre><span id="VALis_empty"><span class="keyword">val</span> is_empty</span> : <code class="type"><a href="Schedule.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">is_empty t</code> is true if <code class="code">t</code> is empty. Else, false.</p>
+</div>
+</div>
+
+<pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type"><a href="Schedule.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">size t</code> is the number of sections in schedule <code class="code">t</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALpeak"><span class="keyword">val</span> peak</span> : <code class="type"><a href="Schedule.html#TYPEt">t</a> -> <a href="Schedule.html#TYPEevent">event</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">peak t</code> gives an element of <code class="code">t</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALget_events"><span class="keyword">val</span> get_events</span> : <code class="type"><a href="Schedule.html#TYPEt">t</a> -> <a href="Schedule.html#TYPEevent">event</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_events t</code> is the list of events that represents all events in
+    schedule <code class="code">t</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALget_monday"><span class="keyword">val</span> get_monday</span> : <code class="type"><a href="Schedule.html#TYPEt">t</a> -> <a href="Schedule.html#TYPEevent">event</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_monday t</code> is the list of events that represents all events in
+    schedule <code class="code">t</code> on Monday.</p>
+</div>
+</div>
+
+<pre><span id="VALget_tuesday"><span class="keyword">val</span> get_tuesday</span> : <code class="type"><a href="Schedule.html#TYPEt">t</a> -> <a href="Schedule.html#TYPEevent">event</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_tuesday t</code> is the list of events that represents all events in
+    schedule <code class="code">t</code> on Tuesday.</p>
+</div>
+</div>
+
+<pre><span id="VALget_wednesday"><span class="keyword">val</span> get_wednesday</span> : <code class="type"><a href="Schedule.html#TYPEt">t</a> -> <a href="Schedule.html#TYPEevent">event</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_wednesday t</code> is the list of events that represents all events in
+    schedule <code class="code">t</code> on Wednesday.</p>
+</div>
+</div>
+
+<pre><span id="VALget_thursday"><span class="keyword">val</span> get_thursday</span> : <code class="type"><a href="Schedule.html#TYPEt">t</a> -> <a href="Schedule.html#TYPEevent">event</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_thursday t</code> is the list of events that represents all events in
+    schedule <code class="code">t</code> on Thursday.</p>
+</div>
+</div>
+
+<pre><span id="VALget_friday"><span class="keyword">val</span> get_friday</span> : <code class="type"><a href="Schedule.html#TYPEt">t</a> -> <a href="Schedule.html#TYPEevent">event</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_friday t</code> is the list of events that represents all events in
+    schedule <code class="code">t</code> on Friday.</p>
+</div>
+</div>
+
+<pre><span id="VALschedule_maker"><span class="keyword">val</span> schedule_maker</span> : <code class="type"><a href="Classes.html#TYPEt">Classes.t</a> -> <a href="Schedule.html#TYPEt">t</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">schedule_maker r</code> is a list of schedules of type <code class="code">t</code>, that represents
+    all possible schedules as a result of permutations of classes in <code class="code">c</code>.</p>
+</div>
+</div>
+</body></html>

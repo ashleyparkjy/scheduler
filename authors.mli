@@ -1,6 +1,8 @@
 (**
    Metadata about this submission.
-   @author Junho Kim-Lee (jk2333), Ashley Park (ap764), Kyu Hwan Choi (kc677).
+   @author Junho Kim-Lee (jk2333)
+   @author Ashley Park (ap764)
+   @author Kyu Hwan Choi (kc677)
    @attributions Makefile is based on the standard assignment Makefile from the
    CS3110 course staff. The structure of classes.ml is loosely based around
    adventure.ml from A2. The structure of command.ml is loosely based on the

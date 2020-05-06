@@ -1,0 +1,737 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="CourseJson.html">
+<link rel="next" href="Schedule.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Authors" rel="Chapter" href="Authors.html">
+<link title="Main" rel="Chapter" href="Main.html">
+<link title="UserSurvey" rel="Chapter" href="UserSurvey.html">
+<link title="Command" rel="Chapter" href="Command.html">
+<link title="CourseJson" rel="Chapter" href="CourseJson.html">
+<link title="Classes" rel="Chapter" href="Classes.html">
+<link title="Schedule" rel="Chapter" href="Schedule.html">
+<link title="Algorithm" rel="Chapter" href="Algorithm.html"><title>Classes</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="CourseJson.html" title="CourseJson">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Schedule.html" title="Schedule">Next</a>
+</div>
+<h1>Module <a href="type_Classes.html">Classes</a></h1>
+
+<pre><span id="MODULEClasses"><span class="keyword">module</span> Classes</span>: <code class="code">sig</code> <a href="Classes.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Representation of a list of course data.</p>
+
+<p>This module represents the data stored in course json files from the Class
+   Roster API.</p>
+</div>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEcourse_id"><span class="keyword">type</span> <code class="type"></code>course_id</span> = <code class="type">int</code> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>The type of course identifier.</p>
+</div>
+</div>
+
+
+<pre><span id="TYPEsection_id"><span class="keyword">type</span> <code class="type"></code>section_id</span> = <code class="type">int</code> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>The type of section identifier.</p>
+</div>
+</div>
+
+
+<pre><span id="TYPEmeeting_id"><span class="keyword">type</span> <code class="type"></code>meeting_id</span> = <code class="type">int</code> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>The type of class meeting identifier.</p>
+</div>
+</div>
+
+
+<pre><span id="TYPEinstructor_id"><span class="keyword">type</span> <code class="type"></code>instructor_id</span> = <code class="type">string</code> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>The type of instructor identifier.</p>
+</div>
+</div>
+
+
+<pre><code><span id="TYPEtime"><span class="keyword">type</span> <code class="type"></code>time</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTtime.min">min</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTtime.hr">hr</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr></table>
+}
+
+<div class="info ">
+<div class="info-desc">
+<p>The type of time in 24-hour format.</p>
+</div>
+</div>
+
+
+<pre><code><span id="TYPEday"><span class="keyword">type</span> <code class="type"></code>day</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTday.Monday"><span class="constructor">Monday</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTday.Tuesday"><span class="constructor">Tuesday</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTday.Wednesday"><span class="constructor">Wednesday</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTday.Thursday"><span class="constructor">Thursday</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTday.Friday"><span class="constructor">Friday</span></span></code></td>
+
+</tr></table>
+
+<div class="info ">
+<div class="info-desc">
+<p>The type of day.</p>
+</div>
+</div>
+
+
+<pre><span id="EXCEPTIONBadUnits"><span class="keyword">exception</span> BadUnits</span> <span class="keyword">of</span> <code class="type"><a href="Classes.html#TYPEcourse_id">course_id</a></code></pre>
+<div class="info ">
+<div class="info-desc">
+<p>Raised when an inconsistent amount of units is encountered for a course.</p>
+</div>
+</div>
+
+<pre><span id="EXCEPTIONBadQuery"><span class="keyword">exception</span> BadQuery</span></pre>
+<div class="info ">
+<div class="info-desc">
+<p>Raised when a JSON search query does not return any results.</p>
+</div>
+</div>
+
+<pre><span id="EXCEPTIONClassNotFound"><span class="keyword">exception</span> ClassNotFound</span> <span class="keyword">of</span> <code class="type"><a href="Classes.html#TYPEcourse_id">course_id</a></code></pre>
+<div class="info ">
+<div class="info-desc">
+<p>Raised when the class is not found.</p>
+</div>
+</div>
+
+<pre><span id="EXCEPTIONSectionNotFound"><span class="keyword">exception</span> SectionNotFound</span> <span class="keyword">of</span> <code class="type"><a href="Classes.html#TYPEsection_id">section_id</a></code></pre>
+<div class="info ">
+<div class="info-desc">
+<p>Raised when the section is not found.</p>
+</div>
+</div>
+
+<pre><span id="EXCEPTIONMeetingNotFound"><span class="keyword">exception</span> MeetingNotFound</span> <span class="keyword">of</span> <code class="type"><a href="Classes.html#TYPEmeeting_id">meeting_id</a></code></pre>
+<div class="info ">
+<div class="info-desc">
+<p>Raised when the meeting is not found.</p>
+</div>
+</div>
+
+<pre><span id="EXCEPTIONInstructorNotFound"><span class="keyword">exception</span> InstructorNotFound</span> <span class="keyword">of</span> <code class="type"><a href="Classes.html#TYPEinstructor_id">instructor_id</a></code></pre>
+<div class="info ">
+<div class="info-desc">
+<p>Raised when the instructor is not found.</p>
+</div>
+</div>
+
+<pre><span id="EXCEPTIONBadDate"><span class="keyword">exception</span> BadDate</span> <span class="keyword">of</span> <code class="type">string</code></pre>
+<div class="info ">
+<div class="info-desc">
+<p>Raised when date is of bad type.</p>
+</div>
+</div>
+
+<pre><span id="EXCEPTIONBadTime"><span class="keyword">exception</span> BadTime</span> <span class="keyword">of</span> <code class="type">string</code></pre>
+<div class="info ">
+<div class="info-desc">
+<p>Raised when time is of bad type.</p>
+</div>
+</div>
+
+<pre><code><span id="TYPEprofessors"><span class="keyword">type</span> <code class="type"></code>professors</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTprofessors.first_name">first_name</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTprofessors.middle_name">middle_name</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTprofessors.last_name">last_name</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTprofessors.net_id">net_id</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr></table>
+}
+
+<div class="info ">
+<div class="info-desc">
+<p>The type of professor.</p>
+</div>
+</div>
+
+
+<pre><code><span id="TYPEmeetings"><span class="keyword">type</span> <code class="type"></code>meetings</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTmeetings.class_mtg_number">class_mtg_number</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEmeeting_id">meeting_id</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTmeetings.time_start">time_start</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEtime">time</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTmeetings.time_end">time_end</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEtime">time</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTmeetings.instructors">instructors</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEprofessors">professors</a> list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTmeetings.pattern">pattern</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEday">day</a> list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTmeetings.facility_descr">facility_descr</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTmeetings.bldg_descr">bldg_descr</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr></table>
+}
+
+<div class="info ">
+<div class="info-desc">
+<p>The type of meeting.</p>
+</div>
+</div>
+
+
+<pre><code><span id="TYPEsections"><span class="keyword">type</span> <code class="type"></code>sections</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsections.section_type">section_type</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsections.section">section</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsections.class_nbr">class_nbr</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEsection_id">section_id</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsections.meetings">meetings</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEmeetings">meetings</a> list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsections.campus">campus</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr></table>
+}
+
+<div class="info ">
+<div class="info-desc">
+<p>The type of section.</p>
+</div>
+</div>
+
+
+<pre><code><span id="TYPEclasses"><span class="keyword">type</span> <code class="type"></code>classes</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTclasses.crse_id">crse_id</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEcourse_id">course_id</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTclasses.subject">subject</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTclasses.catalog_nbr">catalog_nbr</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTclasses.title_short">title_short</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTclasses.title_long">title_long</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTclasses.class_sections">class_sections</span>&nbsp;: <code class="type"><a href="Classes.html#TYPEsections">sections</a> list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTclasses.units">units</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTclasses.components_required">components_required</span>&nbsp;: <code class="type">string list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTclasses.description">description</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr></table>
+}
+
+<div class="info ">
+<div class="info-desc">
+<p>The type of class.</p>
+</div>
+</div>
+
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type"><a href="Classes.html#TYPEclasses">classes</a> list</code> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>The abstract type of values representing a compilation of courses.</p>
+</div>
+</div>
+
+
+<pre><span id="VALto_time"><span class="keyword">val</span> to_time</span> : <code class="type">string -> <a href="Classes.html#TYPEtime">time</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">to_time t</code> converts string in the format HH:MMXM to a time of type
+    <code class="code">time</code>.
+    Requires: t is a valid time string.</p>
+</div>
+</div>
+
+<pre><span id="VALto_day"><span class="keyword">val</span> to_day</span> : <code class="type"><a href="Classes.html#TYPEday">day</a> list -> string -> <a href="Classes.html#TYPEday">day</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">to_time l t</code> converts <code class="code">t</code> to a list of day types and appends it to
+    <code class="code">l</code>.
+    M -&gt; Monday
+    T -&gt; Tuesday
+    W -&gt; Wednesday
+    R -&gt; Thursday
+    F -&gt; Friday
+    Raises: <code class="code">BadDate t</code> if date is invalid.</p>
+</div>
+</div>
+
+<pre><span id="VALto_string_robust"><span class="keyword">val</span> to_string_robust</span> : <code class="type">Yojson.Basic.t -> string</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">to_string_robust</code> is the string of Yojson.Basic.t <code class="code">x</code>, but is "" if
+    <code class="code">x</code> is null.</p>
+</div>
+</div>
+
+<pre><span id="VALprofessor_of_json"><span class="keyword">val</span> professor_of_json</span> : <code class="type">Yojson.Basic.t -> <a href="Classes.html#TYPEprofessors">professors</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">professor_of_json j</code> is a record of type for professorswith contents of j
+    parsed into that type.</p>
+</div>
+</div>
+
+<pre><span id="VALmeeting_of_json"><span class="keyword">val</span> meeting_of_json</span> : <code class="type">Yojson.Basic.t -> <a href="Classes.html#TYPEmeetings">meetings</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">meeting_of_json j</code> is a record of type meetings with the contents of j
+    parsed into that type.</p>
+</div>
+</div>
+
+<pre><span id="VALsection_of_json"><span class="keyword">val</span> section_of_json</span> : <code class="type">Yojson.Basic.t -> <a href="Classes.html#TYPEsections">sections</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">class_of_json j</code> is a record of type sections with the contents of j
+    parsed into that type.</p>
+</div>
+</div>
+
+<pre><span id="VALclass_of_json"><span class="keyword">val</span> class_of_json</span> : <code class="type">Yojson.Basic.t -> <a href="Classes.html#TYPEclasses">classes</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">class_of_json j</code> is a record of type classes with the contents of j
+    parsed into that type.</p>
+</div>
+</div>
+
+<pre><span id="VALfrom_json"><span class="keyword">val</span> from_json</span> : <code class="type">Yojson.Basic.t -> <a href="Classes.html#TYPEclasses">classes</a> list -> <a href="Classes.html#TYPEclasses">classes</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">from_json j t</code> is the class compilation data type containing <code class="code">t</code> and the
+    additional class that <code class="code">j</code> represents.
+    Requires: <code class="code">j</code> is a valid JSON class representation with only one enroll
+    group and <code class="code">t</code> is a valid type <code class="code">t</code>.
+    Raises: <code class="code">BadQuery</code> if JSON contains no class data.</p>
+</div>
+</div>
+
+<pre><span id="VALempty"><span class="keyword">val</span> empty</span> : <code class="type">'a list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">empty</code> is a data type of type t representing no classes.</p>
+</div>
+</div>
+
+<pre><span id="VALis_empty"><span class="keyword">val</span> is_empty</span> : <code class="type">'a list -> bool</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">is_empty j</code> is <code class="code">true</code> if <code class="code">j</code> represents no classes. Else, <code class="code">false</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type">'a list -> int</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">size t</code> is the size of the class list denoted by <code class="code">t</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALcourse_ids"><span class="keyword">val</span> course_ids</span> : <code class="type"><a href="Classes.html#TYPEclasses">classes</a> list -> <a href="Classes.html#TYPEcourse_id">course_id</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">course_ids c</code> is a list of all course id's in <code class="code">c</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALget_class"><span class="keyword">val</span> get_class</span> : <code class="type"><a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> <a href="Classes.html#TYPEclasses">classes</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_class c ros</code> is data of type classes that contains information on
+    class <code class="code">c</code> in <code class="code">ros</code>.
+    Raises ClassNotFound if <code class="code">c</code> is not valid.</p>
+</div>
+</div>
+
+<pre><span id="VALsubject"><span class="keyword">val</span> subject</span> : <code class="type"><a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> string</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">subject t c</code> is the subject of course <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.</p>
+</div>
+</div>
+
+<pre><span id="VALcatalog_number"><span class="keyword">val</span> catalog_number</span> : <code class="type"><a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> int</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">catalog_number t c</code> is the catalog number of course <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.</p>
+</div>
+</div>
+
+<pre><span id="VALtitle_short"><span class="keyword">val</span> title_short</span> : <code class="type"><a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> string</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">title_short t c</code> is the shortened title of course <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.</p>
+</div>
+</div>
+
+<pre><span id="VALtitle_long"><span class="keyword">val</span> title_long</span> : <code class="type"><a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> string</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">title_short t c</code> is the full title of course <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.</p>
+</div>
+</div>
+
+<pre><span id="VALsections"><span class="keyword">val</span> sections</span> : <code class="type"><a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> <a href="Classes.html#TYPEsection_id">section_id</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">sections t c</code> is the list of section numbers of course <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.</p>
+</div>
+</div>
+
+<pre><span id="VALget_section_helper"><span class="keyword">val</span> get_section_helper</span> : <code class="type"><a href="Classes.html#TYPEsection_id">section_id</a> -> <a href="Classes.html#TYPEsections">sections</a> list -> <a href="Classes.html#TYPEsections">sections</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_section_helper s s_list</code> searches for and returns the section in
+    s_list if that section has section_id of <code class="code">s</code>.
+    Raises: <code class="code">SectionNotFound</code> if <code class="code">s</code> is not in <code class="code">s_list</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALget_section"><span class="keyword">val</span> get_section</span> : <code class="type"><a href="Classes.html#TYPEsection_id">section_id</a> -><br>       <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> <a href="Classes.html#TYPEsections">sections</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_section s c ros</code> is data of type sections that contains information on
+    section <code class="code">s</code> in class <code class="code">c</code> in <code class="code">ros</code>.
+    Raises: <code class="code">ClassNotFound</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound</code> if <code class="code">s</code> is not a valid section id.</p>
+</div>
+</div>
+
+<pre><span id="VALsection_type"><span class="keyword">val</span> section_type</span> : <code class="type"><a href="Classes.html#TYPEsection_id">section_id</a> -> <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> string</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">section_type s c t</code> is the section type of section <code class="code">s</code> of course <code class="code">c</code> in
+    <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound s</code> if <code class="code">s</code> is not a valid course id.</p>
+</div>
+</div>
+
+<pre><span id="VALsection_number"><span class="keyword">val</span> section_number</span> : <code class="type"><a href="Classes.html#TYPEsection_id">section_id</a> -> <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> string</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">section_number s c t</code> is the section number of section <code class="code">s</code> of course <code class="code">c</code> in
+    <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound s</code> if <code class="code">s</code> is not a valid course id.</p>
+</div>
+</div>
+
+<pre><span id="VALmeetings"><span class="keyword">val</span> meetings</span> : <code class="type"><a href="Classes.html#TYPEsection_id">section_id</a> -><br>       <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> <a href="Classes.html#TYPEmeeting_id">meeting_id</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">meetings s c t</code> is the list of meeting id's for section <code class="code">s</code> of course <code class="code">c</code>
+    in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound s</code> if <code class="code">s</code> is not a valid course id.</p>
+</div>
+</div>
+
+<pre><span id="VALget_meeting_helper"><span class="keyword">val</span> get_meeting_helper</span> : <code class="type"><a href="Classes.html#TYPEmeeting_id">meeting_id</a> -> <a href="Classes.html#TYPEmeetings">meetings</a> list -> <a href="Classes.html#TYPEmeetings">meetings</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_meeting_helper m m_list</code> searches for and returns the meeting in <code class="code">m_list</code>
+    if that meeting has meeting_id of <code class="code">m</code>.
+    Raises: <code class="code">MeetingNotFound</code> if <code class="code">m</code> is not in <code class="code">m_list</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALget_meeting"><span class="keyword">val</span> get_meeting</span> : <code class="type"><a href="Classes.html#TYPEmeeting_id">meeting_id</a> -><br>       <a href="Classes.html#TYPEsection_id">section_id</a> -><br>       <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> <a href="Classes.html#TYPEmeetings">meetings</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_meeting m s c ros</code> is data of type meetings that contains information
+    on meeting <code class="code">m</code> in section <code class="code">s</code> in class <code class="code">c</code> in <code class="code">ros</code>.
+    Raises: <code class="code">ClassNotFound</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound</code> if <code class="code">s</code> is not a valid section id.
+    <code class="code">MeetingNotFound</code> if <code class="code">m</code> is not a valid meeting id.</p>
+</div>
+</div>
+
+<pre><span id="VALstart_time"><span class="keyword">val</span> start_time</span> : <code class="type"><a href="Classes.html#TYPEmeeting_id">meeting_id</a> -><br>       <a href="Classes.html#TYPEsection_id">section_id</a> -><br>       <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> <a href="Classes.html#TYPEtime">time</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">start_time m s c t</code> is the start time of meeting <code class="code">m</code> of section <code class="code">s</code> in
+    class <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound s</code> if <code class="code">s</code> is not a valid course id.
+    <code class="code">MeetingNotFound m</code> if <code class="code">m</code> is not a valid meeting id.</p>
+</div>
+</div>
+
+<pre><span id="VALend_time"><span class="keyword">val</span> end_time</span> : <code class="type"><a href="Classes.html#TYPEmeeting_id">meeting_id</a> -><br>       <a href="Classes.html#TYPEsection_id">section_id</a> -><br>       <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> <a href="Classes.html#TYPEtime">time</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">end_time m s c t</code> is the end time of meeting <code class="code">m</code> of section <code class="code">s</code> in
+    class <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound s</code> if <code class="code">s</code> is not a valid course id.
+    <code class="code">MeetingNotFound m</code> if <code class="code">m</code> is not a valid meeting id.</p>
+</div>
+</div>
+
+<pre><span id="VALinstructors"><span class="keyword">val</span> instructors</span> : <code class="type"><a href="Classes.html#TYPEmeeting_id">meeting_id</a> -><br>       <a href="Classes.html#TYPEsection_id">section_id</a> -><br>       <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> string list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">instructors m s c t</code> is a list of instructor id's of meeting <code class="code">m</code> of
+    section <code class="code">s</code> in class <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound s</code> if <code class="code">s</code> is not a valid course id.
+    <code class="code">MeetingNotFound m</code> if <code class="code">m</code> is not a valid meeting id.</p>
+</div>
+</div>
+
+<pre><span id="VALget_instructor_helper"><span class="keyword">val</span> get_instructor_helper</span> : <code class="type"><a href="Classes.html#TYPEinstructor_id">instructor_id</a> -> <a href="Classes.html#TYPEprofessors">professors</a> list -> <a href="Classes.html#TYPEprofessors">professors</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_instructor_helper i i_list</code> searches for and returns the instructor
+    in <code class="code">i_list</code>if that instructor has net_id <code class="code">i</code>.
+    Raises: <code class="code">InstructorNotFound</code> if <code class="code">i</code> is not in <code class="code">i_list</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALget_instructor"><span class="keyword">val</span> get_instructor</span> : <code class="type"><a href="Classes.html#TYPEinstructor_id">instructor_id</a> -><br>       <a href="Classes.html#TYPEmeeting_id">meeting_id</a> -><br>       <a href="Classes.html#TYPEsection_id">section_id</a> -><br>       <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> <a href="Classes.html#TYPEprofessors">professors</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">get_instructor i m s c ros</code> is data of type instructor that contains
+    information on instructor <code class="code">i</code> in meeting <code class="code">m</code> in section <code class="code">s</code> in class <code class="code">c</code>
+    in <code class="code">ros</code>.
+    Raises: <code class="code">ClassNotFound</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound</code> if <code class="code">s</code> is not a valid section id.
+    <code class="code">MeetingNotFound</code> if <code class="code">m</code> is not a valid meeting id.
+    <code class="code">InstructorNotFound</code> if <code class="code">i</code> is not a valid instructor id.</p>
+</div>
+</div>
+
+<pre><span id="VALinstructor_name"><span class="keyword">val</span> instructor_name</span> : <code class="type"><a href="Classes.html#TYPEinstructor_id">instructor_id</a> -><br>       <a href="Classes.html#TYPEmeeting_id">meeting_id</a> -><br>       <a href="Classes.html#TYPEsection_id">section_id</a> -> <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> string</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">instructor_name i m s c t</code> is the full name of instructor <code class="code">i</code> of
+    meeting <code class="code">m</code> of section <code class="code">s</code> in class <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound s</code> if <code class="code">s</code> is not a valid course id.
+    <code class="code">MeetingNotFound m</code> if <code class="code">m</code> is not a valid meeting id.
+    <code class="code">InstructorNotFound i</code> if <code class="code">i</code> is not a valid instructor id.</p>
+</div>
+</div>
+
+<pre><span id="VALpattern"><span class="keyword">val</span> pattern</span> : <code class="type"><a href="Classes.html#TYPEmeeting_id">meeting_id</a> -><br>       <a href="Classes.html#TYPEsection_id">section_id</a> -><br>       <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> <a href="Classes.html#TYPEday">day</a> list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">pattern m s c t</code> is the meeting pattern of meeting <code class="code">m</code> of section <code class="code">s</code> in
+    class <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound s</code> if <code class="code">s</code> is not a valid course id.
+    <code class="code">MeetingNotFound m</code> if <code class="code">m</code> is not a valid meeting id.</p>
+</div>
+</div>
+
+<pre><span id="VALfacility_description"><span class="keyword">val</span> facility_description</span> : <code class="type"><a href="Classes.html#TYPEmeeting_id">meeting_id</a> -><br>       <a href="Classes.html#TYPEsection_id">section_id</a> -> <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> string</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">facility_description m s c t</code> is the description of the meeting facility
+    of meeting <code class="code">m</code> of section <code class="code">s</code> in class <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound s</code> if <code class="code">s</code> is not a valid course id.
+    <code class="code">MeetingNotFound m</code> if <code class="code">m</code> is not a valid meeting id.</p>
+</div>
+</div>
+
+<pre><span id="VALbuilding_description"><span class="keyword">val</span> building_description</span> : <code class="type"><a href="Classes.html#TYPEmeeting_id">meeting_id</a> -><br>       <a href="Classes.html#TYPEsection_id">section_id</a> -> <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> string</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">building_description m s c t</code> is the description of the building of
+    meeting <code class="code">m</code> of section <code class="code">s</code> in class <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound s</code> if <code class="code">s</code> is not a valid course id.
+    <code class="code">MeetingNotFound m</code> if <code class="code">m</code> is not a valid meeting id.</p>
+</div>
+</div>
+
+<pre><span id="VALcampus"><span class="keyword">val</span> campus</span> : <code class="type"><a href="Classes.html#TYPEsection_id">section_id</a> -> <a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> string</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">campus s c t</code> is the campus location of section <code class="code">s</code> of course <code class="code">c</code> in
+    <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">SectionNotFound s</code> if <code class="code">s</code> is not a valid course id.</p>
+</div>
+</div>
+
+<pre><span id="VALunits"><span class="keyword">val</span> units</span> : <code class="type"><a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> int</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">units c t</code> is the number of units correlated with the class <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.
+    <code class="code">BadUnits c</code> if units are not consistent.</p>
+</div>
+</div>
+
+<pre><span id="VALcomponents_required"><span class="keyword">val</span> components_required</span> : <code class="type"><a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> string list</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">components_required c t</code> is a list of the components required to take
+    class <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.</p>
+</div>
+</div>
+
+<pre><span id="VALdescription"><span class="keyword">val</span> description</span> : <code class="type"><a href="Classes.html#TYPEcourse_id">course_id</a> -> <a href="Classes.html#TYPEclasses">classes</a> list -> string</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">description c t</code> is the description of class <code class="code">c</code> in <code class="code">t</code>.
+    Raises: <code class="code">ClassNotFound c</code> if <code class="code">c</code> is not a valid course id.</p>
+</div>
+</div>
+</body></html>

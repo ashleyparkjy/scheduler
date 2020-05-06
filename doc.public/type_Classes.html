@@ -1,0 +1,80 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Authors" rel="Chapter" href="Authors.html">
+<link title="Main" rel="Chapter" href="Main.html">
+<link title="UserSurvey" rel="Chapter" href="UserSurvey.html">
+<link title="Command" rel="Chapter" href="Command.html">
+<link title="CourseJson" rel="Chapter" href="CourseJson.html">
+<link title="Classes" rel="Chapter" href="Classes.html">
+<link title="Schedule" rel="Chapter" href="Schedule.html">
+<link title="Algorithm" rel="Chapter" href="Algorithm.html"><title>Classes</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;course_id&nbsp;=&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;section_id&nbsp;=&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;meeting_id&nbsp;=&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;instructor_id&nbsp;=&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;time&nbsp;=&nbsp;{&nbsp;min&nbsp;:&nbsp;int;&nbsp;hr&nbsp;:&nbsp;int;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;day&nbsp;=&nbsp;<span class="constructor">Monday</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Tuesday</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Wednesday</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Thursday</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Friday</span><br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">BadUnits</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Classes</span>.course_id<br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">BadQuery</span><br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">ClassNotFound</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Classes</span>.course_id<br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">SectionNotFound</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Classes</span>.section_id<br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">MeetingNotFound</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Classes</span>.meeting_id<br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">InstructorNotFound</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Classes</span>.instructor_id<br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">BadDate</span>&nbsp;<span class="keyword">of</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">BadTime</span>&nbsp;<span class="keyword">of</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;from_json&nbsp;:&nbsp;<span class="constructor">Yojson</span>.<span class="constructor">Basic</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;empty&nbsp;:&nbsp;<span class="constructor">Classes</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_empty&nbsp;:&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;size&nbsp;:&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;course_ids&nbsp;:&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;subject&nbsp;:&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;catalog_number&nbsp;:&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;title_short&nbsp;:&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;title_long&nbsp;:&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;sections&nbsp;:&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.section_id&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;section_type&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.section_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;section_number&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.section_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;meetings&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.section_id&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.meeting_id&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;start_time&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.meeting_id&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.section_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.time<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;end_time&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.meeting_id&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.section_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.time<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;instructors&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.meeting_id&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.section_id&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.instructor_id&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;instructor_name&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.instructor_id&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.meeting_id&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.section_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;pattern&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.meeting_id&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.section_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.day&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;facility_description&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.meeting_id&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.section_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;building_description&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.meeting_id&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Classes</span>.section_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;campus&nbsp;:&nbsp;<span class="constructor">Classes</span>.section_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;units&nbsp;:&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;components_required&nbsp;:&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;description&nbsp;:&nbsp;<span class="constructor">Classes</span>.course_id&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Classes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+<span class="keyword">end</span></code></body></html>
