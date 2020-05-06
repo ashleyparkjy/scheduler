@@ -47,7 +47,7 @@ val parse_class : string -> command
     first word of [str] becomes the verb. The rest of the words, if any, become
     the object phrase. 
     Examples:
-    - [parse "TAKE CS 3110"] is [Take ["CS"; "3110"]] 
+    - [parse "TAKE SP20"] is [Take ["SP20"]] 
     - [parse "QUIT"] is [Quit]. 
 
     Requires: [str] contains only alphanumeric (A-Z, a-z, 0-9) and space 
@@ -64,6 +64,44 @@ val parse_class : string -> command
 *)
 val parse_semester : string -> command
 
+(** [parse_semester str] parses a user's input into a [command], as follows. The
+    first word of [str] becomes the verb. The rest of the words, if any, become
+    the object phrase. 
+    Examples:
+    - [parse "TAKE 11:00 17:00"] is [Take ["11:00"; "17:00"]] 
+    - [parse "QUIT"] is [Quit]. 
+
+    Requires: [str] contains only alphanumeric (A-Z, a-z, 0-9) and space 
+    characters (only ASCII character code 32; not tabs or newlines, etc.).
+
+    Raises: [Empty] is [str] is the empty string or contains only spaces. 
+
+    Raises: [Malformed] if the command is malformed. A command is {i malformed} 
+    if the verb is neither of "QUIT", "NEXT", "DELETE", "TAKE",
+    or if the verb is "QUIT" and there is a non-empty object phrase, 
+    or if the verb is "NEXT" and there is a non-empty object phrase,
+    or if the verb is "DELETE" and the length of object phrase is not 0,
+    or if the verb is "TAKE" and the length of object phrase is not 2.
+*)
 val parse_class_time : string -> command
 
+(** [parse_semester str] parses a user's input into a [command], as follows. The
+    first word of [str] becomes the verb. The rest of the words, if any, become
+    the object phrase. 
+    Examples:
+    - [parse "TAKE Y"] is [Take ["Y"]] 
+    - [parse "QUIT"] is [Quit]. 
+
+    Requires: [str] contains only alphanumeric (A-Z, a-z, 0-9) and space 
+    characters (only ASCII character code 32; not tabs or newlines, etc.).
+
+    Raises: [Empty] is [str] is the empty string or contains only spaces. 
+
+    Raises: [Malformed] if the command is malformed. A command is {i malformed} 
+    if the verb is neither of "QUIT", "NEXT", "DELETE", "TAKE",
+    or if the verb is "QUIT" and there is a non-empty object phrase, 
+    or if the verb is "NEXT" and there is a non-empty object phrase,
+    or if the verb is "DELETE" and the length of object phrase is not 0,
+    or if the verb is "TAKE" and the length of object phrase is not 1.
+*)
 val parse_YN: string -> command

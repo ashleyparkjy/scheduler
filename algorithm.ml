@@ -136,22 +136,10 @@ let check_lunch_time event_l =
     | [] -> acc in
   (lunch_duration 120 event_l) >= 60
 
-(* let rec check_lunch_time event_l = 
-   let lunch_duration acc event_l = 
-    match event_l with
-    | hd::tl -> if (hd|>to_comparable_event).start_time_min < 660 && (hd|>to_comparable_event).end_time_min > 660 
-      then check_lunch_time (acc-((hd|>to_comparable_event).end_time_min - 660)) tl
-      else if (hd|>to_comparable_event).start_time_min >= 660 && (hd|>to_comparable_event).end_time_min <= 780
-      then check_lunch_time (acc-((hd|>to_comparable_event).end_time_min - (hd|>to_comparable_event).start_time_min)) tl 
-      else check_lunch_time (780 - (hd|>to_comparable_event).start_time_min) tl
-    | [] -> acc in
-   (lunch_duration 120 event_l) >= 60 *)
-
-
 (** TODO - calulates lunch score of a schedule. 
     If Y - score_lunch of a schedule is sum of score of each day (0.2 if has lunch
     time between 11:00 and 1:00 and 0 if doesn't. *)
-let rec score_lunch st t =
+let rec score_lunch t =
   let m_lunch_score = if t|>Schedule.get_monday |> check_lunch_time  then 0.2 else 0. in
   let t_lunch_score = if t|>Schedule.get_tuesday |> check_lunch_time  then 0.2 else 0. in
   let w_lunch_score = if t|>Schedule.get_wednesday |> check_lunch_time  then 0.2 else 0. in
@@ -160,8 +148,11 @@ let rec score_lunch st t =
   m_lunch_score+.t_lunch_score+.w_lunch_score+.th_lunch_score+.f_lunch_score
 
 (** TODO *)
+let score_classtime t = failwith "unimplemented"
+
+(** TODO *)
 let schedule_score st t = 
-  failwith "score_spread + (if st.lunch_output = 'N' then 1 else score_lunch t) + score_start_time"
+  failwith "score_spread + (if st.lunch_output = 'N' then 1 else score_lunch t) + score_classtime"
 
 (** TODO *)
 let rank_schedule st t_list =

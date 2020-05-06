@@ -35,7 +35,6 @@ let parse_class str =
   | h :: t when h = "TAKE" -> if List.length t = 2 then Take t else raise Malformed
   | _ -> raise Malformed
 
-
 let parse_semester str = 
   str |> str_list |> function
   | [] -> raise Empty
@@ -45,7 +44,6 @@ let parse_semester str =
   | h :: t when h = "TAKE" -> if List.length t = 1 then Take t else raise Malformed
   | _ -> raise Malformed
 
-(** spec TODO *)
 let parse_class_time str = 
   str |> str_list |> function
   | [] -> raise Empty
@@ -55,7 +53,6 @@ let parse_class_time str =
   | h :: t when h = "TAKE" -> if List.length t = 2 then Take t else raise Malformed
   | _ -> raise Malformed
 
-(** spec TODO *)
 let parse_YN str = 
   str |> str_list |> function
   | [] -> raise Empty

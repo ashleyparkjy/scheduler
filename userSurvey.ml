@@ -226,6 +226,7 @@ let take_spread st tl =
 let delete_spread st = 
   {st with spread_input = ""}
 
+
 (** [print_class_helper acc classes] is the string [acc] that concatenates all 
     the class_ids in the string list list[classes]*)
 let rec print_class_helper acc classes=
@@ -252,18 +253,19 @@ let print_class_time = function
     { classtime_input = classtime } -> if classtime = ("","") then "You have not yet selected the start time of your first and last class"
     else "Start time of your first class: " ^ (fst classtime) ^ "\nStart time of your last class: " ^ (snd classtime)
 
-(** TODO - printing class_time  *)
+(** TODO - printing lunch  *)
 let print_lunch = function
     { lunch_input = lunchtime } -> if lunchtime = "" then "You have not yet selected your lunch flexibility preference."
     else "You have selected: " ^ lunchtime
 
-(** TODO - printing class_time  *)
-let print_lunch = function
+(** TODO - printing spread  *)
+let print_spread = function
     { spread_input = spread } -> if spread = "" then "You have not yet selected your class spread preference."
     else "You have selected: " ^ spread
 
+
 let rec prompt_spread st = 
-  ANSITerminal.(print_string [green] ((print_lunch st)^"\n"));
+  ANSITerminal.(print_string [green] ((print_spread st)^"\n"));
   print_endline "Command take: Input 'Y' if you want your classes to be spreaded out and 'N' if you are want them clustered on certain days. (Ex. take Y)";
   print_endline "Command delete: Delete the selected option for class spreadedness (Ex. 'delete')";
   print_endline "Command next: Proceeding to the next question. (Ex. next)";

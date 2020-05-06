@@ -61,7 +61,18 @@ val take_class : t -> string list -> t
     list list that has all the elements except [tl]. *)
 val delete_class : t -> string list -> t
 
-(** [prompt_routine st] prompts user to answer routine question and updates 
+(** [prompt_lunch st] prompts user to answer question on class spread over the week 
+    and updates corresponding information to [st]. It also handles any commands 
+    that are written. *)
+val prompt_spread : t -> t
+
+(** [prompt_lunch st] prompts user to answer flexibility in lunch time question 
+    and updates corresponding information to [st]. It also handles any commands 
+    that are written. *)
+val prompt_lunch : t -> t
+
+(** [prompt_class_time st] prompts user to answer preferred class start and end times 
+    in the day and updates 
     corresponding information to [st]. It also handles any commands that are written. *)
 val prompt_class_time : t -> t
 
@@ -72,4 +83,7 @@ val prompt_class : t -> t
 (** [prompt_semester st] prompts user to answer semester question and updates 
     corresponding information to [st]. It also handles any commands that are written. *)
 val prompt_semester : t -> t
+
+
+
 
