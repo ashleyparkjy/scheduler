@@ -42,10 +42,10 @@ let get_classes st =
 let get_class_time st = (int_of_string (fst st.classtime_input), int_of_string (snd st.classtime_input))
 
 
+(** TODO - update mli spec *)
 let final_output st = {
   final_semester = st.semester;
   final_classes = get_classes st;
-  (* TODO *)
   classtime = get_class_time st;
   lunch_output = st.lunch_input;
   spread_output = st.spread_input;
@@ -191,6 +191,41 @@ let delete_class_time st =
     classtime_input = ("","")
   } 
 
+
+(** TODO - true if the lunch_input of current state [st] is not an
+    empty string. *)
+let is_valid_lunch_st st = st.lunch_input <> ""
+
+(** TODO - valid lunch input format - Y or N. tl is a list of string (length one) *)
+let is_YN tl = 
+  match tl with
+  | a::_ -> a = "Y" || a = "N"
+  | _ -> false
+
+(** TODO - *)
+let take_lunch st tl =   
+  { st with
+    lunch_input = List.hd tl 
+  }
+
+(** TODO - *)
+let delete_lunch st = 
+  {st with lunch_input = ""}
+
+(** TODO - true if the spread_input of current state [st] is not an
+    empty string. *)
+let is_valid_spread_st st = st.spread_input <> ""
+
+(** TODO - *)
+let take_spread st tl =   
+  { st with
+    spread_input = List.hd tl 
+  }
+
+(** TODO - *)
+let delete_spread st = 
+  {st with spread_input = ""}
+
 (** [print_class_helper acc classes] is the string [acc] that concatenates all 
     the class_ids in the string list list[classes]*)
 let rec print_class_helper acc classes=
@@ -211,22 +246,71 @@ let print_class = function
     else print_class_helper [] classes 
          |> String.concat ", " 
          |> (^) "Currently Entered Class IDs: " 
+
 (** TODO - printing class_time  *)
 let print_class_time = function
     { classtime_input = classtime } -> if classtime = ("","") then "You have not yet selected the start time of your first and last class"
     else "Start time of your first class: " ^ (fst classtime) ^ "\nStart time of your last class: " ^ (snd classtime)
 
+(** TODO - printing class_time  *)
+let print_lunch = function
+    { lunch_input = lunchtime } -> if lunchtime = "" then "You have not yet selected your lunch flexibility preference."
+    else "You have selected: " ^ lunchtime
+
+(** TODO - printing class_time  *)
+let print_lunch = function
+    { spread_input = spread } -> if spread = "" then "You have not yet selected your class spread preference."
+    else "You have selected: " ^ spread
+
+let rec prompt_spread st = 
+  ANSITerminal.(print_string [green] ((print_lunch st)^"\n"));
+  print_endline "Command take: Input 'Y' if you want your classes to be spreaded out and 'N' if you are want them clustered on certain days. (Ex. take Y)";
+  print_endline "Command delete: Delete the selected option for class spreadedness (Ex. 'delete')";
+  print_endline "Command next: Proceeding to the next question. (Ex. next)";
+  print_endline "Command quit: Exit the program. (Ex. quit)";
+  print_endline "\nPlease enter your flexibility on lunch (Y, N) (Commands: 'take', 'delete', 'next', 'quit')\n";
+  print_string "> ";
+  match parse_YN(read_line () |> String.uppercase_ascii) with
+  | Quit -> init_state
+  | Next -> if is_valid_spread_st st then st
+    else (ANSITerminal.(print_string [red] ("You have not entered your preference yet.\n")); prompt_spread st)
+  | Delete tl -> if is_valid_spread_st st then st |> delete_spread |> prompt_spread
+    else (ANSITerminal.(print_string [red] ("You have not entered your preference yet \n")); prompt_spread st)
+  | Take tl -> if is_YN tl then tl |> take_spread st  |> prompt_spread
+    else (ANSITerminal.(print_string [red] ("Please enter in a valid format.\n")); prompt_spread st)
+  | exception Malformed -> ANSITerminal.(print_string [red] ("Please use a valid command statement.\n")); prompt_spread st
+  | exception Empty -> ANSITerminal.(print_string [red] ("Your input was empty.\n")); prompt_spread st
+
+let rec prompt_lunch st = 
+  ANSITerminal.(print_string [green] ((print_lunch st)^"\n"));
+  print_endline "Command take: Input 'Y' if you are flexible with lunch time and 'N' if you are not (Flexible lunch time means occassionally having lunch before 11 or after 1pm) (Ex. take Y)";
+  print_endline "Command delete: Delete the selected option for lunch (Ex. 'delete')";
+  print_endline "Command next: Proceeding to the next question. (Ex. next)";
+  print_endline "Command quit: Exit the program. (Ex. quit)";
+  print_endline "\nPlease enter your flexibility on lunch (Y, N) (Commands: 'take', 'delete', 'next', 'quit')\n";
+  print_string "> ";
+  match parse_YN(read_line () |> String.uppercase_ascii) with
+  | Quit -> init_state
+  | Next -> if is_valid_lunch_st st then prompt_spread st
+    else (ANSITerminal.(print_string [red] ("You have not entered your preference yet.\n")); prompt_lunch st)
+  | Delete tl -> if is_valid_lunch_st st then st |> delete_lunch |> prompt_lunch
+    else (ANSITerminal.(print_string [red] ("You have not entered your preference yet. \n")); prompt_lunch st)
+  | Take tl -> if is_YN tl then tl |> take_lunch st  |> prompt_lunch
+    else (ANSITerminal.(print_string [red] ("Please enter in a valid format.\n")); prompt_lunch st)
+  | exception Malformed -> ANSITerminal.(print_string [red] ("Please use a valid command statement.\n")); prompt_lunch st
+  | exception Empty -> ANSITerminal.(print_string [red] ("Your input was empty.\n")); prompt_lunch st
+
 let rec prompt_class_time st = 
   ANSITerminal.(print_string [green] ((print_class_time st)^"\n"));
-  print_endline "Command take: Input the preferred start time of your first and last class in 24hr format (00:00 - 23:59) (Ex. 'take 10:10 18:00' --> your first class start time is 8AM and last class end time is 6PM)";
+  print_endline "Command take: Input the preferred start time of your first and last class in 24hr format (Ex. 'take 10:10 18:00' --> your first class start time is 8AM and last class end time is 6PM) (00:00 - 23:59) ";
   print_endline "Command delete: Delete the selected start time of first and last class (Ex. 'delete')";
   print_endline "Command next: Proceeding to the next question. (Ex. next)";
   print_endline "Command quit: Exit the program. (Ex. quit)";
   print_endline "\nPlease enter your preferred first and last class start times in order. (Commands: 'take', 'delete', 'next', 'quit')\n";
   print_string "> ";
   match parse_class_time(read_line () |> String.uppercase_ascii) with
-  | Quit -> st
-  | Next -> if is_valid_class_time_st st then st
+  | Quit -> init_state
+  | Next -> if is_valid_class_time_st st then prompt_lunch st
     else (ANSITerminal.(print_string [red] ("You have not inputted start times yet.\n")); prompt_class_time st)
   | Delete tl -> if is_valid_class_time_st st then st |> delete_class_time |> prompt_class_time
     else (ANSITerminal.(print_string [red] ("You have not entered preferred start times yet. \n")); prompt_class_time st)
@@ -245,7 +329,7 @@ let rec prompt_class st =
   print_endline "\nPlease enter a course id that you would like to enroll in. (Commands: 'take', 'delete', 'next', 'quit')\n";
   print_string "> ";
   match parse_class(read_line () |> String.uppercase_ascii) with
-  | Quit -> st
+  | Quit -> init_state
   | Next -> if is_valid_class_st st then prompt_class_time st
     else (ANSITerminal.(print_string [red] ("You have too little(less than 2) or too much(more than 9) classes to proceed.\n")); prompt_class st)
   | Delete tl when is_valid_class tl -> if ((tl |> delete_class st) <> st) then tl |> delete_class st |> prompt_class 
@@ -266,7 +350,7 @@ let rec prompt_semester st =
   print_endline "Please enter the semester that you would like to get a schedule for. (Commands: 'take', 'delete', 'next', 'quit')\n";
   print_string "> ";
   match parse_semester(read_line () |> String.uppercase_ascii) with
-  | Quit -> st
+  | Quit -> init_state
   | Next -> if is_valid_sem_st st then prompt_class st
     else (ANSITerminal.(print_string [red] ("You have not selected a semester to proceed with. \n")); prompt_semester st)
   | Delete tl when is_valid_sem tl -> if ((tl |> delete_sem st) <> st) then tl |> delete_sem st |> prompt_semester

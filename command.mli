@@ -65,3 +65,5 @@ val parse_class : string -> command
 val parse_semester : string -> command
 
 val parse_class_time : string -> command
+
+val parse_YN: string -> command
