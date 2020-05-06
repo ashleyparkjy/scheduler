@@ -22,6 +22,7 @@ test:
 
 clean:
 	ocamlbuild -clean
+	rm -rf doc.public doc.private adventure.zip
 
 launch:
 	$(OCAMLBUILD) $(MAIN) && ./$(MAIN)
