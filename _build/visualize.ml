@@ -79,21 +79,70 @@ let build_header d =
   printer "\n";
   repeater " " ((d_log.time-4)/2);
   printer "Time";
-  repeater " " ((d_log.time-5)/2);
+  repeater " " ((d_log.time-4)/2-1);
   printer "|";
-  List.fold_left (fun init x-> build_header_day d_log x) () ["Monday";"Tuesday";"Wednesday";"Thursday";"Friday"];
+  List.fold_left (fun init x-> build_header_day d_log x) ()
+    ["Monday";"Tuesday";"Wednesday";"Thursday";"Friday"];
   printer "\n";
   repeater "-" w
 
-(** [build_schedule sch] prints the schedule given by schedule [sch]. *)
-let build_schedule sch =
+let rec hourly_aux acc d_log sch hr =
+  match acc with
+  | 0 -> ()
+  | _ -> 
+    repeater " " (d_log.time-2);
+    printer "|";
+    repeater " " (d_log.day-1);
+    printer  "|";
+    repeater " " (d_log.day-1);
+    printer  "|";
+    repeater " " (d_log.day-1);
+    printer  "|";
+    repeater " " (d_log.day-1);
+    printer  "|";
+    repeater " " (d_log.day-1);
+    printer  "|";
+    printer "\n";
+    hourly_aux (acc-1) d_log sch hr
+
+(** Prints an hour of schedule that is the hour [hr], and schedule [sch],
+    formatted to [c_size]. *)
+let hourly_printer c_size sch hr =
+  let (w,h) = c_size and
+  d_log = dimension_builder c_size in
+  printer "\n";
+  repeater " " ((d_log.time-4)/2-1);
+  if hr <=9 then printer ("0" ^ string_of_int hr ^ ":00")
+  else printer (string_of_int hr ^ ":00");
+  repeater " " ((d_log.time-4)/2-1);
+  printer "|";
+  repeater " " (d_log.day-1);
+  printer  "|";
+  repeater " " (d_log.day-1);
+  printer  "|";
+  repeater " " (d_log.day-1);
+  printer  "|";
+  repeater " " (d_log.day-1);
+  printer  "|";
+  repeater " " (d_log.day-1);
+  printer  "|";
+  printer "\n";
+  hourly_aux (d_log.hour-1) d_log sch hr;
+  repeater "-" w
+
+
+(** [build_schedule c sch] prints the schedule given by schedule [sch] by
+    size [c]. *)
+let build_schedule c_size sch =
+  List.map (fun x-> hourly_printer c_size sch x)
+    [8;9;10;11;12;13;14;15;16;17;18;19;20;21] |> ignore;
   ()
 
 (** [print_schedule sch] prints the schedule [sch] in table format. *)
 let print_schedule sch =
   let c_size = chart_size terminal_size in
   build_header c_size;
-  build_schedule sch
+  build_schedule c_size sch
 
 (** [pull_section_data e] is a record list of type [section], containing all
     section data from [e]. *)
