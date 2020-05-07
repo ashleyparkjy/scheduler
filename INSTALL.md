@@ -9,6 +9,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 LINUX:
 sudo apt-get install pkg-config
 sudo apt-get install libssl-dev
+#sudo apt-get install libx11-dev
 
 MAC:
 brew install pkg-config
@@ -18,3 +19,4 @@ All users:
 opam install ssl lwt_ssl
 opam install cohttp lwt js_of_ocaml
 opam install cohttp-lwt-unix
+#opam install graphics
