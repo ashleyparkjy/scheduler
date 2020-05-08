@@ -48,6 +48,23 @@ let algorithm_tests = [
   "check_day_schedule test 1" >:: (fun _ -> assert_equal true (thursday |> check_day_schedule));
   "check_day_schedule test 2" >:: (fun _ -> assert_equal false (thursday_dup |> check_day_schedule));
   "filter_valid_schedule test 1" >:: (fun _ -> assert_equal [schedule1] (schedulelst |> filter_valid_schedule []));
+
+  (* test procedure take two cases where spread, lunch, or class_time would differ 
+     Assuming that the student wants lunch time, class_time, and clustered together *)
+
+
+
+  (* day_class_time *)
+
+  (* score_spread *)
+
+  (* score_lunch *)
+
+  (* schedule_score *)
+
+  (* score_class_time *)
+
+
 ]
 
 let suite =

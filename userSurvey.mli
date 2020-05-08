@@ -20,6 +20,9 @@ type t_output = {
 (** [get_classes st] is an association list of classes for current state [st]. *)
 val get_classes : t -> (string * string) list 
 
+(* TODO *)
+val get_class_time: t -> (int*int)
+
 (** [final_output st] is a record with semester of tuple list of classes 
     inputted in final state [st]*)
 val final_output : t -> t_output
@@ -60,6 +63,11 @@ val take_class : t -> string list -> t
     answer to the survey question. The classes_input of [st] is a new string 
     list list that has all the elements except [tl]. *)
 val delete_class : t -> string list -> t
+
+(* TODO *)
+val take_class_time : t -> string list -> t
+
+val is_valid_class_time : string list -> bool
 
 (** [prompt_lunch st] prompts user to answer question on class spread over the week 
     and updates corresponding information to [st]. It also handles any commands 

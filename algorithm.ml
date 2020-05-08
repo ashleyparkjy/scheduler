@@ -62,7 +62,7 @@ let is_duplicate cmp_list =
 
 let rec end_time_compare cmp_list =
   match cmp_list with
-  | [] -> failwith "empty list"
+  | [] -> true
   | hd2::[] -> true
   | hd::hd2::tl -> if (hd.end_time_min < hd2.start_time_min) then end_time_compare (hd2::tl) else false
 
@@ -90,13 +90,17 @@ let rec filter_valid_schedule acc t_list =
 
 
 
-(** TODO - calculates the total time of classes for the specified day [event_l] *)
+(** [day_class_time acc event_l] is the total time of classes for the specified day schedule
+    [event_l] in int. *)
 let rec day_class_time acc event_l =
   match event_l with
   | hd::tl -> day_class_time ((hd |> to_comparable_event).end_time_min - (hd |> to_comparable_event).start_time_min + acc) tl
   | [] -> acc
 
-(** TODO - calulates spread score of a schedule with standard deviation *)
+(** [score_spread t] is the standard deviation of class times over the week in 
+    float. The standard deviation is low if the class schedule is evenly 
+    spreaded out across 5 days. 
+    Requires: [t] is Schedule.t. *)
 let score_spread t = 
   let m_class_time = t |> Schedule.get_monday |> day_class_time 0 in
   let t_class_time = t |> Schedule.get_tuesday |> day_class_time 0 in
@@ -123,8 +127,9 @@ let score_spread t =
    - *)
 
 
-(** TODO - checks if the day schedule has a lunch time of at least 60 minutes in
-    between 11AM and 1PM. true if it does. else false *)
+(** [check_lunch_time even_l] is bool checking whether the day schedule [even_l]
+    has at least 60 minutes lunch time in between 11:00 and 13:00. True if it does,
+    else false. *)
 let check_lunch_time event_l = 
   let rec lunch_duration acc event_l = 
     match event_l with
@@ -136,26 +141,88 @@ let check_lunch_time event_l =
     | [] -> acc in
   (lunch_duration 120 event_l) >= 60
 
-(** TODO - calulates lunch score of a schedule. 
-    If Y - score_lunch of a schedule is sum of score of each day (0.2 if has lunch
-    time between 11:00 and 1:00 and 0 if doesn't. *)
+(** [score_lunch t] is the sum of individual lunch time score of each day in float.
+    The score of each day is 0.2 if the schedule has lunch time between 11:00
+    and 13:00. Otherwise, 0.
+
+    Requires: [classtime] is a tuple of int, which contains the starting times
+    of first and last class. 
+    Requires: [t] is Schedule.t. *)
 let rec score_lunch t =
-  let m_lunch_score = if t|>Schedule.get_monday |> check_lunch_time  then 0.2 else 0. in
-  let t_lunch_score = if t|>Schedule.get_tuesday |> check_lunch_time  then 0.2 else 0. in
-  let w_lunch_score = if t|>Schedule.get_wednesday |> check_lunch_time  then 0.2 else 0. in
-  let th_lunch_score = if t|>Schedule.get_thursday |> check_lunch_time  then 0.2 else 0. in
-  let f_lunch_score = if t|>Schedule.get_friday |> check_lunch_time  then 0.2 else 0. in
+  let m_lunch_score = if t |> Schedule.get_monday |> check_lunch_time then 0.2 else 0. in
+  let t_lunch_score = if t |> Schedule.get_tuesday |> check_lunch_time then 0.2 else 0. in
+  let w_lunch_score = if t |> Schedule.get_wednesday |> check_lunch_time then 0.2 else 0. in
+  let th_lunch_score = if t |> Schedule.get_thursday |> check_lunch_time then 0.2 else 0. in
+  let f_lunch_score = if t |> Schedule.get_friday |> check_lunch_time then 0.2 else 0. in
   m_lunch_score+.t_lunch_score+.w_lunch_score+.th_lunch_score+.f_lunch_score
 
-(** TODO *)
-let score_classtime t = failwith "unimplemented"
+(** [classtime_cond classtime hd tl] checks if the first class start time [hd] 
+    and the last time start time [tl] meet the requirements of user preference
+    in [classtime].
+    The score is 0. if both requirements are not met. 
+    The score is 0.1 if only one is met. 
+    The score is 0.2 if both are met. *)
+let classtime_cond classtime hd tl =
+  if (hd|>to_comparable_event).start_time_min >= (fst classtime) 
+  && (tl|>to_comparable_event).end_time_min <= (snd classtime)
+  then 0.2
+  else if (hd|>to_comparable_event).start_time_min >= (fst classtime) 
+       || (tl|>to_comparable_event).end_time_min <= (snd classtime) then 0.1
+  else 0.
+
+(** [check_classtime classtime event_l] is the class time score of the given
+    day's schedule in float. If the schedule [event_l] is empty, the score is 
+    0.2. Otherwise, call [classtime_cond] to calculate the score based on the
+    requirements [classtime]. *)
+let rec check_classtime classtime event_l =  
+  match event_l with
+  | [] -> 0.2
+  | hd::[] -> classtime_cond classtime hd hd
+  | hd::tl -> classtime_cond classtime hd (tl|>List.rev|>List.hd)
+
+(** [score_classtime classtime t] is the sum of individual class time score of 
+    each day in float.
+    Required: [classtime] is a tuple of int, which contains the starting times
+    of first and last class. 
+    Required: [t] is Schedule.t. *)
+let score_classtime classtime (t:Schedule.t) = 
+  let m_time_score = t |> Schedule.get_monday |> check_classtime classtime in 
+  let t_time_score = t |> Schedule.get_tuesday |> check_classtime classtime in 
+  let w_time_score = t |> Schedule.get_wednesday |> check_classtime classtime in 
+  let th_time_score = t |> Schedule.get_thursday |> check_classtime classtime in 
+  let f_time_score = t |> Schedule.get_friday |> check_classtime classtime in 
+  m_time_score+.t_time_score+.w_time_score+.th_time_score+.f_time_score
+
+
+(** [schedule_score output t] is the score of given schedule [t] in float. The 
+    total score consists of three subcategory scores, which are spread score, lunch
+    score, and class time score. 
+
+    For spread score, if user answered "Y" and prefers classes spreaded out,
+    it is one minus standard deviation of class times of each day. If user 
+    answered "N" and prefers classes clustered, the score is standard deviation 
+    itself. 
+
+    For lunch score, if user anwered "Y" and is not flexible with lunch 
+    time, then the score is 0.2 * number of days in which lunch time is preserved
+    between 11AM and 1PM. If user answered "N" and is flexible with lunch
+    time, then the score is just 1.
+
+    For class time score, it depends on the user preference on starting times of
+    first and last classes. The score is 0.2 * number of days in which the 
+    schedule satisfies the requirements. Note that if a day's schedule
+    satisfies only one of the requirements, the score is 0.1 for that day.
+
+    Requires: [output] is the final output from UserSurvey of type t_output.
+    Requires: [t] is Schedule.t. *)
+let schedule_score (output:UserSurvey.t_output) (t:Schedule.t) = 
+  let spread = if (output.spread_output = "N") then score_spread t else (1. -. score_spread t) in 
+  let lunch = if (output.lunch_output = "N") then 1. else score_lunch t in 
+  let classtime = score_classtime output.classtime t in 
+  spread +. lunch +. classtime
 
 (** TODO *)
-let schedule_score st t = 
-  failwith "score_spread + (if st.lunch_output = 'N' then 1 else score_lunch t) + score_classtime"
-
-(** TODO *)
-let rank_schedule st t_list =
+let rank_schedule (output:UserSurvey.t_output) (t_list:Schedule.t list) =
   failwith "unimplemented"
 
 

@@ -38,8 +38,20 @@ let get_classes st =
     | _ -> failwith "error" in
   to_assoc_list st.classes_input []
 
-(** TODO - change string to int for time. *)
-let get_class_time st = (int_of_string (fst st.classtime_input), int_of_string (snd st.classtime_input))
+(** TODO - change string to int for time.
+    ("11:00","11:00")
+*)
+
+let time_to_min_output string = 
+  let list = String.split_on_char ':' string in
+  let hr = (list|> List.hd |> int_of_string) * 60 in
+  let min = list |> List.rev |> List.hd |> int_of_string in
+  hr+min
+
+
+(** TODO *)
+let get_class_time st = 
+  (time_to_min_output (fst st.classtime_input), time_to_min_output (snd st.classtime_input))
 
 
 (** TODO - update mli spec *)
@@ -84,8 +96,8 @@ let is_valid_class_st st =
 let check_sem sem = 
   sem = "SP" || sem = "FA"
 
-(** [check_num hd] is true if the inputted number [hd] is a 1-2 digit number. 
-    Otherwise, it is false. *)
+(** [check_num hd] is true if the inputted number [hd] is a 4 digit string and 
+    last 1-2 digit are number. Otherwise, it is false. *)
 let check_num hd = 
   String.length hd = 4 && (Str.string_match (Str.regexp "[0-9]+$") hd 2)
 
@@ -152,12 +164,19 @@ let check_hour n = (int_of_string n) >= 0 &&  (int_of_string n) <= 23
 (** TODO - check min if min is between 0 and 59*)
 let check_min n = (int_of_string n) >= 0 &&  (int_of_string n) <= 59 
 
+
+(** [check_num2 hd] is true if the inputted number [hd] is a 1-2 digit number. 
+    Otherwise, it is false. *)
+let check_num2 hd = 
+  (Str.string_match (Str.regexp "[0-9]+$") hd 0)
+
+
 (** TODO - check if it's a valid time format. ex) "11:11" 
     length 5, : exists *)
 let check_time time = 
   if String.length time = 5 && time.[2] = ':'
   then match (str_to_list time) with
-    | hd::tl::[] -> check_hour hd && check_min tl 
+    | hd::tl::[] -> check_num2 hd && check_num2 tl && check_hour hd && check_min tl 
     | _ -> false
   else false
 
@@ -179,7 +198,8 @@ let is_valid_class_time tl =
   | hd::tl::[] -> ((check_time hd) && (check_time tl)) && check_greater hd tl
   | _ -> false
 
-(** TODO - taking class time input *)
+(** TODO - taking class time input 
+    ex. tl = ["11:00"; "20:00"] *)
 let take_class_time st tl =   
   { st with
     classtime_input = (List.nth tl 0, List.nth tl 1)
@@ -190,7 +210,6 @@ let delete_class_time st =
   { st with
     classtime_input = ("","")
   } 
-
 
 (** TODO - true if the lunch_input of current state [st] is not an
     empty string. *)

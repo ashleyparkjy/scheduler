@@ -40,13 +40,12 @@ let state_class3 = delete_class state_class2 ["CS";"3110"]
 let state_sem1 = take_sem init_state ["SP20"]
 let state_sem2 = take_sem state_sem1 ["FA19"]
 let state_sem3 = delete_sem state_sem1 ["SP20"]
+let take_sem1 = take_sem init_state ["SP20"]
+let take_class1 = take_class take_sem1 ["CS";"3110"]
+let take_class2 = take_class take_class1 ["MATH";"2930"] 
+let take_class_time1 = take_class_time take_class2 ["11:00";"18:00"]
 let userSurvey_tests = 
   [
-    "init_state test 1" >:: (fun _ -> assert_equal "" (get_semester init_state));
-    "init_state test 2" >:: (fun _ -> assert_equal [] (get_classes init_state));
-    "get_semester & take_sem test 1" >:: (fun _ -> assert_equal "SP20" (get_semester state_sem1));
-    "get_semester & take_sem test 2" >:: (fun _ -> assert_equal "SP20" (get_semester state_sem2));
-    "get_semester & delete_sem test 3" >:: (fun _ -> assert_equal "" (get_semester state_sem3));
     "get_classes & take_class test 1" >:: (fun _ -> assert_equal [("CS","3110")] (get_classes state_class1));
     "get_classes & take_class test 2" >:: (fun _ -> assert_equal [("CS","3110");("MATH","2930")] (get_classes state_class2));
     "get_classes & delete_class test 3" >:: (fun _ -> assert_equal [("MATH","2930")] (get_classes state_class3));
@@ -63,6 +62,13 @@ let userSurvey_tests =
     "is_valid_class test 3: wrong name 1" >:: (fun _ -> assert_equal false (["C"; "1234"]|>is_valid_class));
     "is_valid_class test 4: wrong name 2" >:: (fun _ -> assert_equal false (["ABCDEF"; "1234"]|>is_valid_class));
     "is_valid_class test 4: wrong name 3" >:: (fun _ -> assert_equal false (["A1"; "1234"]|>is_valid_class));
+    "get_class_time 1 " >:: (fun _ -> assert_equal (660, 1080) (take_class_time1|>get_class_time));
+    "is_valid_class time test 1: correct" >:: (fun _ -> assert_equal true (["09:00"; "18:00"]|>is_valid_class_time));
+    "is_valid_class time test 2: start time > end time" >:: (fun _ -> assert_equal false (["18:00"; "09:00"]|>is_valid_class_time));
+    "is_valid_class time test 3: non-number" >:: (fun _ -> assert_equal false (["ab:cd"; "09:00"]|>is_valid_class_time));
+    "is_valid_class time test 4: wrong format" >:: (fun _ -> assert_equal false (["0900"; "1800"]|>is_valid_class_time));
+    "is_valid_class time test 5: wrong range" >:: (fun _ -> assert_equal false (["09:00"; "25:00"]|>is_valid_class_time));
+    "is_valid_class time test 5: wrong range" >:: (fun _ -> assert_equal false (["09:00"; "22:61"]|>is_valid_class_time));
   ]
 
 
