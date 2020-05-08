@@ -92,6 +92,15 @@ let get_thursday t =
 let get_friday t =
   get_day Classes.Friday [] t
 
+(** [is_occurring n ev] is [true] if [ev] is taking place during hour [n]. *)
+let is_occurring n ev =
+  if n >= ev.start_time.hr && n <= ev.end_time.hr then true else false
+
+let rec get_hour acc_list n tea =
+  match tea with
+  | [] -> acc_list
+  | h::t -> if (is_occurring n h) then get_hour (h::acc_list) n t else get_hour acc_list n t
+
 (** [perm_to_sched l p] is a list of schedule configurations where each config
     is a list of sections for each class, section permutations in a tuple of
     course id and type [permutation] from [p]. Appended to [l].

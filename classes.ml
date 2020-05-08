@@ -4,6 +4,7 @@ type course_id = int
 type section_id = int
 type meeting_id = int
 type instructor_id = string
+
 type time = {
   min: int;
   hr: int;
@@ -309,3 +310,6 @@ let components_required c ros =
 
 let description c ros = 
   (get_class c ros).description
+
+let time_to_int t =
+  t.hr*60+t.min

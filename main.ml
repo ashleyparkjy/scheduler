@@ -14,14 +14,16 @@ let main () =
   ANSITerminal.(print_string [cyan]
                   "\n\nWelcome to Cornell Scheduler.\n");
 
+
+  let st = UserSurvey.init_state |> UserSurvey.prompt_semester
+           |> UserSurvey.final_output in
+  let s = st.final_semester and
+    c = st.final_classes in
   (*
-    let st = UserSurvey.init_state |> UserSurvey.prompt_semester
-             |> UserSurvey.final_output in
-    let s = st.final_semester and
-      c = st.final_classes in
-  *)
   let s  = "SP20" and
     c = [("CS","3110");("MATH","2930")] in
+  *)
+
   let r = get_class s c Classes.empty in
   let raw_schedule = r |> Schedule.schedule_maker in
   print_endline ("Number of schedule combinations: "
