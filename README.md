@@ -1,1 +1,1 @@
-# cs3110-project
+# Cornell Scheduler
