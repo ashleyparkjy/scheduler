@@ -15,8 +15,6 @@ type t_valid = {
   start_time_valid: bool;
 }
 
-type ranked_schedule = (Schedule.t * float) list
-
 let get_start_time cmp_event = 
   cmp_event.start_time_min
 
@@ -224,26 +222,8 @@ let schedule_score (output:UserSurvey.t_output) (t:Schedule.t) =
   spread +. lunch +. classtime
 
 (** TODO *)
-let compare a b = 
-  match (snd a),(snd b) with
-  | s1,s2 when s1 < s2 -> -1
-  | s1,s2 when s1 = s2 -> 0
-  | s1,s2 when s1 > s2-> 1
-  | _ -> failwith "compare error"
-
-(** TODO *)
-let rec take_top_5 acc (r_sch:ranked_schedule) = 
-  let total = List.length r_sch in 
-  let taken = if total < 5 then total else 5 in 
-  match r_sch with 
-  | hd::tl -> if List.length acc = taken then acc else hd::acc
-  | _ -> failwith "take_top_5 error"
-
-(** [rank_schedule acc output t_list] is a list of 5 schedules  *)
-let rec rank_schedule (acc:ranked_schedule) (output:UserSurvey.t_output) (t_list:Schedule.t list) =
-  match t_list with
-  | [] -> List.sort compare acc |> take_top_5 []
-  | t::_ -> (t, schedule_score output t) :: acc
+let rank_schedule (output:UserSurvey.t_output) (t_list:Schedule.t list) =
+  failwith "unimplemented"
 
 
 
