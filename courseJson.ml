@@ -5,7 +5,8 @@ open Cohttp_lwt_unix
 exception BadUrl of int
 
 let make_url semester subject class_num = 
-  "https://classes.cornell.edu/api/2.0/search/classes.json?roster=" ^ semester ^ "&subject=" ^ subject ^ "&q=" ^ class_num
+  "https://classes.cornell.edu/api/2.0/search/classes.json?roster=" ^ semester
+  ^ "&subject=" ^ subject ^ "&q=" ^ class_num
 
 let get_json url =
   Client.get (Uri.of_string url) >>= fun (resp, body) ->

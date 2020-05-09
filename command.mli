@@ -3,9 +3,9 @@
 *)
 
 (** The type [object_phrase] represents the object phrase that can be part of a
-    user command. Each element of the list represents a word of the object phrase
-    without any spaces. The list is in the same order as the words in the 
-    original user command. *)
+    user command. Each element of the list represents a word of the object
+    phrase without any spaces. The list is in the same order as the words in
+    the original user command. *)
 type object_phrase = string list
 
 (** The type [command] represents a user command that is decomposed

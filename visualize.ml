@@ -50,7 +50,8 @@ let chart_size s =
     density [d]. *)
 let dimension_builder s d =
   let (w,h) = s in
-  let h = begin if d = 1 then 2 else if d = 2 then 4 else if d = 3 then 6 else failwith "bad density" end in
+  let h = begin if d = 1 then 2 else if d = 2 then 4 else if d = 3 then 6
+    else failwith "bad density" end in
   {
     time = w/11;
     day = 2*w/11;
@@ -126,18 +127,28 @@ let rec in_class d_log day tr (evs : Schedule.event list) =
         tr_start = Classes.time_to_int s and
         tr_end = Classes.time_to_int e in
       if h_start <= tr_start && h_end >= tr_end then Some h
-      else if h_start > tr_start && h_start < tr_end && h_end < tr_end && h_end > tr_start then Some h
+      else if h_start > tr_start && h_start < tr_end && h_end < tr_end
+              && h_end > tr_start then Some h
       else if h_end < tr_start then in_class d_log day tr t
       else if h_start > tr_end then in_class d_log day tr t
-      else if h_start <= tr_start && h_end < tr_end && h_end >= tr_start then begin if h_end-tr_start >= min_mins then Some h else in_class d_log day tr t end
-      else if h_start > tr_start && h_start <= tr_end && h_end >= tr_end then begin if tr_end-h_start >= min_mins then Some h else in_class d_log day tr t end
+      else if h_start <= tr_start && h_end < tr_end && h_end >= tr_start then
+        begin
+          if h_end-tr_start >= min_mins then Some h
+          else in_class d_log day tr t
+        end
+      else if h_start > tr_start && h_start <= tr_end && h_end >= tr_end then
+        begin
+          if tr_end-h_start >= min_mins then Some h
+          else in_class d_log day tr t
+        end
       else in_class d_log day tr t
     end
     else in_class d_log day tr t
 
 (** [hourly_aux d hr evs] fills in class data into terminal schedule for
     any time [t] from events [evs]. *)
-let rec hourly_aux2 d_log (time : Classes.time * Classes.time) evs (week : Classes.day list) =
+let rec hourly_aux2 d_log (time : Classes.time * Classes.time) evs
+    (week : Classes.day list) =
   match week with
   | [] -> ()
   | h::t ->
@@ -145,7 +156,8 @@ let rec hourly_aux2 d_log (time : Classes.time * Classes.time) evs (week : Class
       match in_class d_log h time evs with
       | None -> repeater " " (d_log.day-1)
       | Some ev -> begin
-          let this_class = ev.subject ^ " " ^ (string_of_int ev.catalog_number) ^ " " ^ ev.event_type ^ " " ^ ev.section_number in
+          let this_class = ev.subject ^ " " ^ (string_of_int ev.catalog_number)
+                           ^ " " ^ ev.event_type ^ " " ^ ev.section_number in
           let class_len = String.length this_class and
             space = d_log.day-1 in
           if class_len > space then printer (String.sub this_class 0 space)
@@ -171,7 +183,9 @@ let rec hourly_aux acc d_log sch hr =
     printer ((format_time st.hr) ^ ":" ^ format_time (st.min));
     repeater " " ((d_log.time-4)/2-1);
     printer "|";
-    hourly_aux2 d_log time_range sch [Classes.Monday; Classes.Tuesday; Classes.Wednesday; Classes.Thursday; Classes.Friday];
+    hourly_aux2 d_log time_range sch [Classes.Monday; Classes.Tuesday;
+                                      Classes.Wednesday; Classes.Thursday;
+                                      Classes.Friday];
     printer "\n";
     hourly_aux (acc-1) d_log sch hr
 
@@ -241,7 +255,8 @@ let rec pull_event_data acc_list (sch : Schedule.event list) =
 
 (** [section_printer s] prints list of section data from [s] to the terminal. *)
 let section_printer s =
-  printer ((string_of_int s.section_id) ^ (" (" ^ s.section_type ^ " " ^ s.section_number ^ "), "))
+  printer ((string_of_int s.section_id) ^ (" (" ^ s.section_type ^ " "
+                                           ^ s.section_number ^ "), "))
 
 (** [class_printer c] prints list of class data from [c] to the terminal. *)
 let class_printer c =
@@ -251,14 +266,16 @@ let class_printer c =
   printer "\n";
   printer ("Location: " ^ c.location ^ "\n");
   printer "Credits: ";
-  if c.credits = -1 then printer "Inconsistent" else printer (string_of_int c.credits);
+  if c.credits = -1 then printer "Inconsistent"
+  else printer (string_of_int c.credits);
   printer "\n"
 
 (** [visualize_schedule rank density score sch] visualizes the schedule [sch]
     as the [rank] rank with denisty [density]. *)
 let visualize_schedule rank density score sch =
   printer ("\n\nSchedule #" ^ (string_of_int rank) ^ "\n");
-  printer ("Affinity score: " ^ ((100.*.score/.3.) |> int_of_float |> string_of_int) ^ "%");
+  printer ("Affinity score: " ^ ((100.*.score/.3.) |> int_of_float
+                                 |> string_of_int) ^ "%");
   print_schedule density sch;
   printer "\n";
   let data_bank = pull_event_data [] sch in
@@ -266,7 +283,8 @@ let visualize_schedule rank density score sch =
 
 (** [user_preference] returns the numerical preference for schedule density. *)
 let rec user_pref () =
-  printer "\nInput your schedule density preference (1=compact, 2=default, 3=comfortable):\n>";
+  printer "\nInput your schedule density preference (1=compact, 2=defaul\
+           t, 3=comfortable):\n>";
   let pref = read_line () in
   if pref = "1" then 1
   else if pref = "2" then 2
@@ -279,9 +297,8 @@ let visualize r =
   ANSITerminal.resize w h;
 
 
-  List.fold_left (fun init x-> let (sch,score) = x in visualize_schedule init density score (Schedule.get_events sch); init+1) 1 r |> ignore;
+  List.fold_left (fun init x->
+      let (sch,score) = x in
+      visualize_schedule init density score (Schedule.get_events sch); init+1)
+    1 r |> ignore;
   ()
-(*
-  let (sch,score) = List.hd r in
-  visualize_schedule 1 density score (Schedule.get_events sch)
-  *)

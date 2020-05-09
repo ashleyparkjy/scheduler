@@ -12,7 +12,10 @@ let rec get_class s c roster =
 
 (** [schedule_num] returns the number of schedules to print. *)
 let rec schedule_num () = 
-  ANSITerminal.(print_string [cyan] "\nInput your number of schedules to print (must be a valid integer >0 and <number of non-conflicting schedules):\n>");
+  ANSITerminal.(
+    print_string [cyan]
+      "\nInput your number of schedules to print (must be a valid integer >0 a\
+       nd <number of non-conflicting schedules):\n>");
   try
     let pref = read_line () in
     let n = int_of_string pref in
@@ -28,10 +31,6 @@ let main () =
            |> UserSurvey.final_output in
   let s = st.final_semester and
     c = st.final_classes in
-  (*
-  let s  = "SP20" and
-    c = [("CS","3110");("MATH","2930")] in
-  *)
 
   let r = get_class s c Classes.empty in
   let raw_schedule = r |> Schedule.schedule_maker in
@@ -46,12 +45,8 @@ let main () =
   let n = schedule_num () in
   let top_n = Algorithm.rank_schedule n [] st unique_schedule in      
   print_endline "";
-  print_endline ((top_n |> List.length |> string_of_int) ^ " schedules generated.");    
-  (*     
-  let top_five = List.fold_left
-      (fun init x-> if List.length init<5 then (x,(10-(List.length init))*10)::init else init)
-      [] refined_schedule in
-      *)
+  print_endline ((top_n |> List.length |> string_of_int)
+                 ^ " schedules generated.");    
   top_n |> Visualize.visualize
 
 let () = main ()

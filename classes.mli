@@ -134,7 +134,8 @@ val end_time: meeting_id -> section_id -> course_id -> t -> time
     Raises: [ClassNotFound c] if [c] is not a valid course id.
     [SectionNotFound s] if [s] is not a valid course id.
     [MeetingNotFound m] if [m] is not a valid meeting id. *)
-val instructors: meeting_id -> section_id -> course_id -> t -> instructor_id list
+val instructors: meeting_id -> section_id -> course_id -> t
+  -> instructor_id list
 
 (** [instructor_name i m s c t] is the full name of instructor [i] of
     meeting [m] of section [s] in class [c] in [t].
@@ -142,7 +143,8 @@ val instructors: meeting_id -> section_id -> course_id -> t -> instructor_id lis
     [SectionNotFound s] if [s] is not a valid course id.
     [MeetingNotFound m] if [m] is not a valid meeting id.
     [InstructorNotFound i] if [i] is not a valid instructor id. *)
-val instructor_name: instructor_id -> meeting_id -> section_id -> course_id -> t -> string
+val instructor_name: instructor_id -> meeting_id -> section_id -> course_id
+  -> t -> string
 
 (** [pattern m s c t] is the meeting pattern of meeting [m] of section [s] in
     class [c] in [t].

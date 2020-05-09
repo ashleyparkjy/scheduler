@@ -29,35 +29,51 @@ let str_list string =
 let parse_class str =
   str |> str_list |> function
   | [] -> raise Empty
-  | h :: t when h = "QUIT" -> if List.length t = 0 then Quit else raise Malformed
-  | h :: t when h = "NEXT" -> if List.length t = 0 then Next else raise Malformed 
-  | h :: t when h = "DELETE" -> if List.length t = 2 then Delete t else raise Malformed
-  | h :: t when h = "TAKE" -> if List.length t = 2 then Take t else raise Malformed
+  | h :: t when h = "QUIT" -> if List.length t = 0 then Quit
+    else raise Malformed
+  | h :: t when h = "NEXT" -> if List.length t = 0 then Next
+    else raise Malformed 
+  | h :: t when h = "DELETE" -> if List.length t = 2 then Delete t
+    else raise Malformed
+  | h :: t when h = "TAKE" -> if List.length t = 2 then Take t
+    else raise Malformed
   | _ -> raise Malformed
 
 let parse_semester str = 
   str |> str_list |> function
   | [] -> raise Empty
-  | h :: t when h = "QUIT" -> if List.length t = 0 then Quit else raise Malformed
-  | h :: t when h = "NEXT" -> if List.length t = 0 then Next else raise Malformed 
-  | h :: t when h = "DELETE" -> if List.length t = 1 then Delete t else raise Malformed
-  | h :: t when h = "TAKE" -> if List.length t = 1 then Take t else raise Malformed
+  | h :: t when h = "QUIT" -> if List.length t = 0 then Quit
+    else raise Malformed
+  | h :: t when h = "NEXT" -> if List.length t = 0 then Next
+    else raise Malformed 
+  | h :: t when h = "DELETE" -> if List.length t = 1 then Delete t
+    else raise Malformed
+  | h :: t when h = "TAKE" -> if List.length t = 1 then Take t
+    else raise Malformed
   | _ -> raise Malformed
 
 let parse_class_time str = 
   str |> str_list |> function
   | [] -> raise Empty
-  | h :: t when h = "QUIT" -> if List.length t = 0 then Quit else raise Malformed
-  | h :: t when h = "NEXT" -> if List.length t = 0 then Next else raise Malformed 
-  | h :: t when h = "DELETE" -> if List.length t = 0 then Delete t else raise Malformed
-  | h :: t when h = "TAKE" -> if List.length t = 2 then Take t else raise Malformed
+  | h :: t when h = "QUIT" -> if List.length t = 0 then Quit
+    else raise Malformed
+  | h :: t when h = "NEXT" -> if List.length t = 0 then Next
+    else raise Malformed 
+  | h :: t when h = "DELETE" -> if List.length t = 0 then Delete t
+    else raise Malformed
+  | h :: t when h = "TAKE" -> if List.length t = 2 then Take t
+    else raise Malformed
   | _ -> raise Malformed
 
 let parse_YN str = 
   str |> str_list |> function
   | [] -> raise Empty
-  | h :: t when h = "QUIT" -> if List.length t = 0 then Quit else raise Malformed
-  | h :: t when h = "NEXT" -> if List.length t = 0 then Next else raise Malformed 
-  | h :: t when h = "DELETE" -> if List.length t = 0 then Delete t else raise Malformed
-  | h :: t when h = "TAKE" -> if List.length t = 1 then Take t else raise Malformed
+  | h :: t when h = "QUIT" -> if List.length t = 0 then Quit
+    else raise Malformed
+  | h :: t when h = "NEXT" -> if List.length t = 0 then Next
+    else raise Malformed 
+  | h :: t when h = "DELETE" -> if List.length t = 0 then Delete t
+    else raise Malformed
+  | h :: t when h = "TAKE" -> if List.length t = 1 then Take t
+    else raise Malformed
   | _ -> raise Malformed

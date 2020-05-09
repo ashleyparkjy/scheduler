@@ -1,3 +1,12 @@
+(**
+   This test file tests the [algorithm.ml] module. This test file utilizes black
+   box testing to ensure the correctness of the public functions (the ones
+   specified in the .mli files), via rigorous testing of common cases as well
+   as edge cases.
+
+    See [test.ml] for information on our system testing as a whole.
+*)
+
 open OUnit2
 open Schedule
 open Algorithm

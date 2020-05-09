@@ -1,3 +1,30 @@
+(**
+   This test file tests the [userSurvey.ml], [courseJson.ml], [command.ml],
+   and [classes.ml] module. This test file utilizes black box testing to ensure
+   the correctness of the public functions (the ones specified in the .mli
+   files), via rigorous testing of common cases as well as edge cases.
+
+    Our main programming methodology was to utilize test-driven development-
+    writing test case first, and then filling in code to make the test cases
+    pass. We attempted to write tests that "touched" every single possible
+    outcome of our public functions. Furthermore, our tests were regularly
+    updated during debugging. Every time a bug was caught, a test case was
+    written to catch it for future references.
+
+    Due to our rigorous testing methodolgy, our tests show to a high level of
+    confidence that the individual units of our program are operating
+    correctly. As a result our unit tests in conjunction with intense
+    "demo-ing" of our system as a whole demonstrates the correctness of our
+    system.
+
+    See [schedule_test.ml] and [algorithm_test.ml] for additional tests. Note
+    that two modules, [main.ml] and [visualize.ml] were not tested. This is
+    because these modules mainly produce units as their outputs, because they
+    rely heavily on visually outputting elements to the terminal window. For
+    this reason,  Main and Visualize were tested manually via rigorous
+    "demo-ing", using [make launch].
+*)
+
 open OUnit2
 open UserSurvey
 open Command
@@ -81,15 +108,6 @@ let courseJson_tests = [
       assert_equal ~printer:(pp_string)
         (CourseJson.make_url "" "" "")
         "https://classes.cornell.edu/api/2.0/search/classes.json?roster=&subject=&q=");
-
-(*
-  "get_json" >:: (fun _ -> 
-      assert_equal ~printer:(pp_string)
-        ("https://classes.cornell.edu/api/2.0/config/acadCareers.json?roster=SP20"
-         |> CourseJson.get_json |> Lwt_main.run)
-        "{\"status\":\"success\",\"data\":{\"acadCareers\":[{\"value\":\"UG\",\"descr\":\"Undergraduate\"},{\"value\":\"GR\",\"descr\":\"Graduate\"},{\"value\":\"GM\",\"descr\":\"Graduate Management\"},{\"value\":\"LA\",\"descr\":\"Law\"},{\"value\":\"VM\",\"descr\":\"Veterinary Medicine\"}]},\"message\":null,\"meta\":{\"copyright\":\"Cornell University, Office of the University Registrar\",\"referenceDttm\":\"2020-04-16T19:14:21-0400\"}}");
-*)
-
   "runner produces exn if query is bad" >:: (fun _ -> 
       assert_raises (BadUrl 404)
         (fun()-> (

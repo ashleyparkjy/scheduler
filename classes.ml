@@ -129,7 +129,8 @@ let meeting_of_json j = {
   class_mtg_number = j |> member "classMtgNbr" |> to_int;
   time_start = j |> member "timeStart" |> to_string |> to_time;
   time_end = j |> member "timeEnd" |> to_string |> to_time;
-  instructors = j |> member "instructors" |> to_list |> List.map professor_of_json;
+  instructors = j |> member "instructors" |> to_list
+                |> List.map professor_of_json;
   pattern = j |> member "pattern" |> to_string |> to_day [];
   facility_descr = j |> member "facilityDescr" |> to_string_robust;
   bldg_descr = j |> member "bldgDescr" |> to_string_robust;
@@ -159,14 +160,16 @@ let class_of_json j =
     catalog_nbr = x |> member "catalogNbr" |> to_string |> int_of_string;
     title_short = x |> member "titleShort" |> to_string_robust;
     title_long = x |> member "titleLong" |> to_string_robust;
-    class_sections = y |> member "classSections" |> to_list |> List.map section_of_json;
+    class_sections = y |> member "classSections" |> to_list
+                     |> List.map section_of_json;
     units =
       begin
         let m = y |> member "unitsMinimum" |> to_int in
         if m = (y |> member "unitsMaximum" |> to_int) then m
         else -1
       end;
-    components_required = y |> member "componentsRequired" |> to_list |> List.map to_string_robust;
+    components_required = y |> member "componentsRequired" |> to_list
+                          |> List.map to_string_robust;
     description = x |> member "description" |> to_string_robust;
   }
 
@@ -239,8 +242,8 @@ let section_number s c ros =
 let meetings s c ros =
   List.map (fun x-> x.class_mtg_number) (get_section s c ros).meetings
 
-(** [get_meeting_helper m m_list] searches for and returns the meeting in [m_list]
-    if that meeting has meeting_id of [m].
+(** [get_meeting_helper m m_list] searches for and returns the meeting in
+    [m_list] if that meeting has meeting_id of [m].
     Raises: [MeetingNotFound] if [m] is not in [m_list]. *)
 let rec get_meeting_helper m m_list =
   match m_list with

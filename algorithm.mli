@@ -21,11 +21,14 @@ type t_valid
 (** [get_start_time cmp_event] is the start time of [cmp_event] in minutes. *)
 val get_start_time : comparable_event -> int
 
-(** [time_to_min time] converts [time] to minutes in int from Classes record type. *)
+(** [time_to_min time] converts [time] to minutes in int from Classes record
+    type. *)
 val time_to_min : Classes.time -> int 
 
-(** [comparable_list acc t] is a comparable_event list from the schedule [t]. *)
-val comparable_list : comparable_event list -> event list -> comparable_event list
+(** [comparable_list acc t] is a comparable_event list from the
+    schedule [t]. *)
+val comparable_list : comparable_event list -> event list
+  -> comparable_event list
 
 (** [sort_start_time cmp_list] is a sorted comparable_event list from the least 
     to the greatest start time values. *)
@@ -49,13 +52,14 @@ val check_day_schedule: event list -> bool
     overlapping class time. *)
 val filter_valid_schedule: t list -> t list -> t list
 
-(** [day_class_time acc event_l] is the total time of classes for the specified day schedule
+(** [day_class_time acc event_l] is the total time of classes for the
+    specified day schedule
     [event_l] in int. *)
 val day_class_time: int -> event list -> int
 
-(** [score_lunch t] is the sum of individual lunch time score of each day in float.
-    The score of each day is 0.2 if the schedule has lunch time between 11:00
-    and 13:00. Otherwise, 0.
+(** [score_lunch t] is the sum of individual lunch time score of each day in
+    float. The score of each day is 0.2 if the schedule has lunch time between
+    11:00 and 13:00. Otherwise, 0.
 
     Requires: [classtime] is a tuple of int, which contains the starting times
     of first and last class. 
@@ -76,8 +80,8 @@ val score_spread: t -> float
 val score_classtime: (int*int) -> t -> float
 
 (** [schedule_score output t] is the score of given schedule [t] in float. The 
-    total score consists of three subcategory scores, which are spread score, lunch
-    score, and class time score. 
+    total score consists of three subcategory scores, which are spread score,
+    lunch score, and class time score. 
 
     For spread score, if user answered "Y" and prefers classes spreaded out,
     it is one minus standard deviation of class times of each day. If user 
@@ -85,9 +89,9 @@ val score_classtime: (int*int) -> t -> float
     itself. 
 
     For lunch score, if user anwered "Y" and is not flexible with lunch 
-    time, then the score is 0.2 * number of days in which lunch time is preserved
-    between 11AM and 1PM. If user answered "N" and is flexible with lunch
-    time, then the score is just 1.
+    time, then the score is 0.2 * number of days in which lunch time is
+    preserved between 11AM and 1PM. If user answered "N" and is flexible with
+    lunch time, then the score is just 1.
 
     For class time score, it depends on the user preference on start time and
     end time of classes. The score is 0.2 * number of days in which the 
@@ -100,9 +104,12 @@ val schedule_score: UserSurvey.t_output -> t -> float
 
 (** [rank_schedule n acc output t_list] ranks all schedules in decreasing order
     of their scores and then gives a list of schedules that have top [n]
-    scores. If the number of original schedules created is less than [n], then this
-    method returns the original schedules in the order of high to low scores. *)
-val rank_schedule: int -> ranked_schedule -> UserSurvey.t_output -> t list -> ranked_schedule
+    scores. If the number of original schedules created is less than [n], then
+    this method returns the original schedules in the order of high to low
+    scores. *)
+val rank_schedule: int -> ranked_schedule -> UserSurvey.t_output -> t list
+  -> ranked_schedule
 
-(** [delete_dups s1 s2] is the list of schedules from s1 and s2 with no duplicates. *)
+(** [delete_dups s1 s2] is the list of schedules from s1 and s2 with no
+    duplicates. *)
 val delete_dups:  Schedule.t list -> Schedule.t list -> Schedule.t list

@@ -40,7 +40,7 @@ let to_comparable_event event = {
 
 (** [to_bare_comparable_event event] converts [event] of type Schedule.event to 
     type comparable_event_bare. *)
-let to_bare_comparable_event (event : Schedule.event) : comparable_event_bare = {
+let to_bare_comparable_event (event : Schedule.event) = {
   days = event.days |> List.sort_uniq compare;
   start_time_min2 = event.start_time |> time_to_min;
   end_time_min2 = event.end_time |> time_to_min;
@@ -80,14 +80,17 @@ let rec end_time_compare cmp_list =
   match cmp_list with
   | [] -> true
   | hd2::[] -> true
-  | hd::hd2::tl -> if (hd.end_time_min < hd2.start_time_min) then end_time_compare (hd2::tl) else false
+  | hd::hd2::tl -> begin
+      if (hd.end_time_min < hd2.start_time_min) then end_time_compare (hd2::tl)
+      else false
+    end
 
 let check_day_schedule event_list = 
   let cmp_list = event_list |> comparable_list [] |> sort_start_time in
   is_duplicate cmp_list && end_time_compare cmp_list
 
-(** [check_valid_schedule t] is true if the schedule [t] does not have overlapping
-    class times on each day of the week. Otherwise, false.*)
+(** [check_valid_schedule t] is true if the schedule [t] does not have
+    overlapping class times on each day of the week. Otherwise, false.*)
 let check_valid_schedule t = 
   t |> Schedule.get_monday |> check_day_schedule &&
   t |> Schedule.get_tuesday |> check_day_schedule &&
@@ -105,7 +108,10 @@ let rec filter_valid_schedule acc t_list =
 let rec day_class_time acc event_l =
   match event_l with
   | [] -> acc
-  | hd::tl -> day_class_time ((hd |> to_comparable_event).end_time_min - (hd |> to_comparable_event).start_time_min + acc) tl
+  | hd::tl -> begin
+      day_class_time ((hd |> to_comparable_event).end_time_min -
+                      (hd |> to_comparable_event).start_time_min + acc) tl
+    end
 
 let score_spread t = 
   let m_class_time = t |> Schedule.get_monday |> day_class_time 0 in
@@ -114,7 +120,8 @@ let score_spread t =
   let th_class_time = t |> Schedule.get_thursday |> day_class_time 0 in
   let f_class_time = t |> Schedule.get_friday|> day_class_time 0 in
   let mean = 
-    float_of_int(m_class_time + t_class_time + w_class_time + th_class_time + f_class_time) /. 5. in
+    float_of_int(m_class_time + t_class_time + w_class_time + th_class_time
+                 + f_class_time) /. 5. in
   let time_square t = (t -. mean) ** 2. in
   let standard_deviation =  
     sqrt(((m_class_time |> float_of_int |> time_square) +. 
@@ -142,21 +149,32 @@ let check_lunch_time event_l =
   let rec lunch_duration acc event_l = 
     match event_l with
     | [] -> acc
-    | hd::tl -> if (hd|>to_comparable_event).start_time_min < 660 && (hd|>to_comparable_event).end_time_min > 660 
-      then lunch_duration (acc-((hd|>to_comparable_event).end_time_min - 660)) tl
-      else if (hd|>to_comparable_event).start_time_min >= 660 && (hd|>to_comparable_event).end_time_min <= 780
-      then lunch_duration (acc-((hd|>to_comparable_event).end_time_min - (hd|>to_comparable_event).start_time_min)) tl 
-      else if (hd|>to_comparable_event).start_time_min <= 780 && (hd|>to_comparable_event).end_time_min >= 780
-      then lunch_duration (acc - (780 - (hd|>to_comparable_event).start_time_min)) tl 
+    | hd::tl -> if (hd|>to_comparable_event).start_time_min < 660
+                && (hd|>to_comparable_event).end_time_min > 660 
+      then lunch_duration
+          (acc-((hd|>to_comparable_event).end_time_min - 660)) tl
+      else if (hd|>to_comparable_event).start_time_min >= 660
+           && (hd|>to_comparable_event).end_time_min <= 780
+      then lunch_duration (acc-((hd|>to_comparable_event).end_time_min
+                                - (hd|>to_comparable_event).start_time_min)) tl 
+      else if (hd|>to_comparable_event).start_time_min <= 780
+           && (hd|>to_comparable_event).end_time_min >= 780
+      then lunch_duration (acc -
+                           (780- (hd|>to_comparable_event).start_time_min)) tl 
       else lunch_duration acc tl in
   (lunch_duration 120 event_l) >= 60
 
 let rec score_lunch t =
-  let m_lunch_score = if t |> Schedule.get_monday |> check_lunch_time then 0.2 else 0. in
-  let t_lunch_score = if t |> Schedule.get_tuesday |> check_lunch_time then 0.2 else 0. in
-  let w_lunch_score = if t |> Schedule.get_wednesday |> check_lunch_time then 0.2 else 0. in
-  let th_lunch_score = if t |> Schedule.get_thursday |> check_lunch_time then 0.2 else 0. in
-  let f_lunch_score = if t |> Schedule.get_friday |> check_lunch_time then 0.2 else 0. in
+  let m_lunch_score = if t |> Schedule.get_monday |> check_lunch_time
+    then 0.2 else 0. in
+  let t_lunch_score = if t |> Schedule.get_tuesday |> check_lunch_time
+    then 0.2 else 0. in
+  let w_lunch_score = if t |> Schedule.get_wednesday |> check_lunch_time
+    then 0.2 else 0. in
+  let th_lunch_score = if t |> Schedule.get_thursday |> check_lunch_time
+    then 0.2 else 0. in
+  let f_lunch_score = if t |> Schedule.get_friday |> check_lunch_time
+    then 0.2 else 0. in
   m_lunch_score+.t_lunch_score+.w_lunch_score+.th_lunch_score+.f_lunch_score
 
 (** [classtime_cond classtime hd tl] checks if the first class start time [hd] 
@@ -192,7 +210,8 @@ let score_classtime classtime (t:Schedule.t) =
   m_time_score+.t_time_score+.w_time_score+.th_time_score+.f_time_score
 
 let schedule_score (output:UserSurvey.t_output) (t:Schedule.t) = 
-  let spread = if (output.spread_output = "N") then score_spread t else (1. -. score_spread t) in 
+  let spread = if (output.spread_output = "N") then score_spread t
+    else (1. -. score_spread t) in 
   let lunch = if (output.lunch_output = "N") then 1. else score_lunch t in 
   let classtime = score_classtime output.classtime t in 
   spread +. lunch +. classtime
@@ -228,15 +247,17 @@ let rec same_schedule ranked sch =
       if same_schedule_aux c_s1 c_s2 then true else same_schedule t sch
     end
 
-(** [take_top_n n acc r_sch] takes the first [n] elements from the ranked schedule
-    [r_sch]. If the length of [r_sch] is less that [n], then it returns [r_sch]. *)
+(** [take_top_n n acc r_sch] takes the first [n] elements from the ranked
+    schedule [r_sch]. If the length of [r_sch] is less that [n], then it
+    returns [r_sch]. *)
 let rec take_top_n n acc (r_sch:ranked_schedule) = 
   match r_sch with 
   | [] -> acc |> List.rev
   | hd::tl -> if List.length acc = n then acc |> List.rev
     else take_top_n n (hd::acc) tl
 
-let rec rank_schedule n (acc:ranked_schedule) (output:UserSurvey.t_output) (t_list:t list) =
+let rec rank_schedule n
+    (acc:ranked_schedule) (output:UserSurvey.t_output) (t_list:t list) =
   match t_list with
   | [] -> List.sort reverse_compare acc |> take_top_n n []
   | h::t -> rank_schedule n ((h, schedule_score output h) :: acc) output t
@@ -244,5 +265,7 @@ let rec rank_schedule n (acc:ranked_schedule) (output:UserSurvey.t_output) (t_li
 let rec delete_dups acc_list sch_list =
   match sch_list with
   | [] -> acc_list
-  | h::t -> if same_schedule (List.map (fun x-> Schedule.get_events x) acc_list) (Schedule.get_events h) then delete_dups acc_list t
-    else delete_dups (h::acc_list) t
+  | h::t -> if same_schedule
+      (List.map (fun x-> Schedule.get_events x) acc_list)
+      (Schedule.get_events h)
+    then delete_dups acc_list t else delete_dups (h::acc_list) t
