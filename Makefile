@@ -1,4 +1,4 @@
-MODULES = authors main userSurvey command courseJson classes schedule algorithm
+MODULES = authors main userSurvey command courseJson classes schedule algorithm visualize
 OBJECTS=$(MODULES:=.cmo)
 MLS=$(MODULES:=.ml)
 MLIS=$(MODULES:=.mli)

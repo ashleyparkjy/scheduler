@@ -184,3 +184,6 @@ val components_required: course_id -> t -> string list
 (** [description c t] is the description of class [c] in [t].
     Raises: [ClassNotFound c] if [c] is not a valid course id. *)
 val description: course_id -> t -> string
+
+(** [time_to_int t] converts time [t] to an int. *)
+val time_to_int: time -> int

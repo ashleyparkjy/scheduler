@@ -18,3 +18,4 @@
 #load "classes.cmo";;
 #load "schedule.cmo";;
 #load "algorithm.cmo";;
+#load "visualize.cmo";;

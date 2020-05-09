@@ -131,6 +131,21 @@ let schedule_tests =
               |> add_section 5326 352295 x |> add_section 8057 352295 x |> get_friday))
           ["002";"217"]);
 
+    "4 elements hour 10" >:: (fun _ -> 
+        assert_equal ~cmp:cmp_set_like_lists
+          (List.map (fun z-> z.section_id)
+             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x
+              |> add_section 5326 352295 x |> add_section 8057 352295 x
+              |> get_events |> get_hour [] 10))
+          [10601]);
+    "4 elements hour 12" >:: (fun _ -> 
+        assert_equal ~cmp:cmp_set_like_lists
+          (List.map (fun z-> z.section_id)
+             (empty |> add_section 10601 358556 x |> add_section 12401 358556 x
+              |> add_section 5326 352295 x |> add_section 8057 352295 x
+              |> get_events |> get_hour [] 12))
+          [12401; 5326]);
+
     "make schedule" >:: (fun _ -> 
         assert_equal
           (x |> schedule_maker |> List.length) 476);

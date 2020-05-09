@@ -662,7 +662,10 @@
             "unitsMinimum": 4,
             "unitsMaximum": 4,
             "componentsOptional": [],
-            "componentsRequired": ["LEC", "DIS"],
+            "componentsRequired": [
+              "LEC",
+              "DIS"
+            ],
             "gradingBasis": "OPI",
             "gradingBasisShort": "Opt NoAud",
             "gradingBasisLong": "Letter or S/U grades (no audit)",
