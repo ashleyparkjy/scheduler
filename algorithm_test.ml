@@ -16,9 +16,17 @@ let (empty_cmp_list:comparable_event list) = []
 
 let j = Yojson.Basic.from_file "testCS.json"
 let k = Yojson.Basic.from_file "testMATH.json"
-let l = Yojson.Basic.from_file "SP20_AEM_3251.json"
-let m = Yojson.Basic.from_file "SP20_MATH_2940.json"
+let l = Yojson.Basic.from_file "testAEM.json"
+let m = Yojson.Basic.from_file "test2940.json"
+let n = Yojson.Basic.from_file "testKOREA.json"
 let x = Classes.empty |> Classes.from_json j |> Classes.from_json k |> Classes.from_json l |> Classes.from_json m
+
+(** [koreacs_sched] is unqiue schedule list of korea 1110 and cs 3110 *)
+let koreacs_sched = 
+  let jsons = Classes.empty |> Classes.from_json j |> Classes.from_json n in
+  let raw = jsons |> Schedule.schedule_maker in
+  let refined_schedule = raw |> Algorithm.filter_valid_schedule [] in
+  refined_schedule |> Algorithm.delete_dups []
 
 (* Schedule 1
    - MATH 2930 Lecture: MWF 12:20 - 1:10PM
@@ -101,6 +109,7 @@ let algorithm_tests = [
   "score_class_time test 1" >:: (fun _ -> assert_equal ~cmp: cmp_float 0.5 (schedule3 |> score_classtime (600,780)));
   "score_class_time test 2" >:: (fun _ -> assert_equal ~cmp: cmp_float 0.9 (schedule3 |> score_classtime (600,800)));
   "score_class_time test 3" >:: (fun _ -> assert_equal ~cmp: cmp_float 0.7 (schedule3 |> score_classtime (660,800)));
+  "delete dups" >:: (fun _ -> assert_equal (koreacs_sched |> List.length) 8);
 ]
 
 let suite =

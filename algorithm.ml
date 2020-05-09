@@ -9,6 +9,13 @@ type comparable_event = {
   end_time_min: int; 
 }
 
+(** Representation that is [comparable_event] without the event. *)
+type comparable_event_bare = {
+  days: Classes.day list;
+  start_time_min2: int;
+  end_time_min2: int; 
+}
+
 type t_valid = {
   events: t;
   start_time_valid: bool;
@@ -29,6 +36,14 @@ let to_comparable_event event = {
   event_object = event;
   start_time_min = event.start_time |> time_to_min;
   end_time_min = event.end_time |> time_to_min;
+}
+
+(** [to_bare_comparable_event event] converts [event] of type Schedule.event to 
+    type comparable_event_bare. *)
+let to_bare_comparable_event (event : Schedule.event) : comparable_event_bare = {
+  days = event.days |> List.sort_uniq compare;
+  start_time_min2 = event.start_time |> time_to_min;
+  end_time_min2 = event.end_time |> time_to_min;
 }
 
 let rec comparable_list acc t =
@@ -189,15 +204,45 @@ let reverse_compare a b =
   else if (snd a) > (snd b) then -1
   else 0
 
-(** [take_top_5 acc r_sch] takes the first five elements from the ranked schedule
-    [r_sch]. If the length of [r_sch] is less that 5, then it returns [r_sch]. *)
-let rec take_top_5 acc (r_sch:ranked_schedule) = 
-  if List.length r_sch < 5 then r_sch else 
-    match r_sch with 
-    | hd::tl -> if List.length acc = 5 then acc|>List.rev else take_top_5 (hd::acc) tl
-    | _ -> failwith "take_top_5 error"
+(** [to_comp s] is the [comparable_event_bare] representation of
+    schedule [s]. *)
+let to_comp s =
+  List.map (fun x-> to_bare_comparable_event x) s
 
-let rec rank_schedule (acc:ranked_schedule) (output:UserSurvey.t_output) (t_list:t list) =
+(** [same_schedule_aux s1 s2] is [true] if [s2] is identical to schedule [s1].
+    Else, [false]. *)
+let rec same_schedule_aux s1 s2 =
+  match s2 with
+  | [] -> true
+  | h::t -> begin
+      if List.mem h s1 then same_schedule_aux s1 t else false
+    end
+
+(** [same_schedule r s] is [true] if [s] is identical to any schedule in [r].
+    Else, [false]. *)
+let rec same_schedule ranked sch =
+  match ranked with
+  | [] -> false
+  | h::t -> begin
+      let c_s1 = to_comp h and c_s2 = to_comp sch in
+      if same_schedule_aux c_s1 c_s2 then true else same_schedule t sch
+    end
+
+(** [take_top_n n acc r_sch] takes the first [n] elements from the ranked schedule
+    [r_sch]. If the length of [r_sch] is less that [n], then it returns [r_sch]. *)
+let rec take_top_n n acc (r_sch:ranked_schedule) = 
+  match r_sch with 
+  | [] -> acc |> List.rev
+  | hd::tl -> if List.length acc = n then acc |> List.rev
+    else take_top_n n (hd::acc) tl
+
+let rec rank_schedule n (acc:ranked_schedule) (output:UserSurvey.t_output) (t_list:t list) =
   match t_list with
-  | [] -> List.sort reverse_compare acc |> take_top_5 []
-  | t::_ -> (t, schedule_score output t) :: acc
+  | [] -> List.sort reverse_compare acc |> take_top_n n []
+  | h::t -> rank_schedule n ((h, schedule_score output h) :: acc) output t
+
+let rec delete_dups acc_list sch_list =
+  match sch_list with
+  | [] -> acc_list
+  | h::t -> if same_schedule (List.map (fun x-> Schedule.get_events x) acc_list) (Schedule.get_events h) then delete_dups acc_list t
+    else delete_dups (h::acc_list) t

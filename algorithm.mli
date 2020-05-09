@@ -98,8 +98,11 @@ val score_classtime: (int*int) -> t -> float
     Requires: [t] is Schedule.t. *)
 val schedule_score: UserSurvey.t_output -> t -> float
 
-(** [rank_schedule acc output t_list] ranks all schedules in decreasing order
-    of their scores and then gives a list of schedules that have top 5
-    scores. If the number of original schedules created is less than 5, then this
+(** [rank_schedule n acc output t_list] ranks all schedules in decreasing order
+    of their scores and then gives a list of schedules that have top [n]
+    scores. If the number of original schedules created is less than [n], then this
     method returns the original schedules in the order of high to low scores. *)
-val rank_schedule: ranked_schedule -> UserSurvey.t_output -> t list -> ranked_schedule
+val rank_schedule: int -> ranked_schedule -> UserSurvey.t_output -> t list -> ranked_schedule
+
+(** [delete_dups s1 s2] is the list of schedules from s1 and s2 with no duplicates. *)
+val delete_dups:  Schedule.t list -> Schedule.t list -> Schedule.t list

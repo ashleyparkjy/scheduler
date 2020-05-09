@@ -5,7 +5,7 @@
 *)
 
 (** The abstract type of values representing a schedule ranking. *)
-type t = (Schedule.t * int) list
+type t = (Schedule.t * float) list
 
 (** [visualize t] prints the list of schedules t to the terminal and returns
     unit. *)

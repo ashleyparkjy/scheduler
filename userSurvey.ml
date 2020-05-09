@@ -266,8 +266,8 @@ let print_class = function
 (** [print_class_time st] is the string that reveals the current input in the state
     [st] for class time question prompt. *)
 let print_class_time = function
-    { classtime_input = classtime } -> if classtime = ("","") then "You have not yet selected the start time of your first and last class"
-    else "Start time of your first class: " ^ (fst classtime) ^ "\nStart time of your last class: " ^ (snd classtime)
+    { classtime_input = classtime } -> if classtime = ("","") then "You have not yet selected the start time and end time of your first and last class"
+    else "Start time of your first class: " ^ (fst classtime) ^ "\nEnd time of your last class: " ^ (snd classtime)
 
 (** [print_lunch st] is the string that reveals the current input in the state
     [st] for lunch question prompt. *)
@@ -288,7 +288,7 @@ let rec prompt_spread st =
   print_endline "Command delete: Delete the selected option for class spreadedness (Ex. 'delete')";
   print_endline "Command next: Proceeding to the next question. (Ex. next)";
   print_endline "Command quit: Exit the program. (Ex. quit)";
-  print_endline "\nPlease enter your flexibility on lunch (Y, N) (Commands: 'take', 'delete', 'next', 'quit')\n";
+  print_endline "\nPlease enter your preference on class spread (Y, N) (Commands: 'take', 'delete', 'next', 'quit')\n";
   print_string "> ";
   match parse_YN(read_line () |> String.uppercase_ascii) with
   | Quit -> init_state
@@ -326,7 +326,7 @@ let rec prompt_class_time st =
   print_endline "Command delete: Delete the selected start time and end time. (Ex. 'delete')";
   print_endline "Command next: Proceeding to the next question. (Ex. next)";
   print_endline "Command quit: Exit the program. (Ex. quit)";
-  print_endline "\nPlease enter your preferred first and last class start times in order. (Commands: 'take', 'delete', 'next', 'quit')\n";
+  print_endline "\nPlease enter your preferred first and last class start/end times in order. (Commands: 'take', 'delete', 'next', 'quit')\n";
   print_string "> ";
   match parse_class_time(read_line () |> String.uppercase_ascii) with
   | Quit -> init_state

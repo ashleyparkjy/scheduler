@@ -1,5 +1,5 @@
 
-type t = (Schedule.t * int) list
+type t = (Schedule.t * float) list
 
 (** [dimensions] holds the dimensions for the table with respective
     measurements of the time, day, hour, and header. *)
@@ -258,13 +258,13 @@ let class_printer c =
     as the [rank] rank with denisty [density]. *)
 let visualize_schedule rank density score sch =
   printer ("\n\nSchedule #" ^ (string_of_int rank) ^ "\n");
-  printer ("Score: " ^ (string_of_int score));
+  printer ("Affinity score: " ^ ((100.*.score/.3.) |> int_of_float |> string_of_int) ^ "%");
   print_schedule density sch;
   printer "\n";
   let data_bank = pull_event_data [] sch in
   List.map (fun x-> class_printer x) data_bank |> ignore
 
-(** [user_preference]] returns the numerical preference for schedule density. *)
+(** [user_preference] returns the numerical preference for schedule density. *)
 let rec user_pref () =
   printer "\nInput your schedule density preference (1=compact, 2=default, 3=comfortable):\n>";
   let pref = read_line () in
@@ -278,9 +278,10 @@ let visualize r =
   let (w,h) = terminal_size in 
   ANSITerminal.resize w h;
 
+
   List.fold_left (fun init x-> let (sch,score) = x in visualize_schedule init density score (Schedule.get_events sch); init+1) 1 r |> ignore;
   ()
 (*
   let (sch,score) = List.hd r in
   visualize_schedule 1 density score (Schedule.get_events sch)
-*)
+  *)
