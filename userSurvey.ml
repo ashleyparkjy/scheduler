@@ -20,7 +20,6 @@ type t_output = {
   spread_output: string;
 }
 
-
 let init_state = 
   {
     semester = "";
@@ -38,23 +37,18 @@ let get_classes st =
     | _ -> failwith "error" in
   to_assoc_list st.classes_input []
 
-(** TODO - change string to int for time.
-    ("11:00","11:00")
+(** [time_to_min_output time] converts the time [time] in string (ex. "11:00") to
+    minutes in int.
 *)
-
-let time_to_min_output string = 
-  let list = String.split_on_char ':' string in
+let time_to_min_output time = 
+  let list = String.split_on_char ':' time in
   let hr = (list|> List.hd |> int_of_string) * 60 in
   let min = list |> List.rev |> List.hd |> int_of_string in
   hr+min
 
-
-(** TODO *)
 let get_class_time st = 
   (time_to_min_output (fst st.classtime_input), time_to_min_output (snd st.classtime_input))
 
-
-(** TODO - update mli spec *)
 let final_output st = {
   final_semester = st.semester;
   final_classes = get_classes st;
@@ -62,7 +56,6 @@ let final_output st = {
   lunch_output = st.lunch_input;
   spread_output = st.spread_input;
 }
-
 
 (** [check_length tl] is true if for the string list [tl] with two elements,
     the length of first string (ex."CS") is between 2 and 5 and the length of 
@@ -80,7 +73,6 @@ let check_type tl =
   | h::t::[] ->
     (Str.string_match (Str.regexp "[^0-9]+$") h 0) && (Str.string_match (Str.regexp "[0-9]+$") t 0)
   | _ -> false
-
 
 let is_valid_class (tl:string list) =
   check_length tl && check_type tl
@@ -109,6 +101,7 @@ let is_valid_sem (tl:string list) =
 (** [is_valid_sem_st st] is true if the semester of current state [st] is not an
     empty string. *)
 let is_valid_sem_st st = st.semester <> ""
+
 
 let take_sem (st:t) tl = 
   if st.semester = "" then
@@ -139,11 +132,11 @@ let delete_class (st:t) (tl:string list) =
   else 
     st 
 
-(** TODO - check if st is empty - cannot move on to next *)
+(** [is_valid_class_time_st st] is true if classtime_input of [st] is not an
+    empty string for both start and end times. *)
 let is_valid_class_time_st st = 
   match st.classtime_input with
   | (fst, snd) -> fst <> "" && snd <> ""
-
 
 (** [str_list string] is a string list of non-space characters splitted on 
     character ':'. 
@@ -158,21 +151,21 @@ let str_to_list string =
     | h :: t -> helper t (h::acc) in 
   helper list []
 
-(** TODO - check hour between 0 and 23 *)
-let check_hour n = (int_of_string n) >= 0 &&  (int_of_string n) <= 23 
+(** [check_hour n] is true if the hour time [n] is an int in between 0 and 23
+    inclusive. Otherwise, false. *)
+let check_hour n = (int_of_string n) >= 0 && (int_of_string n) <= 23 
 
-(** TODO - check min if min is between 0 and 59*)
-let check_min n = (int_of_string n) >= 0 &&  (int_of_string n) <= 59 
+(** [check_min n] is true if the minute time [n] is an int in between 0 and 59 
+    inclusive. Otherwise, false. *)
+let check_min n = (int_of_string n) >= 0 && (int_of_string n) <= 59 
 
-
-(** [check_num2 hd] is true if the inputted number [hd] is a 1-2 digit number. 
-    Otherwise, it is false. *)
+(** [check_num2 hd] is true if the inputted number string [hd] is all digit numbers. 
+    Otherwise, false. *)
 let check_num2 hd = 
   (Str.string_match (Str.regexp "[0-9]+$") hd 0)
 
-
-(** TODO - check if it's a valid time format. ex) "11:11" 
-    length 5, : exists *)
+(** [check_time time] is true if [time] is a valid format of time (ex. "11:11").
+    Otherwise, false. *)
 let check_time time = 
   if String.length time = 5 && time.[2] = ':'
   then match (str_to_list time) with
@@ -180,7 +173,8 @@ let check_time time =
     | _ -> false
   else false
 
-(** TODO - check if second time is greater than the first time *)
+(** [check_greater hd tl] is true if the second time [tl] is greater than the 
+    first time [hd]. Otherwise, false. *)
 let check_greater hd tl = 
   let hd_list = str_to_list hd in
   let tl_list = str_to_list tl in
@@ -188,60 +182,62 @@ let check_greater hd tl =
   let tl_time = (tl_list |> List.hd |> int_of_string) * 60 + (1 |> List.nth tl_list |> int_of_string) in
   hd_time < tl_time
 
-(** TODO - check after take - 
-    1. all numbers, 
-    2. first two numbers range from 00 to 24, last two numbers range from 00 to 60 
-    3. 2 by 2 separated by colon  <<
-    4. second time needs to be greater than the first time *)
 let is_valid_class_time tl = 
   match tl with
   | hd::tl::[] -> ((check_time hd) && (check_time tl)) && check_greater hd tl
   | _ -> false
 
-(** TODO - taking class time input 
-    ex. tl = ["11:00"; "20:00"] *)
 let take_class_time st tl =   
   { st with
     classtime_input = (List.nth tl 0, List.nth tl 1)
   }
 
-(** TODO - Delete class time to empty string tuple *)
 let delete_class_time st = 
   { st with
     classtime_input = ("","")
   } 
 
-(** TODO - true if the lunch_input of current state [st] is not an
-    empty string. *)
+(** [is_valid_lunch_st st] is true if the lunch_input of current state [st] is
+    not an empty string. *)
 let is_valid_lunch_st st = st.lunch_input <> ""
 
-(** TODO - valid lunch input format - Y or N. tl is a list of string (length one) *)
+(** [is_YN tl] is true if the answer string list [tl] is either "Y" or "N".
+    Otherwise, false.
+    Requires: [tl] must have length of one. *)
 let is_YN tl = 
   match tl with
   | a::_ -> a = "Y" || a = "N"
-  | _ -> false
+  | _ -> failwith "Y or N answer more than one string"
 
-(** TODO - *)
+(** [take_lunch st tl] is the user attempting to take a lunch preference [tl] as 
+    their answer to the survey question. The element of string list of 'Y' or 'N' 
+    (ex. ["Y"]) is concatenated to the classtime_input of [st]. *)
 let take_lunch st tl =   
   { st with
     lunch_input = List.hd tl 
   }
 
-(** TODO - *)
+(** [delete_lunch st] is the user attempting to delete what has been
+    inputted as their answer to the survey question. The lunch_input of [st] is 
+    an empty string. *)
 let delete_lunch st = 
   {st with lunch_input = ""}
 
-(** TODO - true if the spread_input of current state [st] is not an
-    empty string. *)
+(** [is_valid_spread_st st] is true if the spread_input of current state [st] is
+    not an empty string. Otherwise, false. *)
 let is_valid_spread_st st = st.spread_input <> ""
 
-(** TODO - *)
+(** [take_spread st tl] is the user attempting to take spread preference [tl] as 
+    their answer to the survey question. The element of string list of 'Y' or 'N' 
+    (ex. ["Y"]) is concatenated to the classtime_input of [st]. *)
 let take_spread st tl =   
   { st with
     spread_input = List.hd tl 
   }
 
-(** TODO - *)
+(** [delete_spread st] is the user attempting to delete what has been
+    inputted as their answer to the survey question. The spread_input of [st] is 
+    an empty string. *)
 let delete_spread st = 
   {st with spread_input = ""}
 
@@ -259,7 +255,7 @@ let print_sem = function
     { semester = sem } -> if sem = "" then "Semester not Specified."
     else "Currently selected semester: " ^ sem ^ "\nIf you would like to proceed, type next."
 
-(** [print_class] converts classes_input of [st] into a string with the correct
+(** [print_class st] converts classes_input of [st] into a string with the correct
     format to be printed in the prompt. *)
 let print_class = function
     { classes_input = classes } -> if classes = [] then "Currently Entered Class IDs: None"
@@ -267,17 +263,20 @@ let print_class = function
          |> String.concat ", " 
          |> (^) "Currently Entered Class IDs: " 
 
-(** TODO - printing class_time  *)
+(** [print_class_time st] is the string that reveals the current input in the state
+    [st] for class time question prompt. *)
 let print_class_time = function
     { classtime_input = classtime } -> if classtime = ("","") then "You have not yet selected the start time of your first and last class"
     else "Start time of your first class: " ^ (fst classtime) ^ "\nStart time of your last class: " ^ (snd classtime)
 
-(** TODO - printing lunch  *)
+(** [print_lunch st] is the string that reveals the current input in the state
+    [st] for lunch question prompt. *)
 let print_lunch = function
     { lunch_input = lunchtime } -> if lunchtime = "" then "You have not yet selected your lunch flexibility preference."
     else "You have selected: " ^ lunchtime
 
-(** TODO - printing spread  *)
+(** [print_spread st] is the string that reveals the current input in the state
+    [st] for spread question prompt. *)
 let print_spread = function
     { spread_input = spread } -> if spread = "" then "You have not yet selected your class spread preference."
     else "You have selected: " ^ spread
@@ -323,8 +322,8 @@ let rec prompt_lunch st =
 
 let rec prompt_class_time st = 
   ANSITerminal.(print_string [green] ((print_class_time st)^"\n"));
-  print_endline "Command take: Input the preferred start time of your first and last class in 24hr format (Ex. 'take 10:10 18:00' --> your first class start time is 8AM and last class end time is 6PM) (00:00 - 23:59) ";
-  print_endline "Command delete: Delete the selected start time of first and last class (Ex. 'delete')";
+  print_endline "Command take: Input the preferred start time of your first class and end time of your last class in 24hr format (Ex. 'take 10:10 18:00' --> your first class start time is 8AM and last class end time is 6PM) (00:00 - 23:59) ";
+  print_endline "Command delete: Delete the selected start time and end time. (Ex. 'delete')";
   print_endline "Command next: Proceeding to the next question. (Ex. next)";
   print_endline "Command quit: Exit the program. (Ex. quit)";
   print_endline "\nPlease enter your preferred first and last class start times in order. (Commands: 'take', 'delete', 'next', 'quit')\n";
@@ -332,9 +331,9 @@ let rec prompt_class_time st =
   match parse_class_time(read_line () |> String.uppercase_ascii) with
   | Quit -> init_state
   | Next -> if is_valid_class_time_st st then prompt_lunch st
-    else (ANSITerminal.(print_string [red] ("You have not inputted start times yet.\n")); prompt_class_time st)
+    else (ANSITerminal.(print_string [red] ("You have not inputted times yet.\n")); prompt_class_time st)
   | Delete tl -> if is_valid_class_time_st st then st |> delete_class_time |> prompt_class_time
-    else (ANSITerminal.(print_string [red] ("You have not entered preferred start times yet. \n")); prompt_class_time st)
+    else (ANSITerminal.(print_string [red] ("You have not entered preferred times yet. \n")); prompt_class_time st)
   | Take tl -> if is_valid_class_time tl then tl |> take_class_time st  |> prompt_class_time
     else (ANSITerminal.(print_string [red] ("Please enter in a valid format.\n")); prompt_class_time st)
   | exception Malformed -> ANSITerminal.(print_string [red] ("Please use a valid command statement.\n")); prompt_class_time st

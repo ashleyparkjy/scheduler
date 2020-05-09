@@ -16,12 +16,53 @@ let (empty_cmp_list:comparable_event list) = []
 
 let j = Yojson.Basic.from_file "testCS.json"
 let k = Yojson.Basic.from_file "testMATH.json"
-let x = Classes.empty |> Classes.from_json j |> Classes.from_json k
+let l = Yojson.Basic.from_file "SP20_AEM_3251.json"
+let m = Yojson.Basic.from_file "SP20_MATH_2940.json"
+let x = Classes.empty |> Classes.from_json j |> Classes.from_json k |> Classes.from_json l |> Classes.from_json m
+
+(* Schedule 1
+   - MATH 2930 Lecture: MWF 12:20 - 1:10PM
+   - MATH 2930 Discussion: Tr 1:25 - 2:15PM
+   - CS 3110 Lecture: TT 10:10 - 11:00AM
+   - CS 3110 Discussion: TT 12:20 - 1:10PM *)
 let schedule1 = empty |> add_section 10601 358556 x |> add_section 12401 358556 x
                 |> add_section 5326 352295 x |> add_section 5332 352295 x
+
+(* Schedule 2 - Conflict
+   - MATH 2930 Lecture: MWF 12:20 - 1:10PM
+   - MATH 2930 Discussion: Tr 12:20 - 1:10PM
+   - CS 3110 Lecture: TT 10:10 - 11:00AM
+   - CS 3110 Discussion: 12:20 - 1:10PM *)
 let schedule2 = empty |> add_section 10601 358556 x |> add_section 12401 358556 x
                 |> add_section 5326 352295 x |> add_section 5330 352295 x 
+
+(* Schedule 3 - Lunch Time 1day
+   - MATH 2930 Lecture: MWF 11:15 - 12:05PM
+   - MATH 2930 Discussion: Tr 1:25 - 2:15PM
+   - CS 3110 Lecture: TT 10:10 - 11:00AM
+   - CS 3110 Discussion: TT 12:20 - 1:10PM 
+   - MATH 2940 Lecture: MWF 12:20 - 1:10PM
+   - MATH 2940 Discussion: Tr 11:15 - 12:05PM*)
+let schedule3 = empty |> add_section 10601 358556 x |> add_section 12401 358556 x
+                |> add_section 5325 352295 x |> add_section 5332 352295 x
+                |> add_section 5365 352307 x |> add_section 5371 352307 x
+
+(* Schedule 4 - Lunch Time 1day
+   - MATH 2930 Lecture: MWF 11:15 - 12:05PM
+   - MATH 2930 Discussion: Tr 1:25 - 2:15PM
+   - CS 3110 Lecture: TT 10:10 - 11:00AM
+   - CS 3110 Discussion: TT 12:20 - 1:10PM 
+   - MATH 2940 Lecture: MWF 12:20 - 1:10PM
+   - MATH 2940 Discussion: Tr 11:15 - 12:05PM
+   - AEM 3251 Lecutre: MW 10:10 - 11:00PM 
+   - AEM 3251 Discussion: MW 1:25 - 2:15PM *)
+let schedule4 = empty |> add_section 10601 358556 x |> add_section 12401 358556 x
+                |> add_section 5325 352295 x |> add_section 5332 352295 x
+                |> add_section 5365 352307 x |> add_section 5371 352307 x        
+                |> add_section 15966 368416 x |> add_section 15968 368416 x
+
 let schedulelst = [schedule1; schedule2]
+let schedulelst2 = [schedule1; schedule3; schedule4]
 let thursday = (schedule1 |> get_thursday)
 let thursday_cmp = thursday |> comparable_list empty_cmp_list 
 let thursday_cmp_sorted = thursday_cmp |> sort_start_time
@@ -48,23 +89,18 @@ let algorithm_tests = [
   "check_day_schedule test 1" >:: (fun _ -> assert_equal true (thursday |> check_day_schedule));
   "check_day_schedule test 2" >:: (fun _ -> assert_equal false (thursday_dup |> check_day_schedule));
   "filter_valid_schedule test 1" >:: (fun _ -> assert_equal [schedule1] (schedulelst |> filter_valid_schedule []));
-
-  (* test procedure take two cases where spread, lunch, or class_time would differ 
-     Assuming that the student wants lunch time, class_time, and clustered together *)
-
-
-
-  (* day_class_time *)
-
-  (* score_spread *)
-
-  (* score_lunch *)
-
-  (* schedule_score *)
-
-  (* score_class_time *)
-
-
+  "score_lunch test 1" >:: (fun _ -> assert_equal 1. (schedule1 |> score_lunch));
+  "score_lunch test 2" >:: (fun _ -> assert_equal 0.2 (schedule3 |> score_lunch));
+  "day_class_time test 1" >:: (fun _ -> assert_equal 100 (schedule3 |> Schedule.get_monday |> day_class_time 0));
+  "day_class_time test 2" >:: (fun _ -> assert_equal 100 (schedule3 |> Schedule.get_tuesday |> day_class_time 0));
+  "day_class_time test 3" >:: (fun _ -> assert_equal 100 (schedule3 |> Schedule.get_wednesday |> day_class_time 0));
+  "day_class_time test 4" >:: (fun _ -> assert_equal 200 (schedule3 |> Schedule.get_thursday |> day_class_time 0));
+  "day_class_time test 5" >:: (fun _ -> assert_equal 100 (schedule3 |> Schedule.get_friday |> day_class_time 0));
+  "score_spread test 1" >:: (fun _ -> assert_equal (sqrt(1600.)/.sqrt(46080.)) (schedule3 |> score_spread));
+  "score_spread test 2" >:: (fun _ -> assert_equal (sqrt(2400.)/.sqrt(81920.)) (schedule4 |> score_spread));
+  "score_class_time test 1" >:: (fun _ -> assert_equal ~cmp: cmp_float 0.5 (schedule3 |> score_classtime (600,780)));
+  "score_class_time test 2" >:: (fun _ -> assert_equal ~cmp: cmp_float 0.9 (schedule3 |> score_classtime (600,800)));
+  "score_class_time test 3" >:: (fun _ -> assert_equal ~cmp: cmp_float 0.7 (schedule3 |> score_classtime (660,800)));
 ]
 
 let suite =
